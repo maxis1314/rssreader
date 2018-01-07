@@ -13,10 +13,20 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
     var myFeed : NSArray = []
     var feedImgs: [AnyObject] = []
     var url: URL!
+    var refresher: UIRefreshControl!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(FeedListViewController.loadData),
+                                 for: .valueChanged)
+        refresher.attributedTitle = NSAttributedString(string: "下拉刷新数据")
+        tableView.addSubview(refresher)
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         tableView.backgroundColor = UIColorFromRGB(rgbValue: 0x00B6ED)
@@ -38,6 +48,8 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         url = URL(string: "https://www3.nhk.or.jp/rss/news/cat6.xml")!
         
         loadRss(url);
+        
+        refresher.endRefreshing()
     }
     
     func loadRss(_ data: URL) {
