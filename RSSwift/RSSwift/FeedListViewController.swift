@@ -20,6 +20,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         tableView.backgroundColor = UIColorFromRGB(rgbValue: 0x00B6ED)
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLineEtched
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
@@ -78,12 +79,10 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         cell.textLabel?.backgroundColor = UIColor.clear
         cell.detailTextLabel?.backgroundColor = UIColor.clear
         
-        if indexPath.row % 3 == 0 {
-            cell.backgroundColor = UIColor(white: 1, alpha: 0.1)
-        } else if indexPath.row % 3 == 1 {
-            cell.backgroundColor = UIColor(white: 1, alpha: 0.2)
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColorFromRGB(rgbValue: 0xDCDCDC)
         } else {
-            cell.backgroundColor = UIColor(white: 1, alpha: 0.3)
+            cell.backgroundColor = UIColor.white//(white: 1, alpha: 0.3)
         }
 
         // Load feed iamge.
@@ -99,12 +98,13 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         if let feed = myFeed.object(at: indexPath.row) as? NSMutableDictionary{
         
             cell.textLabel?.text = feed.object(forKey: "title") as? String
-            cell.textLabel?.textColor = UIColor.white
+            cell.textLabel?.textColor = UIColor.black
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = .byWordWrapping
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
         
             cell.detailTextLabel?.text = feed.object(forKey: "pubDate") as? String
-            cell.detailTextLabel?.textColor = UIColor.white
+            cell.detailTextLabel?.textColor = UIColor.black
             
         }
         return cell
