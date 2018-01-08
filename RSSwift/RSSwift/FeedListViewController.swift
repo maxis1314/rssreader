@@ -22,6 +22,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         
         
         refresher = UIRefreshControl()
+        
         refresher.addTarget(self, action: #selector(FeedListViewController.loadData),
                                  for: .valueChanged)
         refresher.attributedTitle = NSAttributedString(string: "下拉刷新数据")
@@ -29,7 +30,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
-        tableView.backgroundColor = UIColorFromRGB(rgbValue: 0x00B6ED)
+        tableView.backgroundColor = UIColorFromRGB(rgbValue: 0xFFFFFF)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLineEtched
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -49,7 +50,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         
         loadRss(url);
         
-        refresher.endRefreshing()
+        
     }
     
     func loadRss(_ data: URL) {
@@ -58,7 +59,9 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         // Put feed in array
         feedImgs = myParser.img as [AnyObject]
         myFeed = myParser.feeds
+        //sleep(4)
         tableView.reloadData()
+        refresher.endRefreshing()
     }
     
     override func didReceiveMemoryWarning() {
