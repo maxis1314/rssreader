@@ -11,7 +11,8 @@ import UIKit
 class FeedItemViewController: UIViewController, UIWebViewDelegate {
 
     var selectedFeedURL: String?
-    @IBOutlet var myWebView: UIWebView!
+
+    @IBOutlet weak var myWebView: UIWebView!
     
     //Add this progress view via Interface Builder (IBOutlet) or programatically
     
