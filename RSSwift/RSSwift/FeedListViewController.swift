@@ -60,8 +60,8 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         feedImgs = myParser.img as [AnyObject]
         myFeed = myParser.feeds
         //sleep(4)
-        tableView.reloadData()
         refresher.endRefreshing()
+        tableView.reloadData()        
     }
     
     override func didReceiveMemoryWarning() {
