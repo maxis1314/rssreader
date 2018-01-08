@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class FeedListViewController: UITableViewController, XMLParserDelegate {
     
     var myFeed : NSArray = []
@@ -36,8 +37,12 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         self.tableView.delegate = self
         
         loadData()
+        
+        
+        
     }
     
+        
 
     @IBAction func refreshFeed2(_ sender: Any) {
         loadData()
@@ -150,4 +155,6 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         UIGraphicsEndImageContext();
         return newImage!
     }
-}
+    
+    
+    }

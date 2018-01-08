@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class FeedItemViewController: UIViewController, UIWebViewDelegate {
+class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewDelegate {
 
     var selectedFeedURL: String?
 
     @IBOutlet weak var myWebView: UIWebView!
     
     //Add this progress view via Interface Builder (IBOutlet) or programatically
+    
+    @IBOutlet weak var bannerView: GADBannerView!
     
     @IBOutlet weak var myProgressView: UIProgressView!
     var theBool: Bool!
@@ -30,7 +33,36 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate {
         myWebView.loadRequest(URLRequest(url: URL(string: selectedFeedURL! as String)!))
         
         print(selectedFeedURL)
+        
+        
+        bannerView.adUnitID = "ca-app-pub-7893551134039994/2697692057"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+        addBannerViewToView(bannerView)
     }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
+    }
+
     
     
     func webViewDidStartLoad(_ webView: UIWebView) {
@@ -60,4 +92,39 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate {
             }
         }
     }
+    
+    
+    /// Tells the delegate an ad request loaded an ad.
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("adViewDidReceiveAd")
+    }
+    
+    /// Tells the delegate an ad request failed.
+    func adView(_ bannerView: GADBannerView,
+                didFailToReceiveAdWithError error: GADRequestError) {
+        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    /// Tells the delegate that a full-screen view will be presented in response
+    /// to the user clicking on an ad.
+    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+        print("adViewWillPresentScreen")
+    }
+    
+    /// Tells the delegate that the full-screen view will be dismissed.
+    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewWillDismissScreen")
+    }
+    
+    /// Tells the delegate that the full-screen view has been dismissed.
+    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewDidDismissScreen")
+    }
+    
+    /// Tells the delegate that a user click will open another app (such as
+    /// the App Store), backgrounding the current app.
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+        print("adViewWillLeaveApplication")
+    }
+
 }
