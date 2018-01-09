@@ -21,6 +21,8 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        navigationItem.title = "Feed List"
         
         refresher = UIRefreshControl()
         
@@ -81,6 +83,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
             // Instance of our feedpageviewcontrolelr
             let fivc: FeedItemViewController = segue.destination as! FeedItemViewController
             fivc.selectedFeedURL = selectedFURL as String
+            fivc.topTitle = (myFeed[indexPath.row] as AnyObject).object(forKey: "title") as! String
         }
     }
     

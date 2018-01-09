@@ -12,6 +12,7 @@ import GoogleMobileAds
 class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewDelegate {
 
     var selectedFeedURL: String?
+    var topTitle: String?
 
     @IBOutlet weak var myWebView: UIWebView!
     
@@ -25,6 +26,8 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = topTitle
         
         myWebView.delegate = self
         
