@@ -9,7 +9,7 @@
 import UIKit
 
 
-class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchBarDelegate, UISearchDisplayDelegate  {
+class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchBarDelegate, UISearchDisplayDelegate ,UISearchResultsUpdating {
     
     var searchController: UISearchDisplayController!
     
@@ -20,6 +20,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
     var refresher: UIRefreshControl!
     
     var filteredFeed = [Feed]()
+    var tableViewNow: UITableView!
 
     
     
@@ -118,13 +119,18 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print(segue.identifier)
+        
+        
+        
         if segue.identifier == "openPage" {
-            let indexPath: IndexPath = self.tableView.indexPathForSelectedRow!
+            var indexPath: IndexPath!
             var feed:Feed
   
             if self.searchController!.isActive {
+                indexPath = self.tableView.indexPathForSelectedRow!
                 feed=filteredFeed[indexPath.row]
             }else{
+                indexPath = self.tableView.indexPathForSelectedRow!
                 feed=myFeed[indexPath.row]
             }
            
@@ -142,7 +148,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView != self.tableView{
+        if self.tableView != tableView{
             return filteredFeed.count
         }else{
             return myFeed.count
@@ -151,7 +157,17 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath)
+        var feed:Feed!
+        var cell:UITableViewCell!
+        if self.tableView != tableView{
+            feed=filteredFeed[indexPath.row]
+            cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath)
+        }else{
+            feed=myFeed[indexPath.row]
+            cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath)
+        }
+        
+        
         cell.textLabel?.backgroundColor = UIColor.clear
         cell.detailTextLabel?.backgroundColor = UIColor.clear
         
@@ -171,12 +187,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
         cellImageLayer!.masksToBounds = true
         cell.imageView?.image = image*/
         
-        var feed:Feed!
-        if tableView != self.tableView{
-            feed=filteredFeed[indexPath.row]
-        }else{
-            feed=myFeed[indexPath.row]
-        }
+        
         
         
             cell.textLabel?.text = feed.title
