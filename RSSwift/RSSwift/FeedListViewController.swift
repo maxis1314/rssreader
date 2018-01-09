@@ -9,16 +9,18 @@
 import UIKit
 
 
-class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchBarDelegate {
+class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchBarDelegate, UISearchDisplayDelegate  {
     
-    @IBOutlet weak var searchController: UISearchBar!
+    var searchController: UISearchDisplayController!
+    
+    
     var myFeed = [Feed]()
     var feedImgs: [AnyObject] = []
     var url: URL!
     var refresher: UIRefreshControl!
     
     var filteredFeed = [Feed]()
-    var inSearchMode = false
+
     
     
     
@@ -43,38 +45,35 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.sizeToFit()
+        tableView.tableHeaderView = searchBar
+        
+        searchController = UISearchDisplayController(searchBar: searchBar, contentsController: self)
+        searchController.searchResultsDataSource = self
+        searchController.searchResultsDelegate = self
+        searchController.searchResultsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell2")
+
+        
         loadData()
         
         
         
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        filteredFeed=myFeed.filter({$0.title.range(of: searchText) != nil})
+    }
+ 
+    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        print("in search Bar")
-        
-        if searchBar.text == nil || searchBar.text == "" {
-            print("1")
-            inSearchMode = false
-            tableView.reloadData()
-            view.endEditing(true)
-        }else{
-            print("2")
-            
-            inSearchMode=true
-            let lower = searchBar.text!.lowercased()
-            
-            filteredFeed=myFeed.filter({$0.title.range(of: lower) != nil})
-            
-            tableView.reloadData()
-            
-        }
-    }
     
 
 
@@ -121,10 +120,19 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
         print(segue.identifier)
         if segue.identifier == "openPage" {
             let indexPath: IndexPath = self.tableView.indexPathForSelectedRow!
+            var feed:Feed
+  
+            if self.searchController!.isActive {
+                feed=filteredFeed[indexPath.row]
+            }else{
+                feed=myFeed[indexPath.row]
+            }
+           
+            
             // Instance of our feedpageviewcontrolelr
             let fivc: FeedItemViewController = segue.destination as! FeedItemViewController
-            fivc.selectedFeedURL = myFeed[indexPath.row].link
-            fivc.topTitle = myFeed[indexPath.row].title
+            fivc.selectedFeedURL = feed.link
+            fivc.topTitle = feed.title
         }
     }
     
@@ -134,7 +142,11 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myFeed.count
+        if tableView != self.tableView{
+            return filteredFeed.count
+        }else{
+            return myFeed.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -159,7 +171,13 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
         cellImageLayer!.masksToBounds = true
         cell.imageView?.image = image*/
         
-        if let feed = myFeed[indexPath.row] as? Feed{
+        var feed:Feed!
+        if tableView != self.tableView{
+            feed=filteredFeed[indexPath.row]
+        }else{
+            feed=myFeed[indexPath.row]
+        }
+        
         
             cell.textLabel?.text = feed.title
             cell.textLabel?.textColor = UIColor.black
@@ -170,9 +188,12 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
             cell.detailTextLabel?.text = feed.pubDate
             cell.detailTextLabel?.textColor = UIColor.black
             
-        }
+        
         return cell
     }
+    
+    
+ 
     
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {
         return UIColor(

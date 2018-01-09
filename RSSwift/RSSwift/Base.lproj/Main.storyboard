@@ -18,17 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="qDY-QK-v7E">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="5t8-Wk-34u" id="guN-J6-jJE"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell2" textLabel="PFK-bj-hnC" detailTextLabel="An7-m8-zm3" style="IBUITableViewCellStyleSubtitle" id="ayf-Xn-kZt">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ayf-Xn-kZt" id="hBD-Wx-KOy">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
@@ -73,7 +65,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchController" destination="qDY-QK-v7E" id="RFN-jO-ohb"/>
                         <outlet property="searchDisplayController" destination="fo0-qb-Kx1" id="gq5-h5-2tf"/>
                     </connections>
                 </tableViewController>
@@ -81,7 +72,6 @@
                 <searchDisplayController id="fo0-qb-Kx1">
                     <connections>
                         <outlet property="delegate" destination="5t8-Wk-34u" id="rB4-r9-A1v"/>
-                        <outlet property="searchBar" destination="qDY-QK-v7E" id="mmd-3q-8Rq"/>
                         <outlet property="searchContentsController" destination="5t8-Wk-34u" id="y3T-YG-zL1"/>
                         <outlet property="searchResultsDataSource" destination="5t8-Wk-34u" id="Ifk-Gi-4oc"/>
                         <outlet property="searchResultsDelegate" destination="5t8-Wk-34u" id="gHy-m6-r4Q"/>
