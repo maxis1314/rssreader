@@ -65,13 +65,11 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
  
     func updateSearchResults(for searchController: UISearchController) {
         print(searchController.searchBar.text)
-        print(3)
         if let searchText = searchController.searchBar.text {
-            print(1)
             filteredFeed=myFeed.filter({$0.title.range(of: searchText) != nil})
             tableView.reloadData()
         }else{
-            print(2)
+
         }
     }
     
@@ -123,8 +121,9 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print(segue.identifier)
         
-        
+        print(1)
         if segue.identifier == "openPage" {
+            print(2)
             var indexPath: IndexPath!
             indexPath = self.tableView.indexPathForSelectedRow!
             var feed:Feed
@@ -205,8 +204,6 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         return cell
     }
     
-    
- 
     
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {
         return UIColor(
