@@ -9,9 +9,9 @@
 import UIKit
 
 
-class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchBarDelegate, UISearchDisplayDelegate ,UISearchResultsUpdating {
+class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearchResultsUpdating {
     
-    var searchController: UISearchDisplayController!
+    var searchController: UISearchController!
     
     
     var myFeed = [Feed]()
@@ -47,15 +47,13 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
         self.tableView.delegate = self
         
         
-        let searchBar = UISearchBar()
-        searchBar.delegate = self
-        searchBar.sizeToFit()
-        tableView.tableHeaderView = searchBar
         
-        searchController = UISearchDisplayController(searchBar: searchBar, contentsController: self)
-        searchController.searchResultsDataSource = self
-        searchController.searchResultsDelegate = self
-        searchController.searchResultsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell2")
+        searchController = UISearchController(searchResultsController:nil)
+        searchController.searchResultsUpdater = self
+        
+        tableView.tableHeaderView = searchController.searchBar
+        
+
 
         
         loadData()
@@ -64,17 +62,22 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
         
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
-        filteredFeed=myFeed.filter({$0.title.range(of: searchText) != nil})
-    }
  
-    
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        view.endEditing(true)
+    func updateSearchResults(for searchController: UISearchController) {
+        print(searchController.searchBar.text)
+        print(3)
+        if let searchText = searchController.searchBar.text {
+            print(1)
+            filteredFeed=myFeed.filter({$0.title.range(of: searchText) != nil})
+            tableView.reloadData()
+        }else{
+            print(2)
+        }
     }
     
+    
+    
+ 
     
 
 
@@ -121,16 +124,14 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
         print(segue.identifier)
         
         
-        
         if segue.identifier == "openPage" {
             var indexPath: IndexPath!
+            indexPath = self.tableView.indexPathForSelectedRow!
             var feed:Feed
   
-            if self.searchController!.isActive {
-                indexPath = self.tableView.indexPathForSelectedRow!
+            if searchController.isActive {
                 feed=filteredFeed[indexPath.row]
             }else{
-                indexPath = self.tableView.indexPathForSelectedRow!
                 feed=myFeed[indexPath.row]
             }
            
@@ -148,7 +149,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.tableView != tableView{
+        if searchController.isActive {
             return filteredFeed.count
         }else{
             return myFeed.count
@@ -159,12 +160,13 @@ class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchB
         
         var feed:Feed!
         var cell:UITableViewCell!
-        if self.tableView != tableView{
-            feed=filteredFeed[indexPath.row]
-            cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath)
+        cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath)
+     
+        if searchController.isActive{
+            feed=myFeed[indexPath.row]
         }else{
             feed=myFeed[indexPath.row]
-            cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath)
+    
         }
         
         
