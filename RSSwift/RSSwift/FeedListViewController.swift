@@ -9,17 +9,22 @@
 import UIKit
 
 
-class FeedListViewController: UITableViewController, XMLParserDelegate {
+class FeedListViewController: UITableViewController, XMLParserDelegate,UISearchBarDelegate {
     
-    var myFeed : NSArray = []
+    @IBOutlet weak var searchController: UISearchBar!
+    var myFeed = [Feed]()
     var feedImgs: [AnyObject] = []
     var url: URL!
     var refresher: UIRefreshControl!
+    
+    var filteredFeed = [Feed]()
+    var inSearchMode = false
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         navigationItem.title = "Feed List"
@@ -44,7 +49,34 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         
     }
     
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
+        print("in search Bar")
+        
+        if searchBar.text == nil || searchBar.text == "" {
+            print("1")
+            inSearchMode = false
+            tableView.reloadData()
+            view.endEditing(true)
+        }else{
+            print("2")
+            
+            inSearchMode=true
+            let lower = searchBar.text!.lowercased()
+            
+            filteredFeed=myFeed.filter({$0.title.range(of: lower) != nil})
+            
+            tableView.reloadData()
+            
+        }
+    }
+    
+
 
     @IBAction func refreshFeed2(_ sender: Any) {
         loadData()
@@ -65,7 +97,17 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         let myParser : XmlParserManager = XmlParserManager().initWithURL(data) as! XmlParserManager
         // Put feed in array
         feedImgs = myParser.img as [AnyObject]
-        myFeed = myParser.feeds
+        
+        //refact
+        for one in myParser.feeds{
+            let title = (one as AnyObject).object(forKey: "title") as! String
+            let link = (one as AnyObject).object(forKey: "link") as! String
+            let pubDate = (one as AnyObject).object(forKey: "pubDate") as! String
+            let feed = Feed(title: title, link: link,pubDate:pubDate)
+            myFeed.append(feed)
+        }
+        
+        
         //sleep(4)
         refresher.endRefreshing()
         tableView.reloadData()        
@@ -79,11 +121,10 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         print(segue.identifier)
         if segue.identifier == "openPage" {
             let indexPath: IndexPath = self.tableView.indexPathForSelectedRow!
-            let selectedFURL: String = (myFeed[indexPath.row] as AnyObject).object(forKey: "link") as! String
             // Instance of our feedpageviewcontrolelr
             let fivc: FeedItemViewController = segue.destination as! FeedItemViewController
-            fivc.selectedFeedURL = selectedFURL as String
-            fivc.topTitle = (myFeed[indexPath.row] as AnyObject).object(forKey: "title") as! String
+            fivc.selectedFeedURL = myFeed[indexPath.row].link
+            fivc.topTitle = myFeed[indexPath.row].title
         }
     }
     
@@ -118,15 +159,15 @@ class FeedListViewController: UITableViewController, XMLParserDelegate {
         cellImageLayer!.masksToBounds = true
         cell.imageView?.image = image*/
         
-        if let feed = myFeed.object(at: indexPath.row) as? NSMutableDictionary{
+        if let feed = myFeed[indexPath.row] as? Feed{
         
-            cell.textLabel?.text = feed.object(forKey: "title") as? String
+            cell.textLabel?.text = feed.title
             cell.textLabel?.textColor = UIColor.black
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = .byWordWrapping
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
         
-            cell.detailTextLabel?.text = feed.object(forKey: "pubDate") as? String
+            cell.detailTextLabel?.text = feed.pubDate
             cell.detailTextLabel?.textColor = UIColor.black
             
         }

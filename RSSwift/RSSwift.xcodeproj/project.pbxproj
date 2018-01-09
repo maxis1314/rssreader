@@ -17,6 +17,7 @@
 		703266761DDF705D006CC1B5 /* XmlParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703266751DDF705D006CC1B5 /* XmlParserManager.swift */; };
 		703266781DDF709F006CC1B5 /* FeedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703266771DDF709F006CC1B5 /* FeedListViewController.swift */; };
 		7032667A1DDF7131006CC1B5 /* FeedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703266791DDF7131006CC1B5 /* FeedItemViewController.swift */; };
+		C2D696BB20050FE800B4B7DE /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D696BA20050FE800B4B7DE /* Feed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		703266791DDF7131006CC1B5 /* FeedItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemViewController.swift; sourceTree = "<group>"; };
 		7E35AE8AC4D48A3B5EFB9E70 /* Pods-Rsswift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rsswift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rsswift/Pods-Rsswift.release.xcconfig"; sourceTree = "<group>"; };
 		B91083017AFBB88B3D5F30B4 /* Pods-RsswiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RsswiftUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RsswiftUITests/Pods-RsswiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C2D696BA20050FE800B4B7DE /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		703266431DDF6E3D006CC1B5 /* Rsswift */ = {
 			isa = PBXGroup;
 			children = (
+				C2D696B720050F4C00B4B7DE /* Model */,
 				703266441DDF6E3D006CC1B5 /* AppDelegate.swift */,
 				703266751DDF705D006CC1B5 /* XmlParserManager.swift */,
 				703266771DDF709F006CC1B5 /* FeedListViewController.swift */,
@@ -140,6 +143,14 @@
 				703266691DDF6E3D006CC1B5 /* Info.plist */,
 			);
 			path = RsswiftUITests;
+			sourceTree = "<group>";
+		};
+		C2D696B720050F4C00B4B7DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C2D696BA20050FE800B4B7DE /* Feed.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		E60A9374F15EDB3B62C722AA /* Frameworks */ = {
@@ -454,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				703266451DDF6E3D006CC1B5 /* AppDelegate.swift in Sources */,
+				C2D696BB20050FE800B4B7DE /* Feed.swift in Sources */,
 				703266781DDF709F006CC1B5 /* FeedListViewController.swift in Sources */,
 				7032667A1DDF7131006CC1B5 /* FeedItemViewController.swift in Sources */,
 				703266761DDF705D006CC1B5 /* XmlParserManager.swift in Sources */,
