@@ -162,7 +162,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath)
      
         if searchController.isActive{
-            feed=myFeed[indexPath.row]
+            feed=filteredFeed[indexPath.row]
         }else{
             feed=myFeed[indexPath.row]
     
