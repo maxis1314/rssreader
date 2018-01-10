@@ -9,34 +9,8 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-RsswiftTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-RsswiftUITests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>23D3E225A7F1A160A74DFC67F21AD5AA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B2BD97717AC062CB314477B11F410CC6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C80037A4AF824574FFACFA6422647376</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
