@@ -53,7 +53,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
 
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
-        navigationItem.searchController = searchController
+        
         definesPresentationContext = true
         
         tableView.tableHeaderView = searchController.searchBar
