@@ -17,6 +17,11 @@
 		703266761DDF705D006CC1B5 /* XmlParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703266751DDF705D006CC1B5 /* XmlParserManager.swift */; };
 		703266781DDF709F006CC1B5 /* FeedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703266771DDF709F006CC1B5 /* FeedListViewController.swift */; };
 		7032667A1DDF7131006CC1B5 /* FeedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703266791DDF7131006CC1B5 /* FeedItemViewController.swift */; };
+		C2703EFF2007BC0400E58BD4 /* mydb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2703EFD2007BC0400E58BD4 /* mydb.xcdatamodeld */; };
+		C2703F032007BC3B00E58BD4 /* EagleList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F012007BC3B00E58BD4 /* EagleList+CoreDataClass.swift */; };
+		C2703F042007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */; };
+		C2703F062007C0B400E58BD4 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F052007C0B400E58BD4 /* DBManager.swift */; };
+		C2703F082007C2A300E58BD4 /* EagleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F072007C2A300E58BD4 /* EagleListViewController.swift */; };
 		C2D696BB20050FE800B4B7DE /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D696BA20050FE800B4B7DE /* Feed.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +61,11 @@
 		703266771DDF709F006CC1B5 /* FeedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListViewController.swift; sourceTree = "<group>"; };
 		703266791DDF7131006CC1B5 /* FeedItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemViewController.swift; sourceTree = "<group>"; };
 		7E35AE8AC4D48A3B5EFB9E70 /* Pods-Rsswift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rsswift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rsswift/Pods-Rsswift.release.xcconfig"; sourceTree = "<group>"; };
+		C2703EFE2007BC0400E58BD4 /* mydb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mydb.xcdatamodel; sourceTree = "<group>"; };
+		C2703F012007BC3B00E58BD4 /* EagleList+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EagleList+CoreDataClass.swift"; path = "RSSwift/EagleList+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EagleList+CoreDataProperties.swift"; path = "RSSwift/EagleList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		C2703F052007C0B400E58BD4 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		C2703F072007C2A300E58BD4 /* EagleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EagleListViewController.swift; path = RSSwift/EagleListViewController.swift; sourceTree = SOURCE_ROOT; };
 		C2D696BA20050FE800B4B7DE /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +97,7 @@
 		703266381DDF6E3D006CC1B5 = {
 			isa = PBXGroup;
 			children = (
+				C2703EFD2007BC0400E58BD4 /* mydb.xcdatamodeld */,
 				703266431DDF6E3D006CC1B5 /* Rsswift */,
 				7032665B1DDF6E3D006CC1B5 /* RsswiftTests */,
 				703266661DDF6E3D006CC1B5 /* RsswiftUITests */,
@@ -109,6 +120,7 @@
 		703266431DDF6E3D006CC1B5 /* Rsswift */ = {
 			isa = PBXGroup;
 			children = (
+				C2703F002007BC2E00E58BD4 /* DB */,
 				C2D696B720050F4C00B4B7DE /* Model */,
 				703266441DDF6E3D006CC1B5 /* AppDelegate.swift */,
 				703266751DDF705D006CC1B5 /* XmlParserManager.swift */,
@@ -119,6 +131,7 @@
 				703266501DDF6E3D006CC1B5 /* LaunchScreen.storyboard */,
 				703266531DDF6E3D006CC1B5 /* Info.plist */,
 				7032664B1DDF6E3D006CC1B5 /* Rsswift.xcdatamodeld */,
+				C2703F072007C2A300E58BD4 /* EagleListViewController.swift */,
 			);
 			path = Rsswift;
 			sourceTree = "<group>";
@@ -139,6 +152,16 @@
 				703266691DDF6E3D006CC1B5 /* Info.plist */,
 			);
 			path = RsswiftUITests;
+			sourceTree = "<group>";
+		};
+		C2703F002007BC2E00E58BD4 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				C2703F012007BC3B00E58BD4 /* EagleList+CoreDataClass.swift */,
+				C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */,
+				C2703F052007C0B400E58BD4 /* DBManager.swift */,
+			);
+			name = DB;
 			sourceTree = "<group>";
 		};
 		C2D696B720050F4C00B4B7DE /* Model */ = {
@@ -360,8 +383,13 @@
 				703266451DDF6E3D006CC1B5 /* AppDelegate.swift in Sources */,
 				C2D696BB20050FE800B4B7DE /* Feed.swift in Sources */,
 				703266781DDF709F006CC1B5 /* FeedListViewController.swift in Sources */,
+				C2703EFF2007BC0400E58BD4 /* mydb.xcdatamodeld in Sources */,
 				7032667A1DDF7131006CC1B5 /* FeedItemViewController.swift in Sources */,
+				C2703F062007C0B400E58BD4 /* DBManager.swift in Sources */,
+				C2703F082007C2A300E58BD4 /* EagleListViewController.swift in Sources */,
 				703266761DDF705D006CC1B5 /* XmlParserManager.swift in Sources */,
+				C2703F042007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift in Sources */,
+				C2703F032007BC3B00E58BD4 /* EagleList+CoreDataClass.swift in Sources */,
 				7032664D1DDF6E3D006CC1B5 /* Rsswift.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,6 +669,16 @@
 			);
 			currentVersion = 7032664C1DDF6E3D006CC1B5 /* Rsswift.xcdatamodel */;
 			path = Rsswift.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		C2703EFD2007BC0400E58BD4 /* mydb.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C2703EFE2007BC0400E58BD4 /* mydb.xcdatamodel */,
+			);
+			currentVersion = C2703EFE2007BC0400E58BD4 /* mydb.xcdatamodel */;
+			path = mydb.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
