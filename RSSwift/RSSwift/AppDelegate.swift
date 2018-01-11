@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GADMobileAds.configure(withApplicationID: "ca-app-pub-7893551134039994~5566617726")
         
+        UIApplication.shared.setStatusBarHidden(false, with: .none)
+        
         return true
     }
 

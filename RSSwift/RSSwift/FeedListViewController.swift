@@ -36,8 +36,9 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         
         refresher.addTarget(self, action: #selector(FeedListViewController.loadData),
                                  for: .valueChanged)
-        refresher.attributedTitle = NSAttributedString(string: "下拉刷新数据")
-        tableView.addSubview(refresher)
+        refresher.attributedTitle = NSAttributedString(string: "刷新")
+        //tableView.addSubview(refresher)
+        tableView.refreshControl = refresher
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
