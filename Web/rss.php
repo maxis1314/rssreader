@@ -3,7 +3,7 @@
  DEFINE ('DB_USER', 'root'); 
  DEFINE ('DB_PASSWORD', ''); 
  DEFINE ('DB_HOST', 'localhost'); 
- DEFINE ('DB_NAME', 'test');  
+ DEFINE ('DB_NAME', 'eagle');  
  DEFINE ('TABLE_NAME', 'rss');
  
  $rssfeed = '<?xml version="1.0" encoding="ISO-8859-1"?>';
