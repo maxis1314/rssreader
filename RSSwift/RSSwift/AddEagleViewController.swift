@@ -29,6 +29,12 @@ class AddEagleViewController: UIViewController {
             
             navigationController?.popViewController(animated: true)
             dismiss(animated: true, completion: nil)
+            
+            let nc = NotificationCenter.default
+            nc.post(name:Notification.Name(rawValue:"MyNotification"),
+                    object: nil,
+                    userInfo: ["message":"Hello there!", "date":Date()])
+            
         }else{
             let alert = UIAlertController(title: "Alert", message: "Please input the right value!", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))

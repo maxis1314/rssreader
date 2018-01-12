@@ -13,7 +13,15 @@ class EagleListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nc = NotificationCenter.default // Note that default is now a property, not a method call
+        nc.addObserver(forName:Notification.Name(rawValue:"MyNotification"),
+                       object:nil, queue:nil,
+                       using:catchNotification)
+        
         tableView.allowsMultipleSelectionDuringEditing = false;
+        
+        
         
         eagleList = eagle_list()
         
@@ -27,11 +35,23 @@ class EagleListViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
+    func catchNotification(notification:Notification) -> Void {
+        print("Catch notification")
+        
+        guard let userInfo = notification.userInfo,
+            let message  = userInfo["message"] as? String,
+            let date     = userInfo["date"]    as? Date else {
+                print("No userInfo found in notification")
+                return
+        }
+        
+
+        
+        eagleList = eagle_list()
+        tableView.reloadData()
+        
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,11 +88,11 @@ class EagleListViewController: UITableViewController {
         cell.textLabel?.backgroundColor = UIColor.clear
         cell.detailTextLabel?.backgroundColor = UIColor.clear
         
-        if indexPath.row % 2 == 0 {
-            cell.backgroundColor = UIColorFromRGB(rgbValue: 0xDCDCDC)
-        } else {
+        //if indexPath.row % 2 == 0 {
+            //cell.backgroundColor = UIColorFromRGB(rgbValue: 0xDCDCDC)
+        //} else {
             cell.backgroundColor = UIColor.white//(white: 1, alpha: 0.3)
-        }
+        //}
         
         cell.textLabel?.text = eagle.name
         cell.textLabel?.textColor = UIColor.black

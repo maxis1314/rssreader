@@ -131,7 +131,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5oN-bA-o6e">
                                 <rect key="frame" x="16" y="89" width="343" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="yd2-kf-338"/>
+                                    <constraint firstAttribute="height" constant="50" id="5HI-m7-fRN"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -140,8 +140,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6gG-Rw-CSq">
                                 <rect key="frame" x="16" y="164" width="343" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="5dn-sK-6gE"/>
-                                    <constraint firstAttribute="height" constant="50" id="LZB-cD-xkS"/>
+                                    <constraint firstAttribute="height" constant="50" id="7Rq-xf-n72"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -150,15 +149,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5oN-bA-o6e" firstAttribute="leading" secondItem="Alw-k2-WJt" secondAttribute="leadingMargin" id="Gcq-EU-pk4"/>
-                            <constraint firstItem="6gG-Rw-CSq" firstAttribute="leading" secondItem="Alw-k2-WJt" secondAttribute="leading" id="S5s-gQ-G0M"/>
-                            <constraint firstItem="6gG-Rw-CSq" firstAttribute="top" secondItem="5oN-bA-o6e" secondAttribute="bottom" constant="25" id="SQH-9s-OHG"/>
-                            <constraint firstItem="5oN-bA-o6e" firstAttribute="top" secondItem="gq1-ap-01x" secondAttribute="bottom" constant="25" id="WK3-4M-e64"/>
-                            <constraint firstItem="6gG-Rw-CSq" firstAttribute="top" secondItem="5oN-bA-o6e" secondAttribute="bottom" constant="25" id="ekv-wi-cKy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6gG-Rw-CSq" secondAttribute="trailing" id="fft-1g-WZe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5oN-bA-o6e" secondAttribute="trailing" id="hLI-Lf-ISS"/>
-                            <constraint firstAttribute="trailing" secondItem="6gG-Rw-CSq" secondAttribute="trailing" id="ufA-Oz-Qee"/>
-                            <constraint firstItem="6gG-Rw-CSq" firstAttribute="leading" secondItem="Alw-k2-WJt" secondAttribute="leadingMargin" id="yIf-0C-K3p"/>
+                            <constraint firstItem="5oN-bA-o6e" firstAttribute="leading" secondItem="Alw-k2-WJt" secondAttribute="leadingMargin" id="By7-gp-FdV"/>
+                            <constraint firstItem="6gG-Rw-CSq" firstAttribute="leading" secondItem="Alw-k2-WJt" secondAttribute="leadingMargin" id="XP5-Jd-1bK"/>
+                            <constraint firstItem="6gG-Rw-CSq" firstAttribute="trailing" secondItem="Alw-k2-WJt" secondAttribute="trailingMargin" id="cFT-zo-5Xb"/>
+                            <constraint firstItem="5oN-bA-o6e" firstAttribute="trailing" secondItem="Alw-k2-WJt" secondAttribute="trailingMargin" id="fzb-GI-UHY"/>
+                            <constraint firstItem="6gG-Rw-CSq" firstAttribute="top" secondItem="5oN-bA-o6e" secondAttribute="bottom" constant="25" id="qiT-89-Mqa"/>
+                            <constraint firstItem="5oN-bA-o6e" firstAttribute="top" secondItem="gq1-ap-01x" secondAttribute="bottom" constant="25" id="vmn-wr-xYN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ADD" id="sjM-l3-JV4">

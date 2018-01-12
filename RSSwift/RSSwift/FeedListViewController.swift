@@ -71,8 +71,21 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         //url = URL(string: "http://feeds.skynews.com/feeds/rss/technology.xml")!
         url = URL(string: "https://www3.nhk.or.jp/rss/news/cat6.xml")!
         
-        loadRss(url);
         
+        myFeed.removeAll()
+        
+        let eagleList = eagle_list()
+        var i=1
+        let count = eagleList.count
+        for eagle in eagleList{
+            refresher.attributedTitle = NSAttributedString(string: "\(i)/\(count)")
+            loadRss(URL(string:eagle.url!)!)
+            i+=1
+        }
+        
+        
+        tableView.reloadData()
+        refresher.endRefreshing()
         print(eagle_list())
     }
     
@@ -81,10 +94,9 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         let myParser : XmlParserManager = XmlParserManager().initWithURL(data) as! XmlParserManager
         // Put feed in array
         feedImgs = myParser.img as [AnyObject]
-        
         //refact
         if myParser.feeds != nil && myParser.feeds.count > 0{
-            myFeed.removeAll()
+            
             for one in myParser.feeds{
                 let title = (one as AnyObject).object(forKey: "title") as! String
                 let link = (one as AnyObject).object(forKey: "link") as! String
@@ -92,11 +104,8 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
                 let feed = Feed(title: title, link: link,pubDate:pubDate)
                 myFeed.append(feed)
             }
+        }
 
-            //sleep(4)        
-            tableView.reloadData()  
-        }        
-        refresher.endRefreshing()
     }
     
     override func didReceiveMemoryWarning() {
