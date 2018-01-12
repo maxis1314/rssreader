@@ -81,16 +81,19 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         feedImgs = myParser.img as [AnyObject]
         
         //refact
-        for one in myParser.feeds{
-            let title = (one as AnyObject).object(forKey: "title") as! String
-            let link = (one as AnyObject).object(forKey: "link") as! String
-            let pubDate = (one as AnyObject).object(forKey: "pubDate") as! String
-            let feed = Feed(title: title, link: link,pubDate:pubDate)
-            myFeed.append(feed)
-        }
+        if myParser.feeds!=nil && myParser.feeds.count > 0{
+            myFeed.removeAll()
+            for one in myParser.feeds{
+                let title = (one as AnyObject).object(forKey: "title") as! String
+                let link = (one as AnyObject).object(forKey: "link") as! String
+                let pubDate = (one as AnyObject).object(forKey: "pubDate") as! String
+                let feed = Feed(title: title, link: link,pubDate:pubDate)
+                myFeed.append(feed)
+            }
 
-        //sleep(4)        
-        tableView.reloadData()        
+            //sleep(4)        
+            tableView.reloadData()  
+        }        
         refresher.endRefreshing()
     }
     
