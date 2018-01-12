@@ -33,12 +33,22 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         
         selectedFeedURL =  selectedFeedURL?.replacingOccurrences(of: " ", with:"")
         selectedFeedURL =  selectedFeedURL?.replacingOccurrences(of: "\n", with:"")
+        
+        let timeInterval = Date().timeIntervalSince1970
+        let md5str = MD5("\(timeInterval)")
+        if selectedFeedURL.range(of: "?") != nil{
+            selectedFeedURL = "\(selectedFeedURL)&eagle_unixtime=\(timeInterval)&eagle_sign=\(md5str)"
+        }else{
+            selectedFeedURL = "\(selectedFeedURL)?eagle_unixtime=\(timeInterval)&eagle_sign=\(md5str)"
+        }
         myWebView.loadRequest(URLRequest(url: URL(string: selectedFeedURL! as String)!))
         
-        print(selectedFeedURL)
+        print(selectedFeedURL)        
         
-        
-        bannerView.adUnitID = "ca-app-pub-7893551134039994/2697692057"
+        let adarray = ["ca-app-pub-7893551134039994/2697692057"]
+        let randomIndex = Int(arc4random_uniform(UInt32(adarray.count)))
+
+        bannerView.adUnitID = adarray[randomIndex]
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
