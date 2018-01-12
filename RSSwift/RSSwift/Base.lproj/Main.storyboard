@@ -60,7 +60,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Feeds" id="Q3p-cY-pRK">
                             <connections>
-                                <segue destination="5um-yg-MGE" kind="show" id="3QR-E6-prS"/>
+                                <segue destination="0D7-Tk-wKY" kind="show" id="cbc-MQ-FjH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -80,13 +80,61 @@
             </objects>
             <point key="canvasLocation" x="1292" y="152"/>
         </scene>
-        <!--Feeds2-->
-        <scene sceneID="5BL-tE-pPN">
+        <!--Feeds-->
+        <scene sceneID="1r9-Oc-Qfl">
             <objects>
-                <tableViewController title="Feeds2" id="5um-yg-MGE" customClass="EagleListViewController" customModule="Rsswift" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGC-xn-cvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="0D7-Tk-wKY" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="epp-1R-GjE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dch-6A-tAh">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dch-6A-tAh" id="KHS-UF-1HN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0D7-Tk-wKY" id="jij-ux-ByI"/>
+                            <outlet property="delegate" destination="0D7-Tk-wKY" id="dkG-ON-gko"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Feeds" id="6Ho-4N-oWH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5D2-A4-qSW">
+                            <connections>
+                                <segue destination="H96-wP-iO1" kind="show" id="ich-hl-K0u"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YEO-nI-uw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2154" y="-77"/>
+            <point key="canvasLocation" x="2273" y="-286"/>
+        </scene>
+        <!--ADD-->
+        <scene sceneID="m4a-e3-NSm">
+            <objects>
+                <viewController id="H96-wP-iO1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gq1-ap-01x"/>
+                        <viewControllerLayoutGuide type="bottom" id="aWm-Td-8aS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Alw-k2-WJt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ADD" id="sjM-l3-JV4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0oc-ba-H9l"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="doU-Ui-2ZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3494" y="-302"/>
         </scene>
         <!--Feed Item-->
         <scene sceneID="wxz-US-l5w">
