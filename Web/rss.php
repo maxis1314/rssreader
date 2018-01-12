@@ -2,7 +2,7 @@
  header("Content-Type: application/rss+xml; charset=utf8");  
  DEFINE ('DB_USER', 'root'); 
  DEFINE ('DB_PASSWORD', ''); 
- DEFINE ('DB_HOST', 'localhost'); 
+ DEFINE ('DB_HOST', '127.0.0.1'); 
  DEFINE ('DB_NAME', 'eagle');  
  DEFINE ('TABLE_NAME', 'rss');
  
