@@ -9,9 +9,16 @@
 import UIKit
 
 class EagleListViewController: UITableViewController {
-
+    var eagleList = [EagleList]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.allowsMultipleSelectionDuringEditing = false;
+        
+        eagleList = eagle_list()
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        navigationItem.title = "Feeds"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,7 +41,7 @@ class EagleListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return eagleList.count
     }
 
     /*
@@ -47,25 +54,67 @@ class EagleListViewController: UITableViewController {
     }
     */
 
-    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var eagle:EagleList!
+        var cell:UITableViewCell!
+        cell = tableView.dequeueReusableCell(withIdentifier: "Cell3", for: indexPath)
+        
+ 
+        eagle=eagleList[indexPath.row]
+  
+        
+        
+        cell.textLabel?.backgroundColor = UIColor.clear
+        cell.detailTextLabel?.backgroundColor = UIColor.clear
+        
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColorFromRGB(rgbValue: 0xDCDCDC)
+        } else {
+            cell.backgroundColor = UIColor.white//(white: 1, alpha: 0.3)
+        }
+        
+        cell.textLabel?.text = eagle.name
+        cell.textLabel?.textColor = UIColor.black
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = .byWordWrapping
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        
+        cell.detailTextLabel?.text = eagle.url
+        cell.detailTextLabel?.textColor = UIColor.black
+        
+        return cell
+    }
+
+    
+
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+ 
 
-    /*
+
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let eagle = eagleList[indexPath.row]
+            delete_eagle(name:eagle.name!)
             // Delete the row from the data source
+            eagleList.remove(at: indexPath.row)
+            
+            print("in delete")
+            print(eagle)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+             //["cats", "dogs", "moose"]
+            print("delete \(indexPath.row)")
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+
 
     /*
     // Override to support rearranging the table view.
@@ -74,13 +123,13 @@ class EagleListViewController: UITableViewController {
     }
     */
 
-    /*
+
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
+
 
     /*
     // MARK: - Navigation
@@ -91,5 +140,17 @@ class EagleListViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
+ 
+
 
 }

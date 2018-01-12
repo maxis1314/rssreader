@@ -25,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        save_eagle(title:"a",url:"http://a.com")
-        save_eagle(title:"b",url:"http://b.com")
-        save_eagle(title:"c",url:"http://c.com")
+        //save_eagle(title:"a",url:"http://a.com")
+        //save_eagle(title:"b",url:"http://b.com")
+        //save_eagle(title:"c",url:"http://c.com")
         
         
         
