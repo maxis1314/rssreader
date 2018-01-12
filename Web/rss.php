@@ -1,5 +1,5 @@
 <?php
- header("Content-Type: application/rss+xml; charset=ISO-8859-1");  
+ header("Content-Type: application/rss+xml; charset=utf8");  
  DEFINE ('DB_USER', 'root'); 
  DEFINE ('DB_PASSWORD', ''); 
  DEFINE ('DB_HOST', 'localhost'); 
