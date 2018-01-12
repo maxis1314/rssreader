@@ -71,7 +71,9 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         //url = URL(string: "http://feeds.skynews.com/feeds/rss/technology.xml")!
         url = URL(string: "https://www3.nhk.or.jp/rss/news/cat6.xml")!
         
-        loadRss(url); 
+        loadRss(url);
+        
+        print(eagle_list())
     }
     
     func loadRss(_ data: URL) {
@@ -81,7 +83,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         feedImgs = myParser.img as [AnyObject]
         
         //refact
-        if myParser.feeds!=nil && myParser.feeds.count > 0{
+        if myParser.feeds != nil && myParser.feeds.count > 0{
             myFeed.removeAll()
             for one in myParser.feeds{
                 let title = (one as AnyObject).object(forKey: "title") as! String

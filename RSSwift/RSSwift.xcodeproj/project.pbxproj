@@ -17,6 +17,7 @@
 		703266761DDF705D006CC1B5 /* XmlParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703266751DDF705D006CC1B5 /* XmlParserManager.swift */; };
 		703266781DDF709F006CC1B5 /* FeedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703266771DDF709F006CC1B5 /* FeedListViewController.swift */; };
 		7032667A1DDF7131006CC1B5 /* FeedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703266791DDF7131006CC1B5 /* FeedItemViewController.swift */; };
+		C202E60D2008EDF80016AD71 /* Rsswift-Bridging-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = C202E60C2008EDF80016AD71 /* Rsswift-Bridging-Header.m */; };
 		C2703EFF2007BC0400E58BD4 /* mydb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2703EFD2007BC0400E58BD4 /* mydb.xcdatamodeld */; };
 		C2703F032007BC3B00E58BD4 /* EagleList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F012007BC3B00E58BD4 /* EagleList+CoreDataClass.swift */; };
 		C2703F042007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */; };
@@ -61,6 +62,8 @@
 		703266771DDF709F006CC1B5 /* FeedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListViewController.swift; sourceTree = "<group>"; };
 		703266791DDF7131006CC1B5 /* FeedItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemViewController.swift; sourceTree = "<group>"; };
 		7E35AE8AC4D48A3B5EFB9E70 /* Pods-Rsswift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rsswift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rsswift/Pods-Rsswift.release.xcconfig"; sourceTree = "<group>"; };
+		C202E60B2008EDF80016AD71 /* Rsswift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rsswift-Bridging-Header.h"; sourceTree = "<group>"; };
+		C202E60C2008EDF80016AD71 /* Rsswift-Bridging-Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Rsswift-Bridging-Header.m"; path = "RSSwift/Rsswift-Bridging-Header.m"; sourceTree = SOURCE_ROOT; };
 		C2703EFE2007BC0400E58BD4 /* mydb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mydb.xcdatamodel; sourceTree = "<group>"; };
 		C2703F012007BC3B00E58BD4 /* EagleList+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EagleList+CoreDataClass.swift"; path = "RSSwift/EagleList+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EagleList+CoreDataProperties.swift"; path = "RSSwift/EagleList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -120,6 +123,7 @@
 		703266431DDF6E3D006CC1B5 /* Rsswift */ = {
 			isa = PBXGroup;
 			children = (
+				C202E60A2008EDAA0016AD71 /* OC */,
 				C2703F002007BC2E00E58BD4 /* DB */,
 				C2D696B720050F4C00B4B7DE /* Model */,
 				703266441DDF6E3D006CC1B5 /* AppDelegate.swift */,
@@ -152,6 +156,15 @@
 				703266691DDF6E3D006CC1B5 /* Info.plist */,
 			);
 			path = RsswiftUITests;
+			sourceTree = "<group>";
+		};
+		C202E60A2008EDAA0016AD71 /* OC */ = {
+			isa = PBXGroup;
+			children = (
+				C202E60C2008EDF80016AD71 /* Rsswift-Bridging-Header.m */,
+				C202E60B2008EDF80016AD71 /* Rsswift-Bridging-Header.h */,
+			);
+			name = OC;
 			sourceTree = "<group>";
 		};
 		C2703F002007BC2E00E58BD4 /* DB */ = {
@@ -260,6 +273,7 @@
 					703266401DDF6E3D006CC1B5 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 7Q7A72P7JA;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					703266571DDF6E3D006CC1B5 = {
@@ -387,6 +401,7 @@
 				7032667A1DDF7131006CC1B5 /* FeedItemViewController.swift in Sources */,
 				C2703F062007C0B400E58BD4 /* DBManager.swift in Sources */,
 				C2703F082007C2A300E58BD4 /* EagleListViewController.swift in Sources */,
+				C202E60D2008EDF80016AD71 /* Rsswift-Bridging-Header.m in Sources */,
 				703266761DDF705D006CC1B5 /* XmlParserManager.swift in Sources */,
 				C2703F042007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift in Sources */,
 				C2703F032007BC3B00E58BD4 /* EagleList+CoreDataClass.swift in Sources */,
@@ -543,11 +558,14 @@
 			baseConfigurationReference = 3CF886D650877F699E9BA12B /* Pods-Rsswift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7Q7A72P7JA;
 				INFOPLIST_FILE = Rsswift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.daniel8899.rss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Rsswift/Rsswift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -557,11 +575,13 @@
 			baseConfigurationReference = 7E35AE8AC4D48A3B5EFB9E70 /* Pods-Rsswift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7Q7A72P7JA;
 				INFOPLIST_FILE = Rsswift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.daniel8899.rss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Rsswift/Rsswift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

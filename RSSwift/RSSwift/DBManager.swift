@@ -108,7 +108,7 @@ func save_eagle(title:String, url:String){
     saveContext()
 }
 
-func eagle_list(){
+func eagle_list()->[EagleList]{
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init()
     ///  生成一个要查询的表的对象
     let entity = NSEntityDescription.entity(forEntityName: "EagleList", in: managedObjectContext)
@@ -127,12 +127,10 @@ func eagle_list(){
         }catch{
             /// 失败
             fatalError("查询失败：\(error)")
-            return nil
         }
     }else{
         ///  查询对象不存在
         print("查询失败：查询不存在")
-        return nil
     }
     return eagleList
 }

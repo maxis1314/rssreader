@@ -35,9 +35,9 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         selectedFeedURL =  selectedFeedURL?.replacingOccurrences(of: "\n", with:"")
         
         let timeInterval = Date().timeIntervalSince1970
-        let md5str = MD5("AcpxriavIkV6ejap2W58fLWUfUsaHXpI\(timeInterval)")
-        if selectedFeedURL.range(of: "eagle") != nil{
-            if selectedFeedURL.range(of: "?") != nil{
+        let md5str = MD5(string:"AcpxriavIkV6ejap2W58fLWUfUsaHXpI\(timeInterval)")
+        if selectedFeedURL?.range(of: "eagle") != nil{
+            if selectedFeedURL?.range(of: "?") != nil{
                 selectedFeedURL = "\(selectedFeedURL)&eagle_unixtime=\(timeInterval)&eagle_sign=\(md5str)"
             }else{
                 selectedFeedURL = "\(selectedFeedURL)?eagle_unixtime=\(timeInterval)&eagle_sign=\(md5str)"
