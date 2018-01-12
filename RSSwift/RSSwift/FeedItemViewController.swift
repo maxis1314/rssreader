@@ -36,10 +36,12 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         
         let timeInterval = Date().timeIntervalSince1970
         let md5str = MD5("AcpxriavIkV6ejap2W58fLWUfUsaHXpI\(timeInterval)")
-        if selectedFeedURL.range(of: "?") != nil{
-            selectedFeedURL = "\(selectedFeedURL)&eagle_unixtime=\(timeInterval)&eagle_sign=\(md5str)"
-        }else{
-            selectedFeedURL = "\(selectedFeedURL)?eagle_unixtime=\(timeInterval)&eagle_sign=\(md5str)"
+        if selectedFeedURL.range(of: "eagle") != nil{
+            if selectedFeedURL.range(of: "?") != nil{
+                selectedFeedURL = "\(selectedFeedURL)&eagle_unixtime=\(timeInterval)&eagle_sign=\(md5str)"
+            }else{
+                selectedFeedURL = "\(selectedFeedURL)?eagle_unixtime=\(timeInterval)&eagle_sign=\(md5str)"
+            }
         }
         myWebView.loadRequest(URLRequest(url: URL(string: selectedFeedURL! as String)!))
         
