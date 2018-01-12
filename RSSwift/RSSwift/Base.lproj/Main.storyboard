@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -126,15 +127,55 @@
                     <view key="view" contentMode="scaleToFill" id="Alw-k2-WJt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5oN-bA-o6e">
+                                <rect key="frame" x="16" y="89" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="yd2-kf-338"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6gG-Rw-CSq">
+                                <rect key="frame" x="16" y="164" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="5dn-sK-6gE"/>
+                                    <constraint firstAttribute="height" constant="50" id="LZB-cD-xkS"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5oN-bA-o6e" firstAttribute="leading" secondItem="Alw-k2-WJt" secondAttribute="leadingMargin" id="Gcq-EU-pk4"/>
+                            <constraint firstItem="6gG-Rw-CSq" firstAttribute="leading" secondItem="Alw-k2-WJt" secondAttribute="leading" id="S5s-gQ-G0M"/>
+                            <constraint firstItem="6gG-Rw-CSq" firstAttribute="top" secondItem="5oN-bA-o6e" secondAttribute="bottom" constant="25" id="SQH-9s-OHG"/>
+                            <constraint firstItem="5oN-bA-o6e" firstAttribute="top" secondItem="gq1-ap-01x" secondAttribute="bottom" constant="25" id="WK3-4M-e64"/>
+                            <constraint firstItem="6gG-Rw-CSq" firstAttribute="top" secondItem="5oN-bA-o6e" secondAttribute="bottom" constant="25" id="ekv-wi-cKy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6gG-Rw-CSq" secondAttribute="trailing" id="fft-1g-WZe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5oN-bA-o6e" secondAttribute="trailing" id="hLI-Lf-ISS"/>
+                            <constraint firstAttribute="trailing" secondItem="6gG-Rw-CSq" secondAttribute="trailing" id="ufA-Oz-Qee"/>
+                            <constraint firstItem="6gG-Rw-CSq" firstAttribute="leading" secondItem="Alw-k2-WJt" secondAttribute="leadingMargin" id="yIf-0C-K3p"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ADD" id="sjM-l3-JV4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0oc-ba-H9l"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0oc-ba-H9l">
+                            <connections>
+                                <action selector="saveEagle:" destination="H96-wP-iO1" id="GBU-UJ-Tfp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameTxt" destination="5oN-bA-o6e" id="1Nk-bZ-Add"/>
+                        <outlet property="urlTxt" destination="6gG-Rw-CSq" id="sCt-HP-fPh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doU-Ui-2ZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3014" y="-206"/>
+            <point key="canvasLocation" x="3013.5999999999999" y="-206.44677661169416"/>
         </scene>
         <!--Feed Item-->
         <scene sceneID="wxz-US-l5w">
