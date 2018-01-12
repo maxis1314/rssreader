@@ -11,14 +11,11 @@ import UIKit
 
 class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearchResultsUpdating {
     
-    var searchController: UISearchController!
-    
-    
+    var searchController: UISearchController!    
     var myFeed = [Feed]()
     var feedImgs: [AnyObject] = []
     var url: URL!
-    var refresher: UIRefreshControl!
-    
+    var refresher: UIRefreshControl!    
     var filteredFeed = [Feed]()
     var tableViewNow: UITableView!
 
@@ -26,17 +23,14 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
+        super.viewDidLoad()        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         navigationItem.title = "Feed List"
         
-        refresher = UIRefreshControl()
-        
+        refresher = UIRefreshControl()        
         refresher.addTarget(self, action: #selector(FeedListViewController.loadData),
                                  for: .valueChanged)
-        refresher.attributedTitle = NSAttributedString(string: "刷新")
+        //refresher.attributedTitle = NSAttributedString(string: "刷新")
         //tableView.addSubview(refresher)
         tableView.refreshControl = refresher
         
@@ -45,27 +39,16 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         tableView.backgroundColor = UIColorFromRGB(rgbValue: 0xFFFFFF)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLineEtched
         self.tableView.dataSource = self
-        self.tableView.delegate = self
-        
-        
+        self.tableView.delegate = self        
         
         searchController = UISearchController(searchResultsController:nil)
         searchController.searchResultsUpdater = self
-
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         
-        definesPresentationContext = true
-        
-        tableView.tableHeaderView = searchController.searchBar
-        
-
-
-        
-        loadData()
-        
-        
-        
+        definesPresentationContext = true        
+        tableView.tableHeaderView = searchController.searchBar        
+        loadData()        
     }
     
  
@@ -78,12 +61,6 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
 
         }
     }
-    
-    
-    
- 
-    
-
 
     @IBAction func refreshFeed2(_ sender: Any) {
         loadData()
@@ -94,9 +71,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         //url = URL(string: "http://feeds.skynews.com/feeds/rss/technology.xml")!
         url = URL(string: "https://www3.nhk.or.jp/rss/news/cat6.xml")!
         
-        loadRss(url);
-        
-        
+        loadRss(url); 
     }
     
     func loadRss(_ data: URL) {
@@ -113,11 +88,10 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             let feed = Feed(title: title, link: link,pubDate:pubDate)
             myFeed.append(feed)
         }
-        
-        
-        //sleep(4)
-        refresher.endRefreshing()
+
+        //sleep(4)        
         tableView.reloadData()        
+        refresher.endRefreshing()
     }
     
     override func didReceiveMemoryWarning() {
@@ -125,11 +99,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(segue.identifier)
-        
-        print(1)
         if segue.identifier == "openPage" {
-            print(2)
             var indexPath: IndexPath!
             indexPath = self.tableView.indexPathForSelectedRow!
             var feed:Feed
@@ -139,7 +109,6 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             }else{
                 feed=myFeed[indexPath.row]
             }
-           
             
             // Instance of our feedpageviewcontrolelr
             let fivc: FeedItemViewController = segue.destination as! FeedItemViewController
@@ -193,20 +162,16 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         cellImageLayer!.cornerRadius = 35
         cellImageLayer!.masksToBounds = true
         cell.imageView?.image = image*/
-        
-        
-        
-        
-            cell.textLabel?.text = feed.title
-            cell.textLabel?.textColor = UIColor.black
-            cell.textLabel?.numberOfLines = 0
-            cell.textLabel?.lineBreakMode = .byWordWrapping
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
-        
-            cell.detailTextLabel?.text = feed.pubDate
-            cell.detailTextLabel?.textColor = UIColor.black
+
+        cell.textLabel?.text = feed.title
+        cell.textLabel?.textColor = UIColor.black
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = .byWordWrapping
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+    
+        cell.detailTextLabel?.text = feed.pubDate
+        cell.detailTextLabel?.textColor = UIColor.black
             
-        
         return cell
     }
     
@@ -221,13 +186,10 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     }
     
     func resizeImage(image:UIImage, toTheSize size:CGSize)->UIImage{
-        
-        
         let scale = CGFloat(max(size.width/image.size.width,
                                 size.height/image.size.height))
         let width:CGFloat  = image.size.width * scale
         let height:CGFloat = image.size.height * scale;
-        
         let rr:CGRect = CGRect(x: 0, y: 0, width: width, height: height)
         
         UIGraphicsBeginImageContextWithOptions(size, false, 0);
@@ -237,5 +199,5 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         return newImage!
     }
     
-    
-    }
+
+}
