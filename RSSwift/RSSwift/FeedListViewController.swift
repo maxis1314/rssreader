@@ -18,7 +18,8 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     var refresher: UIRefreshControl!    
     var filteredFeed = [Feed]()
     var tableViewNow: UITableView!
-
+    var i: Int = 0
+    var eagleList = [EagleList]()
     
     
     
@@ -74,36 +75,60 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         
         myFeed.removeAll()
         
-        let eagleList = eagle_list()
-        var i=1
+        eagleList = eagle_list()
+
+        i=0
         let count = eagleList.count
         for eagle in eagleList{
-            refresher.attributedTitle = NSAttributedString(string: "\(i)/\(count)")
-            loadRss(URL(string:eagle.url!)!)
-            i+=1
+            print("\(i)/\(count)")
+            DispatchQueue.global(qos: .default).async {
+                //处理耗时操作的代码块...
+                self.loadRss(URL(string:eagle.url!)!)
+                
+                //操作完成，调用主线程来刷新界面
+                DispatchQueue.main.async {
+                    self.refresher.attributedTitle = NSAttributedString(string: "\(self.i+1)/\(count)")
+                    self.i = self.i+1
+                    self.tableView.reloadData()
+                    self.checkFinished()
+                }
+            }
+            
+            
         }
         
-        
-        tableView.reloadData()
-        refresher.endRefreshing()
+
         print(eagle_list())
     }
     
+    func checkFinished(){
+        if self.i == eagleList.count{
+            refresher.endRefreshing()
+        }
+    }
+    
     func loadRss(_ data: URL) {
-        // XmlParserManager instance/object/variable
-        let myParser : XmlParserManager = XmlParserManager().initWithURL(data) as! XmlParserManager
-        // Put feed in array
-        feedImgs = myParser.img as [AnyObject]
-        //refact
-        if myParser.feeds != nil && myParser.feeds.count > 0{
-            
-            for one in myParser.feeds{
-                let title = (one as AnyObject).object(forKey: "title") as! String
-                let link = (one as AnyObject).object(forKey: "link") as! String
-                let pubDate = (one as AnyObject).object(forKey: "pubDate") as! String
-                let feed = Feed(title: title, link: link,pubDate:pubDate)
-                myFeed.append(feed)
+        print(data)
+        
+        do {
+            // XmlParserManager instance/object/variable
+            let myParser : XmlParserManager = XmlParserManager().initWithURL(data) as! XmlParserManager
+            // Put feed in array
+            feedImgs = myParser.img as [AnyObject]
+            //refact
+            if myParser.feeds != nil && myParser.feeds.count > 0{
+                print("fetch rss success")
+                for one in myParser.feeds{
+                    let title = (one as AnyObject).object(forKey: "title") as! String
+                    let link = (one as AnyObject).object(forKey: "link") as! String
+                    let pubDate = (one as AnyObject).object(forKey: "pubDate") as! String
+                    let feed = Feed(title: title, link: link,pubDate:pubDate)
+                    self.myFeed.append(feed)
+                }
             }
+            
+        } catch let error as NSError {
+            print ("Error: \(error.domain)")
         }
 
     }
@@ -153,8 +178,11 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         if searchController.isActive{
             feed=filteredFeed[indexPath.row]
         }else{
-            feed=myFeed[indexPath.row]
-    
+            if indexPath.row < myFeed.count{
+                feed=myFeed[indexPath.row]
+            }else{
+                feed=myFeed[0]
+            }
         }
         
         
