@@ -25,6 +25,7 @@
 		C2703F042007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */; };
 		C2703F062007C0B400E58BD4 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F052007C0B400E58BD4 /* DBManager.swift */; };
 		C2D696BB20050FE800B4B7DE /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D696BA20050FE800B4B7DE /* Feed.swift */; };
+		CE891658291BBEF1AA006263 /* Pods_Rsswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAF58356D6AB6ED582EC762 /* Pods_Rsswift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		3CF886D650877F699E9BA12B /* Pods-Rsswift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rsswift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rsswift/Pods-Rsswift.debug.xcconfig"; sourceTree = "<group>"; };
+		6DAF58356D6AB6ED582EC762 /* Pods_Rsswift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rsswift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		703266411DDF6E3D006CC1B5 /* Rsswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rsswift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		703266441DDF6E3D006CC1B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		703266491DDF6E3D006CC1B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE891658291BBEF1AA006263 /* Pods_Rsswift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +202,7 @@
 		E60A9374F15EDB3B62C722AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6DAF58356D6AB6ED582EC762 /* Pods_Rsswift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

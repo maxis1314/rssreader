@@ -80,24 +80,28 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
 
         i=0
         let count = eagleList.count
-        for eagle in eagleList{
-            print("\(i)/\(count)")
-            DispatchQueue.global(qos: .default).async {
-                //处理耗时操作的代码块...
-                self.loadRss(URL(string:eagle.url!)!)
-                
-                //操作完成，调用主线程来刷新界面
-                DispatchQueue.main.async {
-                    self.refresher.attributedTitle = NSAttributedString(string: "\(self.i+1)/\(count)")
-                    self.i = self.i+1
-                    self.tableView.reloadData()
-                    if self.i == self.eagleList.count{
-                        self.refresher.endRefreshing()
+        if count > 0{
+            for eagle in eagleList{
+                print("\(i)/\(count)")
+                DispatchQueue.global(qos: .default).async {
+                    //处理耗时操作的代码块...
+                    self.loadRss(URL(string:eagle.url!)!)
+                    
+                    //操作完成，调用主线程来刷新界面
+                    DispatchQueue.main.async {
+                        self.refresher.attributedTitle = NSAttributedString(string: "\(self.i+1)/\(count)")
+                        self.i = self.i+1
+                        self.tableView.reloadData()
+                        if self.i == self.eagleList.count{
+                            self.refresher.endRefreshing()
+                        }
                     }
                 }
             }
-            
-            
+        }else{
+            let alert = UIAlertController(title: "Alert", message: "Please add some feed!", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
 
         print(eagle_list())

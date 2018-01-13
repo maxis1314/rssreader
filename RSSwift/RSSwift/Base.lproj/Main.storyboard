@@ -28,14 +28,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PFK-bj-hnC">
-                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="An7-m8-zm3">
-                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -94,7 +94,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dch-6A-tAh" id="KHS-UF-1HN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -188,35 +188,32 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dZ9-5R-bh5">
                                 <rect key="frame" x="0.0" y="64" width="375" height="2"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="5xN-hU-9w0"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="2" id="fp4-yv-LEC"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2" id="jbk-Ed-1Sz"/>
+                                    <constraint firstAttribute="height" constant="2" id="A7E-ln-MAM"/>
                                 </constraints>
                             </progressView>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myq-3R-mMG">
-                                <rect key="frame" x="0.0" y="66" width="375" height="526"/>
+                                <rect key="frame" x="0.0" y="66" width="375" height="551"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYH-AQ-u0X" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="596" width="375" height="71"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYH-AQ-u0X" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="592" width="375" height="75"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="smf-bq-juj"/>
+                                    <constraint firstAttribute="height" constant="50" id="oW4-z0-t5i"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="HYH-AQ-u0X" secondAttribute="trailing" id="2i5-24-g5I"/>
-                            <constraint firstItem="HYH-AQ-u0X" firstAttribute="top" secondItem="Myq-3R-mMG" secondAttribute="bottom" id="5oF-YT-BRW"/>
-                            <constraint firstItem="dUL-Xk-mAh" firstAttribute="top" secondItem="HYH-AQ-u0X" secondAttribute="bottom" id="5qx-HX-qFs"/>
-                            <constraint firstItem="HYH-AQ-u0X" firstAttribute="leading" secondItem="tlf-cJ-cQA" secondAttribute="leading" id="6jr-1J-MFo"/>
-                            <constraint firstItem="dZ9-5R-bh5" firstAttribute="top" secondItem="bHR-Q9-qWL" secondAttribute="bottom" id="75J-jl-RUS"/>
-                            <constraint firstItem="Myq-3R-mMG" firstAttribute="leading" secondItem="tlf-cJ-cQA" secondAttribute="leading" id="HZV-u7-zFA"/>
-                            <constraint firstItem="dZ9-5R-bh5" firstAttribute="leading" secondItem="tlf-cJ-cQA" secondAttribute="leading" id="ZS3-7G-OJC"/>
-                            <constraint firstAttribute="trailing" secondItem="Myq-3R-mMG" secondAttribute="trailing" id="bp8-Eh-YLP"/>
-                            <constraint firstAttribute="trailing" secondItem="dZ9-5R-bh5" secondAttribute="trailing" id="ec0-Cu-dJE"/>
-                            <constraint firstItem="Myq-3R-mMG" firstAttribute="top" secondItem="dZ9-5R-bh5" secondAttribute="bottom" id="rrq-w1-fac"/>
+                            <constraint firstItem="Myq-3R-mMG" firstAttribute="top" secondItem="dZ9-5R-bh5" secondAttribute="bottom" id="3Zn-1Y-ySM"/>
+                            <constraint firstItem="HYH-AQ-u0X" firstAttribute="top" secondItem="Myq-3R-mMG" secondAttribute="bottom" id="5ft-Qg-Zbk"/>
+                            <constraint firstAttribute="trailing" secondItem="dZ9-5R-bh5" secondAttribute="trailing" id="FW5-nu-sZo"/>
+                            <constraint firstItem="Myq-3R-mMG" firstAttribute="leading" secondItem="tlf-cJ-cQA" secondAttribute="leading" id="L9T-Sg-usV"/>
+                            <constraint firstItem="Myq-3R-mMG" firstAttribute="top" secondItem="dZ9-5R-bh5" secondAttribute="bottom" id="LiE-jn-70c"/>
+                            <constraint firstItem="dUL-Xk-mAh" firstAttribute="top" secondItem="HYH-AQ-u0X" secondAttribute="bottom" id="PHd-pO-mvx"/>
+                            <constraint firstItem="dZ9-5R-bh5" firstAttribute="top" secondItem="bHR-Q9-qWL" secondAttribute="bottom" id="ce3-IK-LkE"/>
+                            <constraint firstAttribute="trailing" secondItem="Myq-3R-mMG" secondAttribute="trailing" id="xBP-lo-hxY"/>
+                            <constraint firstItem="dZ9-5R-bh5" firstAttribute="leading" secondItem="tlf-cJ-cQA" secondAttribute="leading" id="ype-Ku-GOK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed Item" id="6Bf-K0-3Ae"/>

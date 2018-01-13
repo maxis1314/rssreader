@@ -52,7 +52,9 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
 
         bannerView.adUnitID = adarray[randomIndex]
         bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+        var gadRequest = GADRequest()
+        gadRequest.testDevices = ["327e0884a77ba46e5c4fdfc9fb7c1a248ccb9080"]
+        bannerView.load(gadRequest)
         bannerView.delegate = self
         addBannerViewToView(bannerView)
     }
