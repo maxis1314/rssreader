@@ -12,7 +12,7 @@ import UIKit
 class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearchResultsUpdating {
     
     var searchController: UISearchController!    
-    var myFeed = [Feed]()
+    var myFeed = SafeArray<Feed>()//[Feed]()
     var feedImgs: [AnyObject] = []
     var url: URL!
     var refresher: UIRefreshControl!    
@@ -74,6 +74,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         
         
         myFeed.removeAll()
+        tableView.reloadData()
         
         eagleList = eagle_list()
 
@@ -90,21 +91,16 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
                     self.refresher.attributedTitle = NSAttributedString(string: "\(self.i+1)/\(count)")
                     self.i = self.i+1
                     self.tableView.reloadData()
-                    self.checkFinished()
+                    if self.i == self.eagleList.count{
+                        self.refresher.endRefreshing()
+                    }
                 }
             }
             
             
         }
-        
 
         print(eagle_list())
-    }
-    
-    func checkFinished(){
-        if self.i == eagleList.count{
-            refresher.endRefreshing()
-        }
     }
     
     func loadRss(_ data: URL) {
@@ -125,6 +121,8 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
                     let feed = Feed(title: title, link: link,pubDate:pubDate)
                     self.myFeed.append(feed)
                 }
+            }else{
+                print("fetch rss failed")
             }
             
         } catch let error as NSError {
@@ -146,7 +144,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             if searchController.isActive {
                 feed=filteredFeed[indexPath.row]
             }else{
-                feed=myFeed[indexPath.row]
+                feed=myFeed.elementAt(at: indexPath.row)!
             }
             
             // Instance of our feedpageviewcontrolelr
@@ -179,7 +177,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             feed=filteredFeed[indexPath.row]
         }else{
             if indexPath.row < myFeed.count{
-                feed=myFeed[indexPath.row]
+                feed=myFeed.elementAt(at: indexPath.row)
             }else{
                 feed=myFeed[0]
             }
