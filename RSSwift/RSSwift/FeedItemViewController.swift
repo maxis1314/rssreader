@@ -47,7 +47,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         
         print(selectedFeedURL)        
         
-        let adarray = ["ca-app-pub-7893551134039994/4473079203"]//["ca-app-pub-7893551134039994/2697692057","ca-app-pub-7893551134039994/2839938491","ca-app-pub-7893551134039994/2474651576"]
+        let adarray = ["ca-app-pub-7893551134039994/2697692057","ca-app-pub-7893551134039994/2839938491","ca-app-pub-7893551134039994/2474651576"]
         let randomIndex = Int(arc4random_uniform(UInt32(adarray.count)))
 
         bannerView.adUnitID = adarray[randomIndex]

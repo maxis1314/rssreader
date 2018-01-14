@@ -192,27 +192,28 @@
                                 </constraints>
                             </progressView>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myq-3R-mMG">
-                                <rect key="frame" x="0.0" y="66" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="66" width="375" height="541"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYH-AQ-u0X" customClass="GADBannerView">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYH-AQ-u0X" customClass="GADBannerView">
                                 <rect key="frame" x="0.0" y="592" width="375" height="75"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="oW4-z0-t5i"/>
+                                    <constraint firstAttribute="height" constant="60" id="qsp-rF-PWX"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Myq-3R-mMG" firstAttribute="top" secondItem="dZ9-5R-bh5" secondAttribute="bottom" id="3Zn-1Y-ySM"/>
-                            <constraint firstItem="HYH-AQ-u0X" firstAttribute="top" secondItem="Myq-3R-mMG" secondAttribute="bottom" id="5ft-Qg-Zbk"/>
+                            <constraint firstAttribute="trailing" secondItem="HYH-AQ-u0X" secondAttribute="trailing" id="3NX-bg-6TH"/>
+                            <constraint firstItem="Myq-3R-mMG" firstAttribute="top" secondItem="dZ9-5R-bh5" secondAttribute="bottom" id="DA9-Nt-D6D"/>
                             <constraint firstAttribute="trailing" secondItem="dZ9-5R-bh5" secondAttribute="trailing" id="FW5-nu-sZo"/>
-                            <constraint firstItem="Myq-3R-mMG" firstAttribute="leading" secondItem="tlf-cJ-cQA" secondAttribute="leading" id="L9T-Sg-usV"/>
-                            <constraint firstItem="Myq-3R-mMG" firstAttribute="top" secondItem="dZ9-5R-bh5" secondAttribute="bottom" id="LiE-jn-70c"/>
-                            <constraint firstItem="dUL-Xk-mAh" firstAttribute="top" secondItem="HYH-AQ-u0X" secondAttribute="bottom" id="PHd-pO-mvx"/>
+                            <constraint firstItem="Myq-3R-mMG" firstAttribute="leading" secondItem="tlf-cJ-cQA" secondAttribute="leading" id="NGh-eO-Shk"/>
+                            <constraint firstItem="HYH-AQ-u0X" firstAttribute="top" secondItem="Myq-3R-mMG" secondAttribute="bottom" id="NLm-Ei-b10"/>
+                            <constraint firstItem="HYH-AQ-u0X" firstAttribute="leading" secondItem="tlf-cJ-cQA" secondAttribute="leading" id="TDG-Gj-yTe"/>
                             <constraint firstItem="dZ9-5R-bh5" firstAttribute="top" secondItem="bHR-Q9-qWL" secondAttribute="bottom" id="ce3-IK-LkE"/>
-                            <constraint firstAttribute="trailing" secondItem="Myq-3R-mMG" secondAttribute="trailing" id="xBP-lo-hxY"/>
+                            <constraint firstItem="dUL-Xk-mAh" firstAttribute="top" secondItem="HYH-AQ-u0X" secondAttribute="bottom" id="msS-oY-BFQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Myq-3R-mMG" secondAttribute="trailing" id="soJ-XC-eWi"/>
                             <constraint firstItem="dZ9-5R-bh5" firstAttribute="leading" secondItem="tlf-cJ-cQA" secondAttribute="leading" id="ype-Ku-GOK"/>
                         </constraints>
                     </view>
