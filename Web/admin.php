@@ -1,4 +1,5 @@
 <?php
+exit;
 /*
  PHP Mini MySQL Admin
  (c) 2004-2017 Oleg Savchuk <osalabs@gmail.com> http://osalabs.com

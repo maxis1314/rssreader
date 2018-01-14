@@ -74,7 +74,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         
         
         myFeed.removeAll()
-        //tableView.reloadData()
+        tableView.reloadData()
         
         eagleList = eagle_list()
 
