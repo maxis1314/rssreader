@@ -7,7 +7,7 @@ require("data/dbcenter.php");
  $db = get_db();
  $data = $db->get_list_h("select * from rss");
  
- $rssfeed = '<?xml version="1.0" encoding="utf-8">';
+ $rssfeed = '<?xml version="1.0" encoding="utf-8"?>';
  $rssfeed .= '<rss version="2.0">';
  $rssfeed .= '<channel>';
  $rssfeed .= '<title>My RSS feed</title>';
