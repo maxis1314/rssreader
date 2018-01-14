@@ -7,7 +7,7 @@ table, td, th {
 </style>
 <?php
 require("header.php");
-require("../dbcenter.php");
+require("dbcenter.php");
 $table_name = "rss";
 $dbconfig = get_db_config('jobs');
 require "auto_default.php";
