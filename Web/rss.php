@@ -1,5 +1,7 @@
 <?php
-require("dbcenter.php");
+require("data/MysqlDao.php");
+require("data/dbcenter.php");
+
  header("Content-Type: application/rss+xml; charset=utf-8");  
 
  $db = get_db();

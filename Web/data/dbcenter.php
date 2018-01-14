@@ -5,7 +5,6 @@ define('FINISHED',2);
 define('UNKNOW',3);
 define('ERROR',99);
 
-require("MysqlDAO.php");
 
 function get_db_config($type_name="default"){
 	$db_config = array(
