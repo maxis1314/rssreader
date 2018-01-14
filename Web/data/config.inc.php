@@ -21,7 +21,7 @@
 									'type' => 'mysql',
 									'user' => 'root',
 									'passwd' => '',
-									'dbname' => 'istat',
+									'dbname' => 'eagle',
 									'charset'=> 'utf8'
 									);
 							
