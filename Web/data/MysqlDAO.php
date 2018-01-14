@@ -8,12 +8,6 @@ function escapeSqlParam2($text){
     return "'" . $text . "'";
 }
 
-function get_private_db($db_name){
-    $db_host = "localhost";
-    $db_user = "wuser";
-    $db_pass = "sichang0923";
-    return new MysqlDAO($db_host, $db_user, $db_pass, $db_name);     
-}
 
 
 class MysqlDAO {
