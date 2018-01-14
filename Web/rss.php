@@ -1,12 +1,12 @@
 <?php
- header("Content-Type: application/rss+xml; charset=utf8");  
+ header("Content-Type: application/rss+xml; charset=utf-8");  
  DEFINE ('DB_USER', 'root'); 
  DEFINE ('DB_PASSWORD', ''); 
  DEFINE ('DB_HOST', '127.0.0.1'); 
  DEFINE ('DB_NAME', 'eagle');  
  DEFINE ('TABLE_NAME', 'rss');
  
- $rssfeed = '<?xml version="1.0" encoding="utf8">';
+ $rssfeed = '<?xml version="1.0" encoding="utf-8">';
  $rssfeed .= '<rss version="2.0">';
  $rssfeed .= '<channel>';
  $rssfeed .= '<title>My RSS feed</title>';
