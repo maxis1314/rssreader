@@ -6,6 +6,7 @@ table, td, th {
  
 </style>
 <?php
+require("auth_simple.php");
 require("header.php");
 require("dbcenter.php");
 $table_name = "rss";
