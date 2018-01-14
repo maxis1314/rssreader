@@ -13,7 +13,7 @@ function get_db_config($type_name="default"){
 	return $db_config[$type_name];
 }
 
-function get_db($type_name){
+function get_db($type_name="default"){
     $db = get_db_config($type_name);
     $db_host = $db[0];
     $db_user = $db[1];
