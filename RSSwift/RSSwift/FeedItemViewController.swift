@@ -34,20 +34,23 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         selectedFeedURL =  selectedFeedURL?.replacingOccurrences(of: " ", with:"")
         selectedFeedURL =  selectedFeedURL?.replacingOccurrences(of: "\n", with:"")
         
-        let timeInterval = Date().timeIntervalSince1970
+        let timeInterval = Int(Date().timeIntervalSince1970)
         let md5str = MD5(string:"AcpxriavIkV6ejap2W58fLWUfUsaHXpI\(timeInterval)")
         if selectedFeedURL?.range(of: "eagle") != nil{
             if selectedFeedURL?.range(of: "?") != nil{
-                selectedFeedURL = "\(selectedFeedURL)&eagle_unixtime=\(timeInterval)&eagle_sign=\(md5str)"
+                selectedFeedURL = "\(selectedFeedURL!)&eagle_unixtime=\(timeInterval)&eagle_sign=\(md5str)"
             }else{
-                selectedFeedURL = "\(selectedFeedURL)?eagle_unixtime=\(timeInterval)&eagle_sign=\(md5str)"
+                selectedFeedURL = "\(selectedFeedURL!)?eagle_unixtime=\(timeInterval)&eagle_sign=\(md5str)"
             }
         }else{
             print("no eagle")
         }
+        
+        print(selectedFeedURL)
+        
         myWebView.loadRequest(URLRequest(url: URL(string: selectedFeedURL! as String)!))
         
-        print(selectedFeedURL)        
+        
         
         let adarray = ["ca-app-pub-7893551134039994/2697692057","ca-app-pub-7893551134039994/2839938491","ca-app-pub-7893551134039994/2474651576"]
         let randomIndex = Int(arc4random_uniform(UInt32(adarray.count)))

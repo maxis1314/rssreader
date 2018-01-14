@@ -76,7 +76,7 @@ let md5Hex =  md5Data.map { String(format: "%02hhx", $0) }.joined()
 print("md5Hex: \(md5Hex)")
 let md5Base64 = md5Data.base64EncodedString()
 print("md5Base64: \(md5Base64)")*/
-func MD5(string: String) -> Data {
+func MD5(string: String) -> String {
     let messageData = string.data(using:.utf8)!
     var digestData = Data(count: Int(CC_MD5_DIGEST_LENGTH))
 
@@ -86,7 +86,7 @@ func MD5(string: String) -> Data {
         }
     }
 
-    return digestData
+    return digestData.map { String(format: "%02hhx", $0) }.joined()
 }
 
 
