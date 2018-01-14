@@ -6,7 +6,7 @@
  DEFINE ('DB_NAME', 'eagle');  
  DEFINE ('TABLE_NAME', 'rss');
  
- $rssfeed = '<?xml version="1.0" encoding="ISO-8859-1"?>';
+ $rssfeed = '<?xml version="1.0" encoding="utf8">';
  $rssfeed .= '<rss version="2.0">';
  $rssfeed .= '<channel>';
  $rssfeed .= '<title>My RSS feed</title>';
