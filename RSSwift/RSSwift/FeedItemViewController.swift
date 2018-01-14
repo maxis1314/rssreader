@@ -42,6 +42,8 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
             }else{
                 selectedFeedURL = "\(selectedFeedURL)?eagle_unixtime=\(timeInterval)&eagle_sign=\(md5str)"
             }
+        }else{
+            print("no eagle")
         }
         myWebView.loadRequest(URLRequest(url: URL(string: selectedFeedURL! as String)!))
         

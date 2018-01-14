@@ -6,7 +6,7 @@ function check_login2($name,$pass){
    if(isset($_COOKIE['gaga456']) || $inputpass){
 	if(isset($_COOKIE['gaga456']) && $_COOKIE['gaga456'] == $passmd5){
 		
-	}else if($inputpass == "eagle"){
+	}else if($inputpass == $pass){
                 setcookie("gaga456", $passmd5, time()+3600*24*30, "/");
 	}else{
 		echo "pls login";
@@ -19,4 +19,4 @@ function check_login2($name,$pass){
    }
 }
 
-//check_login2("admin","sichang0923");
+check_login2("admin","eagle");
