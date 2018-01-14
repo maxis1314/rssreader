@@ -74,7 +74,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         
         
         myFeed.removeAll()
-        tableView.reloadData()
+        //tableView.reloadData()
         
         eagleList = eagle_list()
 
@@ -91,8 +91,9 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
                     DispatchQueue.main.async {
                         self.refresher.attributedTitle = NSAttributedString(string: "\(self.i+1)/\(count)")
                         self.i = self.i+1
-                        self.tableView.reloadData()
+                        //self.tableView.reloadData()
                         if self.i == self.eagleList.count{
+                            self.tableView.reloadData()
                             self.refresher.endRefreshing()
                         }
                     }
@@ -118,10 +119,11 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             //refact
             if myParser.feeds != nil && myParser.feeds.count > 0{
                 print("fetch rss success")
+                print(myParser.feeds)
                 for one in myParser.feeds{
                     let title = (one as AnyObject).object(forKey: "title") as! String
                     let link = (one as AnyObject).object(forKey: "link") as! String
-                    let pubDate = (one as AnyObject).object(forKey: "pubDate") as! String
+                    let pubDate = ((one as AnyObject).object(forKey: "pubDate") ?? "") as! String
                     let feed = Feed(title: title, link: link,pubDate:pubDate)
                     self.myFeed.append(feed)
                 }

@@ -63,31 +63,45 @@ class XmlParserManager: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
 
         if (elementName as NSString).isEqual(to: "item") {
-            if ftitle != "" {
+            if ftitle != nil {
                 elements.setObject(ftitle, forKey: "title" as NSCopying)
+            }else{
+                elements.setObject("", forKey: "title" as NSCopying)
             }
-            if link != "" {
+            if link != nil{
                 elements.setObject(link, forKey: "link" as NSCopying)
+            }else{
+                elements.setObject("", forKey: "link" as NSCopying)
             }
-            if fdescription != "" {
+            if fdescription != nil {
                 elements.setObject(fdescription, forKey: "description" as NSCopying)
+            }else{
+                elements.setObject("", forKey: "description" as NSCopying)
             }
-            if fdate != "" {
+            if fdate != nil {
                 elements.setObject(fdate, forKey: "pubDate" as NSCopying)
+            }else{
+                elements.setObject("", forKey: "pubDate" as NSCopying)
             }
             feeds.add(elements)
         }
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
+        var string2 =  string.replacingOccurrences(of: " ", with:"")
+        string2 =  string2.replacingOccurrences(of: "\n", with:"")
+
+        
         if element.isEqual(to: "title") {
-            ftitle.append(string)
+            ftitle.append(string2)
         } else if element.isEqual(to: "link") {
-            link.append(string)
+            link.append(string2)
         } else if element.isEqual(to: "description") {
-            fdescription.append(string)
+            fdescription.append(string2)
         } else if element.isEqual(to: "pubDate") {
-            fdate.append(string)
+            fdate.append(string2)
+        } else if element.isEqual(to: "pubdate") {
+            fdate.append(string2)
         }
     }
 }
