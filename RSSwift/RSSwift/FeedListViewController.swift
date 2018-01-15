@@ -98,7 +98,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         i=0
         let count = eagleList.count
         if count > 0{
-            self.refresher.attributedTitle = NSAttributedString(string: "\(self.i+1)/\(count) \(eagleList[0].name)")
+            self.refresher.attributedTitle = NSAttributedString(string: "\(self.i+1)/\(count) \(eagleList[0].name!)")
             for eagle in eagleList{
                 print("\(i)/\(count)")
                 DispatchQueue.global(qos: .default).async {
@@ -107,7 +107,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
                     
                     //操作完成，调用主线程来刷新界面
                     DispatchQueue.main.async {
-                        self.refresher.attributedTitle = NSAttributedString(string: "\(self.i+1)/\(count) \(eagle.name)")
+                        self.refresher.attributedTitle = NSAttributedString(string: "\(self.i+1)/\(count) \(eagle.name!)")
                         self.i = self.i+1
                         //self.tableView.reloadData()
                         if self.i == self.eagleList.count{
