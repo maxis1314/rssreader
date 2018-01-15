@@ -24,7 +24,14 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     
     func copyFeed(){
         myFeed.removeAll()
-        for object in myFeedSafe {
+        /*for object in myFeedSafe {
+            let title = object.title
+            let link = object.link
+            let pubDate = object.pubDate
+            let feed = Feed(title: title, link: link,pubDate:pubDate)
+            myFeed.append(feed)
+        }*/
+        myFeedSafe.forEach { object in
             let title = object.title
             let link = object.link
             let pubDate = object.pubDate
