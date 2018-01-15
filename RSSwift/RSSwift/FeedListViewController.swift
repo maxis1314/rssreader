@@ -12,7 +12,8 @@ import UIKit
 class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearchResultsUpdating {
     
     var searchController: UISearchController!    
-    var myFeed = SafeArray<Feed>()//[Feed]()
+    var myFeedSafe = SafeArray<Feed>()//[Feed]()
+    var myFeed = [Feed]()
     var feedImgs: [AnyObject] = []
     var url: URL!
     var refresher: UIRefreshControl!    
@@ -21,7 +22,16 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     var i: Int = 0
     var eagleList = [EagleList]()
     
-    
+    func copyFeed(){
+        myFeed.removeAll()
+        for object in myFeedSafe {
+            let title = object.title
+            let link = object.link
+            let pubDate = object.pubDate
+            let feed = Feed(title: title, link: link,pubDate:pubDate)
+            myFeed.append(feed)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -73,14 +83,15 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         url = URL(string: "https://www3.nhk.or.jp/rss/news/cat6.xml")!
         
         
-        myFeed.removeAll()
-        tableView.reloadData()
+        myFeedSafe.removeAll()
+        //tableView.reloadData()
         
         eagleList = eagle_list()
 
         i=0
         let count = eagleList.count
         if count > 0{
+            self.refresher.attributedTitle = NSAttributedString(string: "\(self.i+1)/\(count)")
             for eagle in eagleList{
                 print("\(i)/\(count)")
                 DispatchQueue.global(qos: .default).async {
@@ -93,6 +104,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
                         self.i = self.i+1
                         //self.tableView.reloadData()
                         if self.i == self.eagleList.count{
+                            self.copyFeed()
                             self.tableView.reloadData()
                             self.refresher.endRefreshing()
                         }
@@ -125,7 +137,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
                     let link = (one as AnyObject).object(forKey: "link") as! String
                     let pubDate = ((one as AnyObject).object(forKey: "pubDate") ?? "") as! String
                     let feed = Feed(title: title, link: link,pubDate:pubDate)
-                    self.myFeed.append(feed)
+                    self.myFeedSafe.append(feed)
                 }
             }else{
                 print("fetch rss failed")
@@ -150,7 +162,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             if searchController.isActive {
                 feed=filteredFeed[indexPath.row]
             }else{
-                feed=myFeed.elementAt(at: indexPath.row)!
+                feed=myFeed[indexPath.row]
             }
             
             // Instance of our feedpageviewcontrolelr
@@ -183,7 +195,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             feed=filteredFeed[indexPath.row]
         }else{
             if indexPath.row < myFeed.count{
-                feed=myFeed.elementAt(at: indexPath.row)
+                feed=myFeed[indexPath.row]
             }else{
                 feed=myFeed[0]
             }
