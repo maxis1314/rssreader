@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleVersion</key>
-	<string>1.1.6</string>
+	<string>1.2.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -27,6 +27,24 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>NO</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>NO</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>NO</string>
+	<key>NSCameraUsageDescription</key>
+	<string>NO</string>
+	<key>NSContactsUsageDescription</key>
+	<string>NO</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>NO</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>NO</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>NO</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>NO</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
