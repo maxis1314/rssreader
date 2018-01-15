@@ -24,7 +24,7 @@ class AddEagleViewController: UIViewController {
 
     @IBAction func saveEagle(_ sender: Any) {
         print(1)
-        if nameTxt.text != "" && urlTxt.text != "" {
+        if nameTxt.text != "" || urlTxt.text != "" {
             save_eagle(title:nameTxt.text!,url:urlTxt.text!)
             
             navigationController?.popViewController(animated: true)
