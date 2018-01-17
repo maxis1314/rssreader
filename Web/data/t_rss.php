@@ -10,7 +10,7 @@ require("auth_simple.php");
 require("header.php");
 require("dbcenter.php");
 $table_name = "rss";
-$dbconfig = get_db_config('jobs');
+$dbconfig = get_db_config();
 require "auto_default.php";
 
 
