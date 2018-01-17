@@ -13,7 +13,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     
     var searchController: UISearchController!    
     var myFeedSafe = SafeArray<Feed>()//[Feed]()
-    var myFeed = [Feed]()
+    //var myFeed = [Feed]()
     var feedImgs: [AnyObject] = []
     var url: URL!
     var refresher: UIRefreshControl!    
@@ -23,7 +23,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     var eagleList = [EagleList]()
     
     func copyFeed(){
-        myFeed.removeAll()
+        gdb.myFeed.removeAll()
         /*for object in myFeedSafe {
             let title = object.title
             let link = object.link
@@ -36,7 +36,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             let link = object.link
             let pubDate = object.pubDate
             let feed = Feed(title: title, link: link,pubDate:pubDate)
-            myFeed.append(feed)
+            gdb.myFeed.append(feed)
         }
     }
     
@@ -73,7 +73,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     func updateSearchResults(for searchController: UISearchController) {
         print(searchController.searchBar.text)
         if let searchText = searchController.searchBar.text {
-            filteredFeed=myFeed.filter({$0.title.range(of: searchText) != nil})
+            filteredFeed=gdb.myFeed.filter({$0.title.range(of: searchText) != nil})
             tableView.reloadData()
         }else{
 
@@ -169,13 +169,14 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             if searchController.isActive {
                 feed=filteredFeed[indexPath.row]
             }else{
-                feed=myFeed[indexPath.row]
+                feed=gdb.myFeed[indexPath.row]
             }
             
             // Instance of our feedpageviewcontrolelr
             let fivc: FeedItemViewController = segue.destination as! FeedItemViewController
             fivc.selectedFeedURL = feed.link
             fivc.topTitle = feed.title
+            fivc.indexNow = indexPath.row
         }
     }
     
@@ -188,7 +189,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         if searchController.isActive {
             return filteredFeed.count
         }else{
-            return myFeed.count
+            return gdb.myFeed.count
         }
     }
     
@@ -201,10 +202,10 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         if searchController.isActive{
             feed=filteredFeed[indexPath.row]
         }else{
-            if indexPath.row < myFeed.count{
-                feed=myFeed[indexPath.row]
+            if indexPath.row < gdb.myFeed.count{
+                feed=gdb.myFeed[indexPath.row]
             }else{
-                feed=myFeed[0]
+                feed=gdb.myFeed[0]
             }
         }
         

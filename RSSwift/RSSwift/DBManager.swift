@@ -11,6 +11,12 @@ import UIKit
 import Foundation
 import CoreData
 
+class GDB{
+    var myFeed=[Feed]()
+}
+
+let gdb = GDB()
+
 /// 被管理的数据上下文   初始化的后，必须设置持久化存储助理
 var managedObjectContext: NSManagedObjectContext = {
     

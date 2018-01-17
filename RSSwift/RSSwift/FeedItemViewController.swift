@@ -13,6 +13,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
 
     var selectedFeedURL: String?
     var topTitle: String?
+    var indexNow:Int!
 
     @IBOutlet weak var myWebView: UIWebView!
     
@@ -27,9 +28,22 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = topTitle
-        
         myWebView.delegate = self
+        
+        bannerView.delegate = self
+        bannerView.rootViewController = self
+        addBannerViewToView(bannerView)
+        
+        loadUrl(i:indexNow)
+    }
+    
+    func loadUrl(i:Int){
+        
+        let feed = gdb.myFeed[i]
+        
+        navigationItem.title = feed.title
+        
+        selectedFeedURL = feed.link
         
         selectedFeedURL =  selectedFeedURL?.replacingOccurrences(of: " ", with:"")
         selectedFeedURL =  selectedFeedURL?.replacingOccurrences(of: "\n", with:"")
@@ -54,14 +68,12 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         
         let adarray = ["ca-app-pub-7893551134039994/2697692057","ca-app-pub-7893551134039994/2839938491","ca-app-pub-7893551134039994/2474651576"]
         let randomIndex = Int(arc4random_uniform(UInt32(adarray.count)))
-
         bannerView.adUnitID = adarray[randomIndex]
-        bannerView.rootViewController = self
+
         var gadRequest = GADRequest()
         gadRequest.testDevices = ["327e0884a77ba46e5c4fdfc9fb7c1a248ccb9080"]
         bannerView.load(gadRequest)
-        bannerView.delegate = self
-        addBannerViewToView(bannerView)
+        
     }
     
     func addBannerViewToView(_ bannerView: GADBannerView) {
