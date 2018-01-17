@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require("data/MysqlDAO.php");
 require("data/dbcenter.php");
 
