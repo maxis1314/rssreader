@@ -5,7 +5,7 @@ require("data/dbcenter.php");
 
 //check_sign();
 
-$uid = get("eagle_data");
+$uid = get("uid");
 
  header("Content-Type: application/rss+xml; charset=utf-8");  
 
