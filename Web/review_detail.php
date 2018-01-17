@@ -31,7 +31,7 @@ $id = get("review_id");
 
 <div data-role="page">
   <div data-role="header">
-    <h1><?php echo date("D, d M Y H:i:s O", strtotime($data['pubDate'])); ?></h1>
+    <h1><?php echo date("Y/m/d H:i:s", strtotime($data['pubDate'])); ?></h1>
   </div>
 
   <div data-role="content">
