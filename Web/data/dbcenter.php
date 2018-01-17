@@ -22,10 +22,21 @@ function check_sign(){
 	if((time()-$eagle_unixtime)>3600){
 		exit;
 	}
-	if(md5("AcpxriavIkV6ejap2W58fLWUfUsaHXpI$eagle_unixtime$eagle_data") != $eagle_sign){
+	if(signme("$eagle_unixtime$eagle_data") != $eagle_sign){
 		exit;
 	}
 }
+
+function get_url(){
+	$url='http://'.$_SERVER['SERVER_NAME'].$_SERVER["REQUEST_URI"]; 
+	return dirname($url);
+}
+
+function signme($str){
+	return md5("AcpxriavIkV6ejap2W58fLWUfUsaHXpI$str");
+}
+
+
 
 function get_db_config($type_name="default"){
 	$db_config = array(
