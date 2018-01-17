@@ -195,8 +195,8 @@
                                 <rect key="frame" x="0.0" y="66" width="375" height="541"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYH-AQ-u0X" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="592" width="375" height="75"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HYH-AQ-u0X" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="qsp-rF-PWX"/>
