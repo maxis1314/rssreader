@@ -38,6 +38,7 @@ if ($rs = $rss->get($rssurl)) {
             'link'=>$one["link"],
             'description'=>$one["description"],
             'pubDate'=>$one["pubDate"],
+            'uid'=>'anna',
         ));
     }
 }else {
