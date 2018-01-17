@@ -5,6 +5,25 @@ define('FINISHED',2);
 define('UNKNOW',3);
 define('ERROR',99);
 
+function get($key){
+	if(isset($_POST[$key])){
+		return $_POST[$key];
+	}else if (isset($_GET[$key])){
+		return $_GET[$key];
+	}else{
+		return null;
+	}
+}
+
+function check_sign(){
+	$eagle_unixtime = get("eagle_unixtime");
+	$eagle_sign = get("eagle_sign");
+	if(md5("AcpxriavIkV6ejap2W58fLWUfUsaHXpI$eagle_unixtime" == $eagle_sign){
+		return true;
+	}else{
+		return false;
+	}
+}
 
 function get_db_config($type_name="default"){
 	$db_config = array(
