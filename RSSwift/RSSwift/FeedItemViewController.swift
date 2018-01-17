@@ -15,6 +15,20 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     var topTitle: String?
     var indexNow:Int!
 
+    @IBAction func leftBtnClicked(_ sender: UIButton) {
+        if indexNow > 0{
+            indexNow = indexNow - 1
+            loadUrl(i:indexNow)
+        }
+    }
+    
+    @IBAction func rightBtnClicked(_ sender: Any) {
+        if indexNow < gdb.myFeed.count - 1  {
+            indexNow = indexNow + 1
+            loadUrl(i:indexNow)
+        }
+    }
+    
     @IBOutlet weak var myWebView: UIWebView!
     
     //Add this progress view via Interface Builder (IBOutlet) or programatically
@@ -35,6 +49,17 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         addBannerViewToView(bannerView)
         
         loadUrl(i:indexNow)
+        refreshAd()
+    }
+    
+    func refreshAd(){
+        let adarray = ["ca-app-pub-7893551134039994/2697692057","ca-app-pub-7893551134039994/2839938491","ca-app-pub-7893551134039994/2474651576"]
+        let randomIndex = Int(arc4random_uniform(UInt32(adarray.count)))
+        bannerView.adUnitID = adarray[randomIndex]
+        
+        var gadRequest = GADRequest()
+        gadRequest.testDevices = ["327e0884a77ba46e5c4fdfc9fb7c1a248ccb9080"]
+        bannerView.load(gadRequest)
     }
     
     func loadUrl(i:Int){
@@ -66,13 +91,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         
         
         
-        let adarray = ["ca-app-pub-7893551134039994/2697692057","ca-app-pub-7893551134039994/2839938491","ca-app-pub-7893551134039994/2474651576"]
-        let randomIndex = Int(arc4random_uniform(UInt32(adarray.count)))
-        bannerView.adUnitID = adarray[randomIndex]
-
-        var gadRequest = GADRequest()
-        gadRequest.testDevices = ["327e0884a77ba46e5c4fdfc9fb7c1a248ccb9080"]
-        bannerView.load(gadRequest)
+        
         
     }
     
@@ -101,6 +120,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     
     func webViewDidStartLoad(_ webView: UIWebView) {
         print("in webViewDidStartLoad")
+        self.myProgressView.isHidden = false
         self.myProgressView.progress = 0.0
         self.theBool = false
         self.myTimer = Timer.scheduledTimer(timeInterval:0.01667, target: self, selector: #selector(FeedItemViewController.timerCallback), userInfo: nil, repeats: true)
@@ -112,6 +132,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     }
     
     func timerCallback() {
+        print("in timerCallback\(self.myProgressView.progress)")
         if self.theBool! {
             if self.myProgressView.progress >= 1 {
                 self.myProgressView.isHidden = true
