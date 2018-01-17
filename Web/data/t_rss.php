@@ -6,6 +6,7 @@ table, td, th {
  
 </style>
 <?php
+error_reporting(0);
 require("auth_simple.php");
 require("header.php");
 require("dbcenter.php");

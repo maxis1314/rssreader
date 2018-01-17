@@ -3,13 +3,14 @@ error_reporting(0);
 require("data/MysqlDAO.php");
 require("data/dbcenter.php");
 
-check_sign();
+//check_sign();
 
+$uid = get("eagle_data");
 
  header("Content-Type: application/rss+xml; charset=utf-8");  
 
  $db = get_db();
- $data = $db->get_list_h("select * from rss where ");
+ $data = $db->get_list_h("select * from rss where uid='$uid'");
  
  $rssfeed = '<?xml version="1.0" encoding="utf-8"?>';
  $rssfeed .= '<rss version="2.0">';
