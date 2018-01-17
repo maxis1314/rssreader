@@ -9,7 +9,7 @@ check_sign();
  header("Content-Type: application/rss+xml; charset=utf-8");  
 
  $db = get_db();
- $data = $db->get_list_h("select * from rss");
+ $data = $db->get_list_h("select * from rss where ");
  
  $rssfeed = '<?xml version="1.0" encoding="utf-8"?>';
  $rssfeed .= '<rss version="2.0">';

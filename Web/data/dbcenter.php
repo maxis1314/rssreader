@@ -11,14 +11,18 @@ function get($key){
 	}else if (isset($_GET[$key])){
 		return $_GET[$key];
 	}else{
-		return null;
+		return "";
 	}
 }
 
 function check_sign(){
 	$eagle_unixtime = get("eagle_unixtime");
 	$eagle_sign = get("eagle_sign");
-	if(md5("AcpxriavIkV6ejap2W58fLWUfUsaHXpI$eagle_unixtime") != $eagle_sign){
+	$eagle_data = get("eagle_data");
+	if((time()-$eagle_unixtime)>3600){
+		exit;
+	}
+	if(md5("AcpxriavIkV6ejap2W58fLWUfUsaHXpI$eagle_unixtime$eagle_data") != $eagle_sign){
 		exit;
 	}
 }
