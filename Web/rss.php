@@ -3,6 +3,9 @@ error_reporting(0);
 require("data/MysqlDAO.php");
 require("data/dbcenter.php");
 
+check_sign();
+
+
  header("Content-Type: application/rss+xml; charset=utf-8");  
 
  $db = get_db();

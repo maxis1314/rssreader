@@ -18,10 +18,8 @@ function get($key){
 function check_sign(){
 	$eagle_unixtime = get("eagle_unixtime");
 	$eagle_sign = get("eagle_sign");
-	if(md5("AcpxriavIkV6ejap2W58fLWUfUsaHXpI$eagle_unixtime" == $eagle_sign){
-		return true;
-	}else{
-		return false;
+	if(md5("AcpxriavIkV6ejap2W58fLWUfUsaHXpI$eagle_unixtime") != $eagle_sign){
+		exit;
 	}
 }
 
