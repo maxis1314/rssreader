@@ -19,6 +19,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         if indexNow > 0{
             indexNow = indexNow - 1
             loadUrl(i:indexNow)
+            refreshAd()
         }
     }
     
@@ -26,6 +27,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         if indexNow < gdb.myFeed.count - 1  {
             indexNow = indexNow + 1
             loadUrl(i:indexNow)
+            refreshAd()
         }
     }
     
