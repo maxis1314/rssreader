@@ -18,17 +18,21 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     @IBAction func leftBtnClicked(_ sender: UIButton) {
         if indexNow > 0{
             indexNow = indexNow - 1
-            loadUrl(i:indexNow)
-            refreshAd()
+        }else{
+            indexNow = gdb.myFeed.count-1
         }
+        loadUrl(i:indexNow)
+        refreshAd()
     }
     
     @IBAction func rightBtnClicked(_ sender: Any) {
         if indexNow < gdb.myFeed.count - 1  {
             indexNow = indexNow + 1
-            loadUrl(i:indexNow)
-            refreshAd()
+        }else{
+            indexNow = 0
         }
+        loadUrl(i:indexNow)
+        refreshAd()
     }
     
     @IBOutlet weak var myWebView: UIWebView!

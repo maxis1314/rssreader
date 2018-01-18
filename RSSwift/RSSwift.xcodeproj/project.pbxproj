@@ -25,6 +25,7 @@
 		C2703F042007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */; };
 		C2703F062007C0B400E58BD4 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F052007C0B400E58BD4 /* DBManager.swift */; };
 		C2D696BB20050FE800B4B7DE /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D696BA20050FE800B4B7DE /* Feed.swift */; };
+		C2ED39DA2010D67600068BA1 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = C2ED39D92010D67500068BA1 /* test.json */; };
 		CE891658291BBEF1AA006263 /* Pods_Rsswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAF58356D6AB6ED582EC762 /* Pods_Rsswift.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		C2703F052007C0B400E58BD4 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		C2703F072007C2A300E58BD4 /* EagleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EagleListViewController.swift; path = ../RSSwift/EagleListViewController.swift; sourceTree = "<group>"; };
 		C2D696BA20050FE800B4B7DE /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		C2ED39D92010D67500068BA1 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test.json; path = RSSwift/test.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		703266431DDF6E3D006CC1B5 /* Rsswift */ = {
 			isa = PBXGroup;
 			children = (
+				C2ED39D82010D63300068BA1 /* DATA */,
 				C202E60E2008FF0B0016AD71 /* Controller */,
 				C202E60A2008EDAA0016AD71 /* OC */,
 				C2703F002007BC2E00E58BD4 /* DB */,
@@ -197,6 +200,14 @@
 				C2D696BA20050FE800B4B7DE /* Feed.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		C2ED39D82010D63300068BA1 /* DATA */ = {
+			isa = PBXGroup;
+			children = (
+				C2ED39D92010D67500068BA1 /* test.json */,
+			);
+			name = DATA;
 			sourceTree = "<group>";
 		};
 		E60A9374F15EDB3B62C722AA /* Frameworks */ = {
@@ -329,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				703266521DDF6E3D006CC1B5 /* LaunchScreen.storyboard in Resources */,
+				C2ED39DA2010D67600068BA1 /* test.json in Resources */,
 				7032664F1DDF6E3D006CC1B5 /* Assets.xcassets in Resources */,
 				7032664A1DDF6E3D006CC1B5 /* Main.storyboard in Resources */,
 			);

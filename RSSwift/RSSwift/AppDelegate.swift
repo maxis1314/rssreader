@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(eagle_list())
         
+        print(parse_json(file:"test"))
+        
         return true
     }
 
