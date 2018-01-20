@@ -33,7 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(eagle_list())
         
-        print(parse_json(file:"test"))
+        print(read_from_file(file:"test"))
+        
+        save_to_file(file:"test2", text:"aaaa")
         
         return true
     }

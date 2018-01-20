@@ -48,6 +48,8 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        
         myWebView.delegate = self
         
         bannerView.delegate = self
@@ -138,7 +140,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     }
     
     func timerCallback() {
-        print("in timerCallback\(self.myProgressView.progress)")
+        //print("in timerCallback\(self.myProgressView.progress)")
         if self.theBool! {
             if self.myProgressView.progress >= 1 {
                 self.myProgressView.isHidden = true
@@ -186,6 +188,14 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     /// the App Store), backgrounding the current app.
     func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
         print("adViewWillLeaveApplication")
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showItem" {
+            let item: ItemViewController = segue.destination as! ItemViewController
+            item.indexNow = indexNow
+        }
     }
 
 }

@@ -35,7 +35,8 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             let title = object.title
             let link = object.link
             let pubDate = object.pubDate
-            let feed = Feed(title: title, link: link,pubDate:pubDate)
+            let description = object.description
+            let feed = Feed(title: title, link: link,pubDate:pubDate, description:description)
             gdb.myFeed.append(feed)
         }
     }
@@ -143,7 +144,8 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
                     let title = (one as AnyObject).object(forKey: "title") as! String
                     let link = (one as AnyObject).object(forKey: "link") as! String
                     let pubDate = ((one as AnyObject).object(forKey: "pubDate") ?? "") as! String
-                    let feed = Feed(title: title, link: link,pubDate:pubDate)
+                    let description = ((one as AnyObject).object(forKey: "description") ?? "") as! String
+                    let feed = Feed(title: title, link: link,pubDate:pubDate,description:description)
                     self.myFeedSafe.append(feed)
                 }
             }else{

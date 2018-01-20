@@ -399,7 +399,7 @@ public extension SafeArray where Element: Equatable {
 
 
 //json
-func parse_json(file:String){
+func read_from_file(file:String) -> String{
     // File location
     let fileURLProject = Bundle.main.path(forResource: file, ofType: "json")
     // Read from the file
@@ -410,7 +410,7 @@ func parse_json(file:String){
         print("Failed reading from URL: \(file), Error: " + error.localizedDescription)
     }
     
-    print(readStringProject)
+    return readStringProject
 }
 
 func save_to_file(file:String, text:String){
@@ -425,16 +425,23 @@ func save_to_file(file:String, text:String){
         do {
             try text.write(to: fileURL, atomically: false, encoding: .utf8)
         }
-        catch {/* error handling here */}
+        catch let error as NSError {
+            print("Failed save to URL: \(file), Error: " + error.localizedDescription)
+        }
+        
 
         //reading
         do {
             let text2 = try String(contentsOf: fileURL, encoding: .utf8)
         }
-        catch {/* error handling here */}
+        catch let error as NSError {
+            print("Failed save to URL: \(file), Error: " + error.localizedDescription)
+        }
+        
+    }else{
+        print("no dir")
     }
 }
-func read_from_file(file:String){
-}
+
 
 

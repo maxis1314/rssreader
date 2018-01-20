@@ -17,6 +17,7 @@
 		703266761DDF705D006CC1B5 /* XmlParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703266751DDF705D006CC1B5 /* XmlParserManager.swift */; };
 		703266781DDF709F006CC1B5 /* FeedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703266771DDF709F006CC1B5 /* FeedListViewController.swift */; };
 		7032667A1DDF7131006CC1B5 /* FeedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703266791DDF7131006CC1B5 /* FeedItemViewController.swift */; };
+		C2016123201384C70041FF1E /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2016122201384C70041FF1E /* ItemViewController.swift */; };
 		C202E60D2008EDF80016AD71 /* Rsswift-Bridging-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = C202E60C2008EDF80016AD71 /* Rsswift-Bridging-Header.m */; };
 		C202E6102008FF450016AD71 /* AddEagleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C202E60F2008FF440016AD71 /* AddEagleViewController.swift */; };
 		C202E611200904E50016AD71 /* EagleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F072007C2A300E58BD4 /* EagleListViewController.swift */; };
@@ -66,6 +67,7 @@
 		703266771DDF709F006CC1B5 /* FeedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListViewController.swift; sourceTree = "<group>"; };
 		703266791DDF7131006CC1B5 /* FeedItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemViewController.swift; sourceTree = "<group>"; };
 		7E35AE8AC4D48A3B5EFB9E70 /* Pods-Rsswift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rsswift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rsswift/Pods-Rsswift.release.xcconfig"; sourceTree = "<group>"; };
+		C2016122201384C70041FF1E /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemViewController.swift; path = RSSwift/ItemViewController.swift; sourceTree = SOURCE_ROOT; };
 		C202E60B2008EDF80016AD71 /* Rsswift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rsswift-Bridging-Header.h"; sourceTree = "<group>"; };
 		C202E60C2008EDF80016AD71 /* Rsswift-Bridging-Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Rsswift-Bridging-Header.m"; path = "RSSwift/Rsswift-Bridging-Header.m"; sourceTree = SOURCE_ROOT; };
 		C202E60F2008FF440016AD71 /* AddEagleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEagleViewController.swift; path = RSSwift/AddEagleViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -180,6 +182,7 @@
 				703266771DDF709F006CC1B5 /* FeedListViewController.swift */,
 				703266791DDF7131006CC1B5 /* FeedItemViewController.swift */,
 				C202E60F2008FF440016AD71 /* AddEagleViewController.swift */,
+				C2016122201384C70041FF1E /* ItemViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				C202E6102008FF450016AD71 /* AddEagleViewController.swift in Sources */,
 				7032667A1DDF7131006CC1B5 /* FeedItemViewController.swift in Sources */,
 				C2703F062007C0B400E58BD4 /* DBManager.swift in Sources */,
+				C2016123201384C70041FF1E /* ItemViewController.swift in Sources */,
 				C202E60D2008EDF80016AD71 /* Rsswift-Bridging-Header.m in Sources */,
 				703266761DDF705D006CC1B5 /* XmlParserManager.swift in Sources */,
 				C2703F042007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift in Sources */,
