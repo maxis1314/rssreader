@@ -43,6 +43,20 @@ class ItemViewController: UIViewController {
         leftBtn.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         rightBtn.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         
+        
+        /*contentTxt.backgroundColor = UIColor(
+            red: CGFloat(199) / 255.0,
+            green: CGFloat(237) / 255.0,
+            blue: CGFloat(204) / 255.0,
+            alpha: CGFloat(1.0)
+        )*/
+        // 字体大小
+        //textView.font = UIFont.systemFont(ofSize: 13)
+        // 设置字体
+        contentTxt.font = UIFont.init(name: "Georgia-Bold", size: 30)
+        //contentTxt.textColor = UIColor.
+ 
+        
         //contentTxt.textContainerInset = UIEdgeInsetsMake(10, 10, 0, 10);//设置页边距
         print(indexNow)
         loadUrl(i:indexNow)
