@@ -238,7 +238,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Item" id="6Bf-K0-3Ae">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="atK-9p-tQE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="atK-9p-tQE">
                             <connections>
                                 <action selector="showRaw:" destination="vKm-98-ODv" id="eK9-nU-dlf"/>
                                 <segue destination="Giv-2L-ZnU" kind="show" identifier="showItem" id="3mx-lk-YYS"/>
@@ -295,7 +295,7 @@
                                 <rect key="frame" x="16" y="64" width="343" height="558"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -310,7 +310,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="xFm-jq-7EW" secondAttribute="trailing" id="v3t-uw-VsI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2TY-a3-Vxp"/>
+                    <navigationItem key="navigationItem" id="2TY-a3-Vxp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="NHR-0m-yDV">
+                            <connections>
+                                <action selector="shareTextButton:" destination="Giv-2L-ZnU" id="aVx-sW-9p4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="contentTxt" destination="PVN-pN-gWY" id="LGU-02-HKJ"/>
                         <outlet property="leftBtn" destination="J7y-SC-R0g" id="7mL-Ye-KmC"/>
