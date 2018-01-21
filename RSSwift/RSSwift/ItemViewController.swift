@@ -72,7 +72,7 @@ class ItemViewController: UIViewController {
         
         //contentTxt.text = feed.description ?? ""
         
-        let finalStr = "<style>html{font-size: 15px;}</style>\(feed.description)"
+        let finalStr = "<style>html{font-size: 18px;}</style>\(feed.description)"
         contentTxt.attributedText = finalStr.convertHtml()
         
     }
