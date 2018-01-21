@@ -317,7 +317,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7032663C1DDF6E3D006CC1B5 /* Build configuration list for PBXProject "RSSwift" */;
+			buildConfigurationList = 7032663C1DDF6E3D006CC1B5 /* Build configuration list for PBXProject "EasyReader" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -675,7 +675,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7032663C1DDF6E3D006CC1B5 /* Build configuration list for PBXProject "RSSwift" */ = {
+		7032663C1DDF6E3D006CC1B5 /* Build configuration list for PBXProject "EasyReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7032666A1DDF6E3D006CC1B5 /* Debug */,

@@ -17,7 +17,7 @@
                BlueprintIdentifier = "703266401DDF6E3D006CC1B5"
                BuildableName = "Rsswift.app"
                BlueprintName = "Rsswift"
-               ReferencedContainer = "container:RSSwift.xcodeproj">
+               ReferencedContainer = "container:EasyReader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "703266571DDF6E3D006CC1B5"
                BuildableName = "RsswiftTests.xctest"
                BlueprintName = "RsswiftTests"
-               ReferencedContainer = "container:RSSwift.xcodeproj">
+               ReferencedContainer = "container:EasyReader.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "703266621DDF6E3D006CC1B5"
                BuildableName = "RsswiftUITests.xctest"
                BlueprintName = "RsswiftUITests"
-               ReferencedContainer = "container:RSSwift.xcodeproj">
+               ReferencedContainer = "container:EasyReader.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,7 +55,7 @@
             BlueprintIdentifier = "703266401DDF6E3D006CC1B5"
             BuildableName = "Rsswift.app"
             BlueprintName = "Rsswift"
-            ReferencedContainer = "container:RSSwift.xcodeproj">
+            ReferencedContainer = "container:EasyReader.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "703266401DDF6E3D006CC1B5"
             BuildableName = "Rsswift.app"
             BlueprintName = "Rsswift"
-            ReferencedContainer = "container:RSSwift.xcodeproj">
+            ReferencedContainer = "container:EasyReader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,7 +97,7 @@
             BlueprintIdentifier = "703266401DDF6E3D006CC1B5"
             BuildableName = "Rsswift.app"
             BlueprintName = "Rsswift"
-            ReferencedContainer = "container:RSSwift.xcodeproj">
+            ReferencedContainer = "container:EasyReader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
