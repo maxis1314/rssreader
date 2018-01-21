@@ -38,11 +38,8 @@ class ItemViewController: UIViewController {
         
         //contentTxt.text = feed.description ?? ""
         
-        let theAttributedString = try! NSAttributedString(data: feed.description.data(using:String.Encoding.utf8, allowLossyConversion: false)!,
-                                                          options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
-                                                          documentAttributes: nil)
         
-        contentTxt.attributedText = theAttributedString
+        contentTxt.attributedText = feed.description.convertHtml()
         
     }
 
