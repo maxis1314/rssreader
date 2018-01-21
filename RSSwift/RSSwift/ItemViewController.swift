@@ -36,7 +36,13 @@ class ItemViewController: UIViewController {
         
         navigationItem.title = feed.title
         
-        contentTxt.text = feed.description ?? ""
+        //contentTxt.text = feed.description ?? ""
+        
+        let theAttributedString = try! NSAttributedString(data: feed.description.data(using:String.Encoding.utf8, allowLossyConversion: false)!,
+                                                          options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                                                          documentAttributes: nil)
+        
+        contentTxt.attributedText = theAttributedString
         
     }
 

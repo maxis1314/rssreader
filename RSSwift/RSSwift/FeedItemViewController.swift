@@ -11,6 +11,8 @@ import GoogleMobileAds
 
 class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewDelegate {
 
+    @IBOutlet weak var rightBtn: UIButton!
+    @IBOutlet weak var leftBtn: UIButton!
     var selectedFeedURL: String?
     var topTitle: String?
     var indexNow:Int!
@@ -47,6 +49,9 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        leftBtn.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        rightBtn.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
