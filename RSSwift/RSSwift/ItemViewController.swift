@@ -11,8 +11,11 @@ import UIKit
 class ItemViewController: UIViewController {
 
     @IBAction func shareTextButton(_ sender: Any) {
+        
+        let feed = gdb.myFeed[indexNow]
+        
         // text to share
-        let text = "This is some text that I want to share."
+        let text = "\(feed.title) \(feed.description)  \(feed.link)"
         
         // set up activity view controller
         let textToShare = [ text ]
