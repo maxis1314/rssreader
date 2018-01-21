@@ -53,7 +53,8 @@ class ItemViewController: UIViewController {
         // 字体大小
         //textView.font = UIFont.systemFont(ofSize: 13)
         // 设置字体
-        contentTxt.font = UIFont.init(name: "Georgia-Bold", size: 30)
+        //contentTxt.font = UIFont.init(name: "Georgia-Bold", size: 60)
+        
         //contentTxt.textColor = UIColor.
  
         
@@ -71,8 +72,8 @@ class ItemViewController: UIViewController {
         
         //contentTxt.text = feed.description ?? ""
         
-        
-        contentTxt.attributedText = feed.description.convertHtml()
+        let finalStr = "<style>html{font-size: 15px;}</style>\(feed.description)"
+        contentTxt.attributedText = finalStr.convertHtml()
         
     }
 
