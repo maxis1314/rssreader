@@ -29,7 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //save_eagle(title:"b",url:"http://b.com")
         //save_eagle(title:"c",url:"http://c.com")
         
-        
+        //setV(key:"font", value: "23")
+        //print(getV(key: "font"))
         
         print(eagle_list())
         

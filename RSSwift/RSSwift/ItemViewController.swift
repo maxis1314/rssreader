@@ -71,8 +71,13 @@ class ItemViewController: UIViewController {
         navigationItem.title = feed.title
         
         //contentTxt.text = feed.description ?? ""
+        var font = getV(key: "font")!
+        print(font)
+        if font == nil {
+            font = "20"
+        }
         
-        let finalStr = "<style>html{font-size: 18px;}</style>\(feed.description)"
+        let finalStr = "<style>html{font-size: \(font)px;}</style>\(feed.description)"
         contentTxt.attributedText = finalStr.convertHtml()
         
     }
@@ -94,14 +99,6 @@ class ItemViewController: UIViewController {
         }
         loadUrl(i:indexNow)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

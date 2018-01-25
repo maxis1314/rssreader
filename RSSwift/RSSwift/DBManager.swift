@@ -456,3 +456,14 @@ extension String{
     }
 }
 
+
+func getV(key:String) -> String?{
+    if let a = UserDefaults.standard.string(forKey: key){
+        return a
+    }else{
+        return nil
+    }
+}
+func setV(key:String, value:String){
+    UserDefaults.standard.set(value, forKey: key)
+}

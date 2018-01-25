@@ -54,6 +54,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" id="GKp-vD-lsM">
+                        <barButtonItem key="leftBarButtonItem" title="Setting" id="MAh-Nu-yOd">
+                            <connections>
+                                <segue destination="cUg-b3-PVQ" kind="show" id="Kie-XY-cdU"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="Q3p-cY-pRK">
                             <connections>
                                 <segue destination="0D7-Tk-wKY" kind="show" id="cbc-MQ-FjH"/>
@@ -75,6 +80,45 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1292" y="152"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="tZf-zp-FxP">
+            <objects>
+                <viewController id="cUg-b3-PVQ" customClass="SettingViewController" customModule="Rsswift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yo4-qv-NZQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="xJJ-lq-aAZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p8P-17-Wvs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbY-AB-drX">
+                                <rect key="frame" x="166" y="117" width="21" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="1" maxValue="39" translatesAutoresizingMaskIntoConstraints="NO" id="qMR-pe-VOq">
+                                <rect key="frame" x="91" y="184" width="192" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sizeChanged:" destination="cUg-b3-PVQ" eventType="valueChanged" id="CaD-jQ-6OZ"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="zZV-gT-5tX"/>
+                    <connections>
+                        <outlet property="fontLbl" destination="FbY-AB-drX" id="TO6-9z-yom"/>
+                        <outlet property="fontSlider" destination="qMR-pe-VOq" id="gPz-85-NJF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TbX-kI-Sdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2149.5999999999999" y="-945.87706146926541"/>
         </scene>
         <!--Feeds-->
         <scene sceneID="1r9-Oc-Qfl">
