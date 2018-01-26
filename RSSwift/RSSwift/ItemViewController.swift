@@ -31,7 +31,7 @@ class ItemViewController: UIViewController {
     }
     @IBOutlet weak var leftBtn: UIButton!
 
-    @IBOutlet weak var contentTxt: UITextField!
+    @IBOutlet weak var contentTxt: UITextView!
     
     @IBOutlet weak var rightBtn: UIButton!
     
@@ -71,15 +71,15 @@ class ItemViewController: UIViewController {
         navigationItem.title = feed.title
         
         //contentTxt.text = feed.description ?? ""
-        var font = getV(key: "font")!
+        var font = ddStorageGet(key: "font", empty:"20")
         print(font)
-        if font == nil {
-            font = "20"
-        }
+        
+        contentTxt.contentOffset = CGPoint.zero
+        
         
         let finalStr = "<style>html{font-size: \(font)px;}</style>\(feed.description)"
         contentTxt.attributedText = finalStr.convertHtml()
-        
+  
     }
 
     @IBAction func leftBtnClicked(_ sender: Any) {

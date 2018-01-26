@@ -457,13 +457,16 @@ extension String{
 }
 
 
-func getV(key:String) -> String?{
+func ddStorageGet(key:String, empty:String) -> String{
     if let a = UserDefaults.standard.string(forKey: key){
         return a
     }else{
-        return nil
+        return empty
     }
 }
-func setV(key:String, value:String){
+func ddStorageSet(key:String, value:String){
     UserDefaults.standard.set(value, forKey: key)
+}
+func ddStorageClear(key:String){
+    UserDefaults.standard.removeObject(forKey: key)
 }

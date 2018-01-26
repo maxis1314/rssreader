@@ -16,16 +16,13 @@ class SettingViewController: UIViewController {
     
     @IBAction func sizeChanged(_ sender: UISlider) {
         fontLbl.text = String(Int(sender.value))
-        setV(key:"font", value:fontLbl.text!)
-        print(getV(key: "font"))
+        ddStorageSet(key:"font", value:fontLbl.text!)
+        print(ddStorageGet(key: "font", empty: "20"))
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        var font = getV(key: "font")!
-        print(font)
-        if font == nil {
-            font = "20"
-        }
+        var font = ddStorageGet(key: "font", empty:"20")
+        print(font)        
         fontLbl.text = font
         fontSlider.value = Float(font)!
         
