@@ -100,9 +100,20 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         
         print(selectedFeedURL)
         
-        myWebView.loadRequest(URLRequest(url: URL(string: selectedFeedURL! as String)!))
+        let openLinkMode = ddStorageGet(key: "openFeedLink", empty: "1")
         
-        
+        if openLinkMode == "1" {
+            myWebView.loadRequest(URLRequest(url: URL(string: selectedFeedURL! as String)!))
+        }else{
+            
+            var font = ddStorageGet(key: "font", empty:"20")
+            print(font)
+
+            let finalStr = "<style>html{font-size: \(font)px;}</style>\(feed.description)"
+            
+            myWebView.scrollView.scrollsToTop = true
+            myWebView.loadHTMLString(finalStr, baseURL: nil)
+        }
         
         
         

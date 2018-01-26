@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //setV(key:"font", value: "23")
         //print(getV(key: "font"))
-        ddStorageClear(key: "font")
+        //ddStorageClear(key: "font")
         
         print(eagle_list())
         
