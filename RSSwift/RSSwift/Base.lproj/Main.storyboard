@@ -54,7 +54,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" id="GKp-vD-lsM">
-                        <barButtonItem key="leftBarButtonItem" image="settings" id="MAh-Nu-yOd">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="MAh-Nu-yOd">
                             <connections>
                                 <segue destination="cUg-b3-PVQ" kind="show" id="Kie-XY-cdU"/>
                             </connections>
@@ -177,7 +177,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dch-6A-tAh" id="KHS-UF-1HN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -439,6 +439,5 @@
         <image name="left3" width="640" height="640"/>
         <image name="right" width="512" height="512"/>
         <image name="right3" width="640" height="640"/>
-        <image name="settings" width="100" height="100"/>
     </resources>
 </document>

@@ -42,7 +42,14 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        
+        
+        let defaultImage = UIImage(named: "settings")?
+            .scaleTo(CGSize(width: 40, height: 40))
+        
+        self.navigationItem.leftBarButtonItem?.image = defaultImage
+        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         navigationItem.title = "Feed List"
         
