@@ -84,8 +84,9 @@ class DBEagle: DDStorage {
                 #else
                     //0有对象时
                     for info:EagleList in temp as![EagleList] {
-                        info.name = "wmm"
-                    }
+                        info.name = title
+                        info.url = url
+                        managedObjectContext.save(info)                    }
                 #endif
             }catch{
                 /// 失败
