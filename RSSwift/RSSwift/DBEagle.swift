@@ -86,7 +86,8 @@ class DBEagle: DDStorage {
                     for info:EagleList in temp as![EagleList] {
                         info.name = title
                         info.url = url
-                        managedObjectContext.save(info)                    }
+                        //managedObjectContext.save(info)                    
+                    }
                 #endif
             }catch{
                 /// 失败
@@ -131,6 +132,20 @@ class DBEagle: DDStorage {
         }
         ///删除成功后再次保存到本地
         saveContext()
+    }
+    
+    
+    func deleteAll() {
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "EagleList")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try managedObjectContext.execute(deleteRequest)
+            try managedObjectContext.save()
+        } catch {
+            print ("There was an error")
+        }
     }
     
 

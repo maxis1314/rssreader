@@ -27,6 +27,9 @@
 		C2703F062007C0B400E58BD4 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F052007C0B400E58BD4 /* DBManager.swift */; };
 		C2CAC46C201CB8C700F877D2 /* DDStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC46B201CB8C700F877D2 /* DDStorage.swift */; };
 		C2CAC46E201CBC4600F877D2 /* DBEagle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC46D201CBC4600F877D2 /* DBEagle.swift */; };
+		C2CAC478201CC18E00F877D2 /* feeddb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC476201CC18E00F877D2 /* feeddb.xcdatamodeld */; };
+		C2CAC47B201CC1CA00F877D2 /* EagleFeed+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC479201CC1CA00F877D2 /* EagleFeed+CoreDataClass.swift */; };
+		C2CAC47C201CC1CA00F877D2 /* EagleFeed+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC47A201CC1CA00F877D2 /* EagleFeed+CoreDataProperties.swift */; };
 		C2D696BB20050FE800B4B7DE /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D696BA20050FE800B4B7DE /* Feed.swift */; };
 		C2E3778E201A3A0100900803 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E3778D201A3A0100900803 /* SettingViewController.swift */; };
 		C2ED39DA2010D67600068BA1 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = C2ED39D92010D67500068BA1 /* test.json */; };
@@ -81,6 +84,9 @@
 		C2703F072007C2A300E58BD4 /* EagleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EagleListViewController.swift; path = ../RSSwift/EagleListViewController.swift; sourceTree = "<group>"; };
 		C2CAC46B201CB8C700F877D2 /* DDStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDStorage.swift; path = RSSwift/DDStorage.swift; sourceTree = SOURCE_ROOT; };
 		C2CAC46D201CBC4600F877D2 /* DBEagle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBEagle.swift; path = RSSwift/DBEagle.swift; sourceTree = SOURCE_ROOT; };
+		C2CAC477201CC18E00F877D2 /* feeddb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = feeddb.xcdatamodel; sourceTree = "<group>"; };
+		C2CAC479201CC1CA00F877D2 /* EagleFeed+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EagleFeed+CoreDataClass.swift"; path = "RSSwift/EagleFeed+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		C2CAC47A201CC1CA00F877D2 /* EagleFeed+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EagleFeed+CoreDataProperties.swift"; path = "RSSwift/EagleFeed+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C2D696BA20050FE800B4B7DE /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		C2E3778D201A3A0100900803 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = RSSwift/SettingViewController.swift; sourceTree = SOURCE_ROOT; };
 		C2ED39D92010D67500068BA1 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test.json; path = RSSwift/test.json; sourceTree = SOURCE_ROOT; };
@@ -115,6 +121,7 @@
 		703266381DDF6E3D006CC1B5 = {
 			isa = PBXGroup;
 			children = (
+				C2CAC476201CC18E00F877D2 /* feeddb.xcdatamodeld */,
 				C2703EFD2007BC0400E58BD4 /* mydb.xcdatamodeld */,
 				703266431DDF6E3D006CC1B5 /* Rsswift */,
 				7032665B1DDF6E3D006CC1B5 /* RsswiftTests */,
@@ -197,6 +204,8 @@
 		C2703F002007BC2E00E58BD4 /* DB */ = {
 			isa = PBXGroup;
 			children = (
+				C2CAC479201CC1CA00F877D2 /* EagleFeed+CoreDataClass.swift */,
+				C2CAC47A201CC1CA00F877D2 /* EagleFeed+CoreDataProperties.swift */,
 				C2703F012007BC3B00E58BD4 /* EagleList+CoreDataClass.swift */,
 				C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */,
 				C2703F052007C0B400E58BD4 /* DBManager.swift */,
@@ -434,6 +443,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				703266451DDF6E3D006CC1B5 /* AppDelegate.swift in Sources */,
+				C2CAC478201CC18E00F877D2 /* feeddb.xcdatamodeld in Sources */,
+				C2CAC47C201CC1CA00F877D2 /* EagleFeed+CoreDataProperties.swift in Sources */,
 				C2D696BB20050FE800B4B7DE /* Feed.swift in Sources */,
 				703266781DDF709F006CC1B5 /* FeedListViewController.swift in Sources */,
 				C2703EFF2007BC0400E58BD4 /* mydb.xcdatamodeld in Sources */,
@@ -448,6 +459,7 @@
 				703266761DDF705D006CC1B5 /* XmlParserManager.swift in Sources */,
 				C2703F042007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift in Sources */,
 				C202E611200904E50016AD71 /* EagleListViewController.swift in Sources */,
+				C2CAC47B201CC1CA00F877D2 /* EagleFeed+CoreDataClass.swift in Sources */,
 				C2703F032007BC3B00E58BD4 /* EagleList+CoreDataClass.swift in Sources */,
 				7032664D1DDF6E3D006CC1B5 /* Rsswift.xcdatamodeld in Sources */,
 			);
@@ -745,6 +757,16 @@
 			);
 			currentVersion = C2703EFE2007BC0400E58BD4 /* mydb.xcdatamodel */;
 			path = mydb.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		C2CAC476201CC18E00F877D2 /* feeddb.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C2CAC477201CC18E00F877D2 /* feeddb.xcdatamodel */,
+			);
+			currentVersion = C2CAC477201CC18E00F877D2 /* feeddb.xcdatamodel */;
+			path = feeddb.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
