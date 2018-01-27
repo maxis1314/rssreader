@@ -4,13 +4,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="FeedItem" representedClassName="FeedItem" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <elements>
         <element name="EagleList" positionX="-27" positionY="18" width="128" height="75"/>
-        <element name="FeedItem" positionX="-27" positionY="36" width="128" height="90"/>
     </elements>
 </model>
