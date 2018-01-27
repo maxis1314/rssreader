@@ -30,6 +30,7 @@
 		C2CAC478201CC18E00F877D2 /* feeddb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC476201CC18E00F877D2 /* feeddb.xcdatamodeld */; };
 		C2CAC47B201CC1CA00F877D2 /* EagleFeed+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC479201CC1CA00F877D2 /* EagleFeed+CoreDataClass.swift */; };
 		C2CAC47C201CC1CA00F877D2 /* EagleFeed+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC47A201CC1CA00F877D2 /* EagleFeed+CoreDataProperties.swift */; };
+		C2CAC47E201CC36B00F877D2 /* DBFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC47D201CC36B00F877D2 /* DBFeed.swift */; };
 		C2D696BB20050FE800B4B7DE /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D696BA20050FE800B4B7DE /* Feed.swift */; };
 		C2E3778E201A3A0100900803 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E3778D201A3A0100900803 /* SettingViewController.swift */; };
 		C2ED39DA2010D67600068BA1 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = C2ED39D92010D67500068BA1 /* test.json */; };
@@ -87,6 +88,7 @@
 		C2CAC477201CC18E00F877D2 /* feeddb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = feeddb.xcdatamodel; sourceTree = "<group>"; };
 		C2CAC479201CC1CA00F877D2 /* EagleFeed+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EagleFeed+CoreDataClass.swift"; path = "RSSwift/EagleFeed+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		C2CAC47A201CC1CA00F877D2 /* EagleFeed+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EagleFeed+CoreDataProperties.swift"; path = "RSSwift/EagleFeed+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		C2CAC47D201CC36B00F877D2 /* DBFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBFeed.swift; path = RSSwift/DBFeed.swift; sourceTree = SOURCE_ROOT; };
 		C2D696BA20050FE800B4B7DE /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		C2E3778D201A3A0100900803 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = RSSwift/SettingViewController.swift; sourceTree = SOURCE_ROOT; };
 		C2ED39D92010D67500068BA1 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test.json; path = RSSwift/test.json; sourceTree = SOURCE_ROOT; };
@@ -211,6 +213,7 @@
 				C2703F052007C0B400E58BD4 /* DBManager.swift */,
 				C2CAC46B201CB8C700F877D2 /* DDStorage.swift */,
 				C2CAC46D201CBC4600F877D2 /* DBEagle.swift */,
+				C2CAC47D201CC36B00F877D2 /* DBFeed.swift */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				C2703F042007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift in Sources */,
 				C202E611200904E50016AD71 /* EagleListViewController.swift in Sources */,
 				C2CAC47B201CC1CA00F877D2 /* EagleFeed+CoreDataClass.swift in Sources */,
+				C2CAC47E201CC36B00F877D2 /* DBFeed.swift in Sources */,
 				C2703F032007BC3B00E58BD4 /* EagleList+CoreDataClass.swift in Sources */,
 				7032664D1DDF6E3D006CC1B5 /* Rsswift.xcdatamodeld in Sources */,
 			);
