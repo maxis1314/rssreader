@@ -56,7 +56,7 @@
                     <navigationItem key="navigationItem" title="Items" id="GKp-vD-lsM">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="MAh-Nu-yOd">
                             <connections>
-                                <segue destination="cUg-b3-PVQ" kind="show" id="Kie-XY-cdU"/>
+                                <segue destination="cUg-b3-PVQ" kind="show" id="KhB-gZ-fg3"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="Q3p-cY-pRK">
