@@ -7,7 +7,7 @@ git commit -m"daniel:$1"
 
 git push -u origin master
 
-cp RSSwift/RSSwift/DBManager.swift ../rsslib/
+cp RSSwift/RSSwift/DBManager.swift ../rsslib/XXX.swift
 
 cd ../rsslib 
 
