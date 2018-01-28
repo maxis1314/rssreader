@@ -46,7 +46,13 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //gdb.myFeed = dbFeed.list()
+        if gdb.myFeed.count <= 0 {
+            for feedEagle in dbFeed.list() {
+                print(feedEagle)
+                let feed = Feed(title: feedEagle.title!, link: feedEagle.link!,pubDate:feedEagle.pubDate!, description:feedEagle.desc!)
+                gdb.myFeed.append(feed)
+            }
+        }
         
         
         let defaultImage = UIImage(named: "settings")?

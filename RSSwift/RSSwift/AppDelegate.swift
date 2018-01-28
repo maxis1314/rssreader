@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //dbFeed.deleteAll()
 
         //dbFeed.save(title: "a", link: "b", pubDate: "c", description: "d")
-        print(dbFeed.list())
+        //print(dbFeed.list())
         //print(eagle_list())
         
         //print(read_from_file(file:"test"))
