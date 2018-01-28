@@ -9,7 +9,7 @@
 import UIKit
 
 
-class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearchResultsUpdating {
+class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearchResultsUpdating,UISearchBarDelegate {
     
     var searchController: UISearchController!    
     var myFeedSafe = SafeArray<Feed>()//[Feed]()
@@ -21,6 +21,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     var tableViewNow: UITableView!
     var i: Int = 0
     var eagleList = [EagleList]()
+    var searchScope:Int = 0 //0 all 1 unread 2 read
     
     func copyFeed(){
         gdb.myFeed.removeAll()
@@ -86,20 +87,69 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.delegate = self
         
         definesPresentationContext = true        
-        tableView.tableHeaderView = searchController.searchBar        
+        tableView.tableHeaderView = searchController.searchBar
+        
+        searchController.searchBar.scopeButtonTitles = ["All","Unread", "Read"]
+        
+        /*let items = ["Purple", "Green", "Blue"]
+        let customSC = UISegmentedControl(items: items)
+        customSC.selectedSegmentIndex = 0
+        
+        // Style the Segmented Control
+        customSC.layer.cornerRadius = 5.0  // Don't let background bleed
+        customSC.backgroundColor = UIColor.black
+        customSC.tintColor = UIColor.white
+        
+        // Add target action method
+        customSC.addTarget(self, action: #selector(FeedListViewController.changeColor),
+                           for: .valueChanged)
+        
+        // Add this custom Segmented Control to our view
+        //tableView.tableHeaderView = customSC*/
+        
+        
         loadData()        
     }
     
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        searchScope = selectedScope
+        
+        print(searchController.searchBar.text)
+        if let searchText = searchController.searchBar.text {
+            filteredFeed=filterContentsforSearchText(searchText: searchText, scope: searchScope)//gdb.myFeed.filter({$0.title.range(of: searchText) != nil})
+            tableView.reloadData()
+        }
+    }
+    
+    func changeColor(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 1:
+            self.view.backgroundColor = UIColor.green
+        case 2:
+            self.view.backgroundColor = UIColor.blue
+        default:
+            self.view.backgroundColor = UIColor.purple
+        }
+    }
  
     func updateSearchResults(for searchController: UISearchController) {
         print(searchController.searchBar.text)
         if let searchText = searchController.searchBar.text {
-            filteredFeed=gdb.myFeed.filter({$0.title.range(of: searchText) != nil})
+            filteredFeed=filterContentsforSearchText(searchText: searchText, scope: searchScope)//gdb.myFeed.filter({$0.title.range(of: searchText) != nil})
             tableView.reloadData()
         }else{
 
+        }
+    }
+    
+    func filterContentsforSearchText(searchText: String, scope: Int = 0)->[Feed]{
+        return gdb.myFeed.filter { feed in
+            let isRead = ddStorageGet(key: "isread_\(feed.link)", empty: "")
+            let categoryMatch = (scope == 0) || (isRead == "" && scope==1)  || (isRead == "1" && scope==2)
+            return categoryMatch && feed.title.lowercased().contains(searchText.lowercased())
         }
     }
 
