@@ -33,13 +33,15 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             myFeed.append(feed)
         }*/
         dbFeed.deleteAll()
+        var i = 0
         myFeedSafe.forEach { object in
             let title = object.title
             let link = object.link
             let pubDate = object.pubDate
             let description = object.description
-            let feed = Feed(title: title, link: link,pubDate:pubDate, description:description)
+            let feed = Feed(id:i, title: title, link: link,pubDate:pubDate, description:description)
             gdb.myFeed.append(feed)
+            i = i+1
             dbFeed.save(title: title, link: link, pubDate: pubDate, description: description)
         }
     }
@@ -53,9 +55,11 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         super.viewDidLoad()
         
         if gdb.myFeed.count <= 0 {
+            var i = 0
             for feedEagle in dbFeed.list() {
                 print(feedEagle)
-                let feed = Feed(title: feedEagle.title!, link: feedEagle.link!,pubDate:feedEagle.pubDate!, description:feedEagle.desc!)
+                let feed = Feed(id:i,title: feedEagle.title!, link: feedEagle.link!,pubDate:feedEagle.pubDate!, description:feedEagle.desc!)
+                i=i+1
                 gdb.myFeed.append(feed)
             }
         }
@@ -217,7 +221,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
                     let link = (one as AnyObject).object(forKey: "link") as! String
                     let pubDate = ((one as AnyObject).object(forKey: "pubDate") ?? "") as! String
                     let description = ((one as AnyObject).object(forKey: "description") ?? "") as! String
-                    let feed = Feed(title: title, link: link,pubDate:pubDate,description:description)
+                    let feed = Feed(id:0,title: title, link: link,pubDate:pubDate,description:description)
                     self.myFeedSafe.append(feed)
                 }
             }else{
@@ -250,7 +254,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             let fivc: FeedItemViewController = segue.destination as! FeedItemViewController
             fivc.selectedFeedURL = feed.link
             fivc.topTitle = feed.title
-            fivc.indexNow = indexPath.row
+            fivc.indexNow = feed.id//indexPath.row
         }
     }
     

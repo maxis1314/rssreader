@@ -83,7 +83,9 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         
         selectedFeedURL = feed.link
         
+        print("001:isread_\(feed.link)")
         ddStorageSet(key: "isread_\(feed.link)", value: "1")
+        print("001:\(feed.link)")
         
         selectedFeedURL =  selectedFeedURL?.replacingOccurrences(of: " ", with:"")
         selectedFeedURL =  selectedFeedURL?.replacingOccurrences(of: "\n", with:"")
