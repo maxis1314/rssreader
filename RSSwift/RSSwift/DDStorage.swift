@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class DDStorage {
+    let version = "2"
     var managedObjectContext: NSManagedObjectContext!
     var persistentStoreCoordinator: NSPersistentStoreCoordinator!
     var applicationDocumentsDirectory: NSURL!
@@ -21,6 +22,7 @@ class DDStorage {
         managedObjectModel = {
             print(Bundle.main)//CoreData
             let modelURL = Bundle.main.url(forResource: dbname, withExtension: "momd")!
+            print("modelURL=\(modelURL)")
             return NSManagedObjectModel(contentsOf: modelURL)!
         }()
         
@@ -34,7 +36,8 @@ class DDStorage {
         persistentStoreCoordinator = {
             
             let coordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-            let url = applicationDocumentsDirectory.appendingPathComponent("\(dbname).sqlite")
+            let url = applicationDocumentsDirectory.appendingPathComponent("\(dbname)\(version).sqlite")
+            print("sqliteURL=\(url)")
             var failureReason = "There was an error creating or loading the application's saved data."
             do {
                 try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-//@testable import Rsswift
+@testable import Rsswift
 
 class RsswiftTests: XCTestCase {
     
