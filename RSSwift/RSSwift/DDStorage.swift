@@ -20,7 +20,7 @@ class DDStorage {
         /// 被管理的数据模型  初始化必须依赖.momd文件路径，而.momd文件由.xcdatamodeld文件编译而来
         managedObjectModel = {
             print(Bundle.main)//CoreData
-            let modelURL = Bundle.main.url(forResource: "mydb", withExtension: "momd")!
+            let modelURL = Bundle.main.url(forResource: dbname, withExtension: "momd")!
             return NSManagedObjectModel(contentsOf: modelURL)!
         }()
         
@@ -34,7 +34,7 @@ class DDStorage {
         persistentStoreCoordinator = {
             
             let coordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-            let url = applicationDocumentsDirectory.appendingPathComponent("CoreData.sqlite")
+            let url = applicationDocumentsDirectory.appendingPathComponent("\(dbname).sqlite")
             var failureReason = "There was an error creating or loading the application's saved data."
             do {
                 try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)

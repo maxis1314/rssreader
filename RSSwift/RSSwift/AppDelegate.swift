@@ -32,12 +32,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //setV(key:"font", value: "23")
         //print(getV(key: "font"))
         //ddStorageClear(key: "font")
+        dbFeed.save(title: "a", link: "b", pubDate: "c", description: "d")
+        print(dbFeed.list())
+        //print(eagle_list())
         
-        print(eagle_list())
+        //print(read_from_file(file:"test"))
         
-        print(read_from_file(file:"test"))
-        
-        save_to_file(file:"test2", text:"aaaa")
+        //save_to_file(file:"test2", text:"aaaa")
         
         return true
     }
