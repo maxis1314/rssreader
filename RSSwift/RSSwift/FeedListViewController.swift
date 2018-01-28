@@ -31,6 +31,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             let feed = Feed(title: title, link: link,pubDate:pubDate)
             myFeed.append(feed)
         }*/
+        dbFeed.deleteAll()
         myFeedSafe.forEach { object in
             let title = object.title
             let link = object.link
@@ -38,11 +39,14 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             let description = object.description
             let feed = Feed(title: title, link: link,pubDate:pubDate, description:description)
             gdb.myFeed.append(feed)
+            dbFeed.save(title: title, link: link, pubDate: pubDate, description: description)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //gdb.myFeed = dbFeed.list()
         
         
         let defaultImage = UIImage(named: "settings")?

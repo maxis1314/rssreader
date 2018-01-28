@@ -33,13 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //print(getV(key: "font"))
         //ddStorageClear(key: "font")
         
-        dbEagle.save(title:"aa", url:"dd")
-        print(eagle_list())
+        //dbEagle.save(title:"aa", url:"dd")
+        //print(eagle_list())
 
         
-        dbFeed.deleteAll()
+        //dbFeed.deleteAll()
 
-        dbFeed.save(title: "a", link: "b", pubDate: "c", description: "d")
+        //dbFeed.save(title: "a", link: "b", pubDate: "c", description: "d")
         print(dbFeed.list())
         //print(eagle_list())
         
