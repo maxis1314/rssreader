@@ -21,7 +21,7 @@ import CoreData
 class DBFeed: DDStorage {
     
     init(){
-        super.init(dbname:"feeddb")
+        super.init(dbname:"feeddb",version:"3")
     }
     
     func save(title: String, link: String, pubDate: String, description:String){

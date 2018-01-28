@@ -43,6 +43,11 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -247,15 +252,25 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         cellImageLayer!.cornerRadius = 35
         cellImageLayer!.masksToBounds = true
         cell.imageView?.image = image*/
+        
+        let isRead = ddStorageGet(key: "isread_\(feed.link)", empty: "")
+        if isRead == "" {
+            //cell.imageView?.image = UIImage(named: "unread")?.scaleTo(CGSize(width: 10, height: 10))
+            cell.textLabel?.textColor = UIColor.black
+            cell.detailTextLabel?.textColor = UIColor.black
+        }else{
+            cell.textLabel?.textColor = UIColor.gray
+            cell.detailTextLabel?.textColor = UIColor.gray
+        }
 
         cell.textLabel?.text = feed.title
-        cell.textLabel?.textColor = UIColor.black
+        //cell.textLabel?.textColor = UIColor.black
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = .byWordWrapping
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
     
         cell.detailTextLabel?.text = feed.pubDate
-        cell.detailTextLabel?.textColor = UIColor.black
+        //cell.detailTextLabel?.textColor = UIColor.black
             
         return cell
     }

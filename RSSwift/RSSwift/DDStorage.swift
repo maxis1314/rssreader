@@ -10,14 +10,14 @@ import UIKit
 import CoreData
 
 class DDStorage {
-    let version = "2"
+    var version:String!
     var managedObjectContext: NSManagedObjectContext!
     var persistentStoreCoordinator: NSPersistentStoreCoordinator!
     var applicationDocumentsDirectory: NSURL!
     var managedObjectModel: NSManagedObjectModel!
     
-    init(dbname:String){
-        
+    init(dbname:String, version:String){
+        self.version = version
         /// 被管理的数据模型  初始化必须依赖.momd文件路径，而.momd文件由.xcdatamodeld文件编译而来
         managedObjectModel = {
             print(Bundle.main)//CoreData

@@ -11,7 +11,7 @@ import CoreData
 class DBEagle: DDStorage {
     
     init(){
-        super.init(dbname:"mydb")
+        super.init(dbname:"mydb",version:"2")
     }
     
     func save(title:String, url:String){

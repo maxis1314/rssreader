@@ -2,7 +2,7 @@
 //  EagleFeed+CoreDataProperties.swift
 //  EasyReader
 //
-//  Created by Daniel on 18/1/27.
+//  Created by Daniel on 18/1/28.
 //  Copyright © 2018年 ArledKola. All rights reserved.
 //
 
@@ -16,9 +16,10 @@ extension EagleFeed {
         return NSFetchRequest<EagleFeed>(entityName: "EagleFeed");
     }
 
-    @NSManaged public var title: String?
-    @NSManaged public var link: String?
     @NSManaged public var desc: String?
+    @NSManaged public var link: String?
     @NSManaged public var pubDate: String?
+    @NSManaged public var title: String?
+    @NSManaged public var isRead: Bool
 
 }
