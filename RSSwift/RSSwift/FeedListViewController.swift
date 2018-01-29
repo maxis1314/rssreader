@@ -22,6 +22,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     var i: Int = 0
     var eagleList = [EagleList]()
     var searchScope:Int = 0 //0 all 1 unread 2 read
+    var unreadImg:UIImage!
     
     func copyFeed(){
         gdb.myFeed.removeAll()
@@ -53,6 +54,8 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        unreadImg = UIImage(named: "unread")?.scaleTo(CGSize(width: 15, height: 15))
         
         if gdb.myFeed.count <= 0 {
             var i = 0
@@ -313,18 +316,29 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             cell.textLabel?.textColor = UIColor.black
             cell.detailTextLabel?.textColor = UIColor.black
             
+
+            // create an NSMutableAttributedString that we'll append everything to
+            let fullString = NSMutableAttributedString(string: "")
             
-            var attachment:NSTextAttachment = NSTextAttachment()
-            attachment.image = UIImage(named: "unread")?.scaleTo(CGSize(width: 20, height: 20))
+            // create our NSTextAttachment
+            let unreadAttachment = NSTextAttachment()
+            unreadAttachment.image = unreadImg
+            
+            let paragraph = NSMutableParagraphStyle()
+            paragraph.alignment = .center
+            
+            let attributes: [String : Any] = [NSParagraphStyleAttributeName: paragraph]
             
             
-            var attachmentString:NSAttributedString = NSAttributedString(attachment: attachment)
-            var myString:NSMutableAttributedString = NSMutableAttributedString(string: feed.title)
-            myString.append(attachmentString)
+            // wrap the attachment in its own attributed string so we can append it
+            let unreadString = NSAttributedString(attachment: unreadAttachment)
             
+            // add the NSTextAttachment wrapper to our full string, then add some more text.
+            fullString.append(unreadString)
+            fullString.append(NSAttributedString(string: feed.title,attributes:attributes))
             
-            
-            cell.textLabel?.attributedText = myString;
+            // draw the result in a label
+            cell.textLabel?.attributedText = fullString
             
         }else{
             cell.textLabel?.textColor = UIColor.gray
