@@ -113,7 +113,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
             var font = ddStorageGet(key: "font", empty:"20")
             print(font)
 
-            let finalStr = "<style>html{font-size: \(font)px;}</style>\(feed.description)"
+            let finalStr = "<style>html{font-size: \(font)px;background-color:#C7EDCC;}</style>\(feed.description)"
             
             myWebView.scrollView.scrollsToTop = true
             myWebView.loadHTMLString(finalStr, baseURL: nil)
