@@ -69,7 +69,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         
         
         let defaultImage = UIImage(named: "settings")?
-            .scaleTo(CGSize(width: 40, height: 40))
+            .scaleTo(CGSize(width: 30, height: 30))
         
         self.navigationItem.leftBarButtonItem?.image = defaultImage
         
