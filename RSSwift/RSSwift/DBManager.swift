@@ -438,3 +438,30 @@ func read_from_file(file:String){
 }
 
 
+func getUrl(address:String) -> String {
+    if let url = URL(string: address) {
+        do {
+            let contents = try String(contentsOf: url)
+            return contents
+        } catch {
+            return ""
+        }
+    } else {
+        return ""
+    }
+}
+
+func parseJsonString(data:String)->[String: Any]{
+    do {
+        if data,
+            let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+            //let blogs = json["blogs"] as? [[String: Any]] {
+            return json
+        }
+    } catch {
+        print("Error deserializing JSON: \(error)")
+    }
+    return nil
+}
+
+

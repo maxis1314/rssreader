@@ -30,7 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //save_eagle(title:"c",url:"http://c.com")
         
         
-        
+        let eagleList = eagle_list()
+        if eagleList.count == 0 {
+            save_eagle(title:"cndaily",url:"http://www.chinadaily.com.cn/rss/world_rss.xml")
+        }
         print(eagle_list())
         
         print(parse_json(file:"test"))
