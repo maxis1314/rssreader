@@ -308,16 +308,31 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         cell.imageView?.image = image*/
         
         let isRead = ddStorageGet(key: "isread_\(feed.link)", empty: "")
-        if isRead == "" {
+        if isRead == "" {//unread
             //cell.imageView?.image = UIImage(named: "unread")?.scaleTo(CGSize(width: 10, height: 10))
             cell.textLabel?.textColor = UIColor.black
             cell.detailTextLabel?.textColor = UIColor.black
+            
+            
+            var attachment:NSTextAttachment = NSTextAttachment()
+            attachment.image = UIImage(named: "unread")?.scaleTo(CGSize(width: 20, height: 20))
+            
+            
+            var attachmentString:NSAttributedString = NSAttributedString(attachment: attachment)
+            var myString:NSMutableAttributedString = NSMutableAttributedString(string: feed.title)
+            myString.append(attachmentString)
+            
+            
+            
+            cell.textLabel?.attributedText = myString;
+            
         }else{
             cell.textLabel?.textColor = UIColor.gray
             cell.detailTextLabel?.textColor = UIColor.gray
+            cell.textLabel?.text = feed.title
         }
 
-        cell.textLabel?.text = feed.title
+        
         //cell.textLabel?.textColor = UIColor.black
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = .byWordWrapping
