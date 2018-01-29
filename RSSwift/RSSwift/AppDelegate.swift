@@ -23,11 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.setStatusBarHidden(false, with: .none)
         
-        
-        
-        //save_eagle(title:"a",url:"http://a.com")
-        //save_eagle(title:"b",url:"http://b.com")
-        //save_eagle(title:"c",url:"http://c.com")
+       
+        let eagleList = eagle_list()
+        if eagleList.count == 0 {
+            save_eagle(title:"englishclub",url:"https://www.englishclub.com/sub.rss")
+        }
+        print(eagle_list())
         
         //setV(key:"font", value: "23")
         //print(getV(key: "font"))
