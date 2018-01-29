@@ -11,6 +11,8 @@ import GoogleMobileAds
 
 class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewDelegate {
 
+    @IBOutlet weak var rightBtn: UIButton!
+    @IBOutlet weak var leftBtn: UIButton!
     var selectedFeedURL: String?
     var topTitle: String?
     var indexNow:Int!
@@ -48,6 +50,11 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        leftBtn.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        rightBtn.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        
         myWebView.delegate = self
         
         bannerView.delegate = self
@@ -76,6 +83,10 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         
         selectedFeedURL = feed.link
         
+        print("001:isread_\(feed.link)")
+        ddStorageSet(key: "isread_\(feed.link)", value: "1")
+        print("001:\(feed.link)")
+        
         selectedFeedURL =  selectedFeedURL?.replacingOccurrences(of: " ", with:"")
         selectedFeedURL =  selectedFeedURL?.replacingOccurrences(of: "\n", with:"")
         
@@ -93,9 +104,20 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         
         print(selectedFeedURL)
         
-        myWebView.loadRequest(URLRequest(url: URL(string: selectedFeedURL! as String)!))
+        let openLinkMode = ddStorageGet(key: "openFeedLink", empty: "1")
         
-        
+        if openLinkMode == "1" {
+            myWebView.loadRequest(URLRequest(url: URL(string: selectedFeedURL! as String)!))
+        }else{
+            
+            var font = ddStorageGet(key: "font", empty:"20")
+            print(font)
+
+            let finalStr = "<style>html{font-size: \(font)px;}</style>\(feed.description)"
+            
+            myWebView.scrollView.scrollsToTop = true
+            myWebView.loadHTMLString(finalStr, baseURL: nil)
+        }
         
         
         
@@ -138,7 +160,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     }
     
     func timerCallback() {
-        print("in timerCallback\(self.myProgressView.progress)")
+        //print("in timerCallback\(self.myProgressView.progress)")
         if self.theBool! {
             if self.myProgressView.progress >= 1 {
                 self.myProgressView.isHidden = true
@@ -186,6 +208,14 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     /// the App Store), backgrounding the current app.
     func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
         print("adViewWillLeaveApplication")
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showItem" {
+            let item: ItemViewController = segue.destination as! ItemViewController
+            item.indexNow = indexNow
+        }
     }
 
 }

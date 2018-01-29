@@ -88,8 +88,8 @@ class XmlParserManager: NSObject, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        var string2 =  string.replacingOccurrences(of: " ", with:"")
-        string2 =  string2.replacingOccurrences(of: "\n", with:"")
+        //var string2 =  string.replacingOccurrences(of: " ", with:"")
+        var string2 =  string.replacingOccurrences(of: "\n", with:"")
 
         
         if element.isEqual(to: "title") {

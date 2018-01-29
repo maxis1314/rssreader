@@ -23,14 +23,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.setStatusBarHidden(false, with: .none)
         
+<<<<<<< HEAD
     
         let eagleList = eagle_list()
         if eagleList.count == 0 {
             save_eagle(title:"cndaily",url:"http://www.chinadaily.com.cn/rss/world_rss.xml")
         }
         print(eagle_list())
+=======
         
-        print(parse_json(file:"test"))
+        
+        //save_eagle(title:"a",url:"http://a.com")
+        //save_eagle(title:"b",url:"http://b.com")
+        //save_eagle(title:"c",url:"http://c.com")
+        
+        //setV(key:"font", value: "23")
+        //print(getV(key: "font"))
+        //ddStorageClear(key: "font")
+        
+        //dbEagle.save(title:"aa", url:"dd")
+        //print(eagle_list())
+
+        
+        //dbFeed.deleteAll()
+
+        //dbFeed.save(title: "a", link: "b", pubDate: "c", description: "d")
+        //print(dbFeed.list())
+        //print(eagle_list())
+        
+        //print(read_from_file(file:"test"))
+>>>>>>> 0eaa3d2e87e2f25eaa808332ffedc7ee5ea0f018
+        
+        //save_to_file(file:"test2", text:"aaaa")
         
         return true
     }

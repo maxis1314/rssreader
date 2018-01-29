@@ -9,7 +9,7 @@
 import UIKit
 
 
-class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearchResultsUpdating {
+class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearchResultsUpdating,UISearchBarDelegate {
     
     var searchController: UISearchController!    
     var myFeedSafe = SafeArray<Feed>()//[Feed]()
@@ -21,6 +21,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     var tableViewNow: UITableView!
     var i: Int = 0
     var eagleList = [EagleList]()
+    var searchScope:Int = 0 //0 all 1 unread 2 read
     
     func copyFeed(){
         gdb.myFeed.removeAll()
@@ -31,17 +32,44 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             let feed = Feed(title: title, link: link,pubDate:pubDate)
             myFeed.append(feed)
         }*/
+        dbFeed.deleteAll()
+        var i = 0
         myFeedSafe.forEach { object in
             let title = object.title
             let link = object.link
             let pubDate = object.pubDate
-            let feed = Feed(title: title, link: link,pubDate:pubDate)
+            let description = object.description
+            let feed = Feed(id:i, title: title, link: link,pubDate:pubDate, description:description)
             gdb.myFeed.append(feed)
+            i = i+1
+            dbFeed.save(title: title, link: link, pubDate: pubDate, description: description)
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        
+        if gdb.myFeed.count <= 0 {
+            var i = 0
+            for feedEagle in dbFeed.list() {
+                print(feedEagle)
+                let feed = Feed(id:i,title: feedEagle.title!, link: feedEagle.link!,pubDate:feedEagle.pubDate!, description:feedEagle.desc!)
+                i=i+1
+                gdb.myFeed.append(feed)
+            }
+        }
+        
+        
+        let defaultImage = UIImage(named: "settings")?
+            .scaleTo(CGSize(width: 40, height: 40))
+        
+        self.navigationItem.leftBarButtonItem?.image = defaultImage
+        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         navigationItem.title = "Feed List"
         
@@ -63,20 +91,69 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.delegate = self
         
         definesPresentationContext = true        
-        tableView.tableHeaderView = searchController.searchBar        
+        tableView.tableHeaderView = searchController.searchBar
+        
+        searchController.searchBar.scopeButtonTitles = ["All","Unread", "Read"]
+        
+        /*let items = ["Purple", "Green", "Blue"]
+        let customSC = UISegmentedControl(items: items)
+        customSC.selectedSegmentIndex = 0
+        
+        // Style the Segmented Control
+        customSC.layer.cornerRadius = 5.0  // Don't let background bleed
+        customSC.backgroundColor = UIColor.black
+        customSC.tintColor = UIColor.white
+        
+        // Add target action method
+        customSC.addTarget(self, action: #selector(FeedListViewController.changeColor),
+                           for: .valueChanged)
+        
+        // Add this custom Segmented Control to our view
+        //tableView.tableHeaderView = customSC*/
+        
+        
         loadData()        
     }
     
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        searchScope = selectedScope
+        
+        print(searchController.searchBar.text)
+        if let searchText = searchController.searchBar.text {
+            filteredFeed=filterContentsforSearchText(searchText: searchText, scope: searchScope)//gdb.myFeed.filter({$0.title.range(of: searchText) != nil})
+            tableView.reloadData()
+        }
+    }
+    
+    func changeColor(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 1:
+            self.view.backgroundColor = UIColor.green
+        case 2:
+            self.view.backgroundColor = UIColor.blue
+        default:
+            self.view.backgroundColor = UIColor.purple
+        }
+    }
  
     func updateSearchResults(for searchController: UISearchController) {
         print(searchController.searchBar.text)
         if let searchText = searchController.searchBar.text {
-            filteredFeed=gdb.myFeed.filter({$0.title.range(of: searchText) != nil})
+            filteredFeed=filterContentsforSearchText(searchText: searchText, scope: searchScope)//gdb.myFeed.filter({$0.title.range(of: searchText) != nil})
             tableView.reloadData()
         }else{
 
+        }
+    }
+    
+    func filterContentsforSearchText(searchText: String, scope: Int = 0)->[Feed]{
+        return gdb.myFeed.filter { feed in
+            let isRead = ddStorageGet(key: "isread_\(feed.link)", empty: "")
+            let categoryMatch = (scope == 0) || (isRead == "" && scope==1)  || (isRead == "1" && scope==2)
+            return categoryMatch && feed.title.lowercased().contains(searchText.lowercased())
         }
     }
 
@@ -151,7 +228,8 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
                     let title = (one as AnyObject).object(forKey: "title") as! String
                     let link = (one as AnyObject).object(forKey: "link") as! String
                     let pubDate = ((one as AnyObject).object(forKey: "pubDate") ?? "") as! String
-                    let feed = Feed(title: title, link: link,pubDate:pubDate)
+                    let description = ((one as AnyObject).object(forKey: "description") ?? "") as! String
+                    let feed = Feed(id:0,title: title, link: link,pubDate:pubDate,description:description)
                     self.myFeedSafe.append(feed)
                 }
             }else{
@@ -184,7 +262,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             let fivc: FeedItemViewController = segue.destination as! FeedItemViewController
             fivc.selectedFeedURL = feed.link
             fivc.topTitle = feed.title
-            fivc.indexNow = indexPath.row
+            fivc.indexNow = feed.id//indexPath.row
         }
     }
     
@@ -236,15 +314,25 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         cellImageLayer!.cornerRadius = 35
         cellImageLayer!.masksToBounds = true
         cell.imageView?.image = image*/
+        
+        let isRead = ddStorageGet(key: "isread_\(feed.link)", empty: "")
+        if isRead == "" {
+            //cell.imageView?.image = UIImage(named: "unread")?.scaleTo(CGSize(width: 10, height: 10))
+            cell.textLabel?.textColor = UIColor.black
+            cell.detailTextLabel?.textColor = UIColor.black
+        }else{
+            cell.textLabel?.textColor = UIColor.gray
+            cell.detailTextLabel?.textColor = UIColor.gray
+        }
 
         cell.textLabel?.text = feed.title
-        cell.textLabel?.textColor = UIColor.black
+        //cell.textLabel?.textColor = UIColor.black
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = .byWordWrapping
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
     
         cell.detailTextLabel?.text = feed.pubDate
-        cell.detailTextLabel?.textColor = UIColor.black
+        //cell.detailTextLabel?.textColor = UIColor.black
             
         return cell
     }
