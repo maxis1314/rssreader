@@ -85,6 +85,14 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     }
     
     func loadData() {
+        let reachability = Reachability.reachabilityForInternetConnection()
+         
+        //判断连接状态
+        if !reachability!.isReachable(){
+            return
+        }
+        
+        
         print("Hello from Daniel")
         //url = URL(string: "http://feeds.skynews.com/feeds/rss/technology.xml")!
         url = URL(string: "https://www3.nhk.or.jp/rss/news/cat6.xml")!
