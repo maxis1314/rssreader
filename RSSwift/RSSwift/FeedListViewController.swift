@@ -51,6 +51,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             i = i+1
             dbFeed.save(title: title, link: link, pubDate: pubDate, description: description)
         }
+        self.view.makeToast("All feed refreshed", duration: 0.5, position: .center)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -185,7 +186,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         reachability.whenUnreachable = { _ in
             print("net work error")
             self.refresher.attributedTitle = NSAttributedString(string: "Connecting...")
-            self.view.makeToast("Please check network!", duration: 0.5, position: .center)
+            self.view.makeToast("Please check network", duration: 0.5, position: .center)
             self.refresher.endRefreshing()
             reachability.stopNotifier()
         }

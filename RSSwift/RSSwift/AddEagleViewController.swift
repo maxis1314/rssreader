@@ -25,6 +25,9 @@ class AddEagleViewController: UIViewController {
     @IBAction func saveEagle(_ sender: Any) {
         print(1)
         if nameTxt.text != "" || urlTxt.text != "" {
+            
+            //self.view.makeToast("Feed Saved!", duration: 0.5, position: .center)
+            
             save_eagle(title:nameTxt.text!,url:urlTxt.text!)
             
             navigationController?.popViewController(animated: true)
@@ -37,7 +40,7 @@ class AddEagleViewController: UIViewController {
             
         }else{
             let alert = UIAlertController(title: "Alert", message: "Please input the right value!", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
         
