@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Reachability
 
 class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearchResultsUpdating,UISearchBarDelegate {
     
@@ -22,6 +22,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     var i: Int = 0
     var eagleList = [EagleList]()
     var searchScope:Int = 0 //0 all 1 unread 2 read
+    var unreadImg:UIImage!
     
     func copyFeed(){
         gdb.myFeed.removeAll()
@@ -54,6 +55,8 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        unreadImg = UIImage(named: "unread")?.scaleTo(CGSize(width: 15, height: 15))
+        
         if gdb.myFeed.count <= 0 {
             var i = 0
             for feedEagle in dbFeed.list() {
@@ -66,7 +69,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         
         
         let defaultImage = UIImage(named: "settings")?
-            .scaleTo(CGSize(width: 40, height: 40))
+            .scaleTo(CGSize(width: 30, height: 30))
         
         self.navigationItem.leftBarButtonItem?.image = defaultImage
         
@@ -162,18 +165,30 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     }
     
     func loadData() {
-        let reachability = Reachability.reachabilityForInternetConnection()
-         
-        //判断连接状态
-        if !reachability!.isReachable(){
-            return
+        let reachability = Reachability()!
+        
+        reachability.whenReachable = { reachability in
+            if reachability.connection == .wifi {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        }
+        reachability.whenUnreachable = { _ in
+            print("Not reachable")
+            self.refresher.endRefreshing()
+            //return
         }
         
+        /*do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }*/
+ 
         
         print("Hello from Daniel")
-        //url = URL(string: "http://feeds.skynews.com/feeds/rss/technology.xml")!
-        url = URL(string: "https://www3.nhk.or.jp/rss/news/cat6.xml")!
-        
+      
         
         myFeedSafe.removeAll()
         //tableView.reloadData()
@@ -209,7 +224,6 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             self.present(alert, animated: true, completion: nil)
         }
 
-        print(eagle_list())
     }
     
     func loadRss(_ data: URL) {
@@ -223,7 +237,6 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             //refact
             if myParser.feeds != nil && myParser.feeds.count > 0{
                 print("fetch rss success")
-                print(myParser.feeds)
                 for one in myParser.feeds{
                     let title = (one as AnyObject).object(forKey: "title") as! String
                     let link = (one as AnyObject).object(forKey: "link") as! String
@@ -316,16 +329,42 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         cell.imageView?.image = image*/
         
         let isRead = ddStorageGet(key: "isread_\(feed.link)", empty: "")
-        if isRead == "" {
+        if isRead == "" {//unread
             //cell.imageView?.image = UIImage(named: "unread")?.scaleTo(CGSize(width: 10, height: 10))
             cell.textLabel?.textColor = UIColor.black
             cell.detailTextLabel?.textColor = UIColor.black
+            
+
+            // create an NSMutableAttributedString that we'll append everything to
+            let fullString = NSMutableAttributedString(string: "")
+            
+            // create our NSTextAttachment
+            let unreadAttachment = NSTextAttachment()
+            unreadAttachment.image = unreadImg
+            
+            let paragraph = NSMutableParagraphStyle()
+            paragraph.alignment = .center
+            
+            let attributes: [String : Any] = [NSParagraphStyleAttributeName: paragraph]
+            
+            
+            // wrap the attachment in its own attributed string so we can append it
+            let unreadString = NSAttributedString(attachment: unreadAttachment)
+            
+            // add the NSTextAttachment wrapper to our full string, then add some more text.
+            fullString.append(unreadString)
+            fullString.append(NSAttributedString(string: feed.title,attributes:attributes))
+            
+            // draw the result in a label
+            cell.textLabel?.attributedText = fullString
+            
         }else{
             cell.textLabel?.textColor = UIColor.gray
             cell.detailTextLabel?.textColor = UIColor.gray
+            cell.textLabel?.text = feed.title
         }
 
-        cell.textLabel?.text = feed.title
+        
         //cell.textLabel?.textColor = UIColor.black
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = .byWordWrapping

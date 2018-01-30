@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64B56FC860C2610BCA4ECFC9 /* Pods_Rsswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7626447F0FA4D2BEBDEBDB4 /* Pods_Rsswift.framework */; };
 		703266451DDF6E3D006CC1B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703266441DDF6E3D006CC1B5 /* AppDelegate.swift */; };
 		7032664A1DDF6E3D006CC1B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703266481DDF6E3D006CC1B5 /* Main.storyboard */; };
 		7032664D1DDF6E3D006CC1B5 /* Rsswift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7032664B1DDF6E3D006CC1B5 /* Rsswift.xcdatamodeld */; };
@@ -25,6 +26,7 @@
 		C2703F032007BC3B00E58BD4 /* EagleList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F012007BC3B00E58BD4 /* EagleList+CoreDataClass.swift */; };
 		C2703F042007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */; };
 		C2703F062007C0B400E58BD4 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F052007C0B400E58BD4 /* DBManager.swift */; };
+		C29FA06D2020AFBD006EDBCD /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29FA06C2020AFBD006EDBCD /* Reachability.framework */; };
 		C2CAC46C201CB8C700F877D2 /* DDStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC46B201CB8C700F877D2 /* DDStorage.swift */; };
 		C2CAC46E201CBC4600F877D2 /* DBEagle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC46D201CBC4600F877D2 /* DBEagle.swift */; };
 		C2CAC478201CC18E00F877D2 /* feeddb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC476201CC18E00F877D2 /* feeddb.xcdatamodeld */; };
@@ -34,7 +36,6 @@
 		C2D696BB20050FE800B4B7DE /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D696BA20050FE800B4B7DE /* Feed.swift */; };
 		C2E3778E201A3A0100900803 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E3778D201A3A0100900803 /* SettingViewController.swift */; };
 		C2ED39DA2010D67600068BA1 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = C2ED39D92010D67500068BA1 /* test.json */; };
-		CE891658291BBEF1AA006263 /* Pods_Rsswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAF58356D6AB6ED582EC762 /* Pods_Rsswift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,6 @@
 
 /* Begin PBXFileReference section */
 		3CF886D650877F699E9BA12B /* Pods-Rsswift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rsswift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rsswift/Pods-Rsswift.debug.xcconfig"; sourceTree = "<group>"; };
-		6DAF58356D6AB6ED582EC762 /* Pods_Rsswift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rsswift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		703266411DDF6E3D006CC1B5 /* Rsswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rsswift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		703266441DDF6E3D006CC1B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		703266491DDF6E3D006CC1B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +83,7 @@
 		C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EagleList+CoreDataProperties.swift"; path = "RSSwift/EagleList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C2703F052007C0B400E58BD4 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		C2703F072007C2A300E58BD4 /* EagleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EagleListViewController.swift; path = ../RSSwift/EagleListViewController.swift; sourceTree = "<group>"; };
+		C29FA06C2020AFBD006EDBCD /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = "../../../../Library/Developer/Xcode/DerivedData/EasyReader-btaczkbtaxqhzvbxitknhetwpavd/Build/Products/Debug-iphonesimulator/ReachabilitySwift/Reachability.framework"; sourceTree = "<group>"; };
 		C2CAC46B201CB8C700F877D2 /* DDStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDStorage.swift; path = RSSwift/DDStorage.swift; sourceTree = SOURCE_ROOT; };
 		C2CAC46D201CBC4600F877D2 /* DBEagle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBEagle.swift; path = RSSwift/DBEagle.swift; sourceTree = SOURCE_ROOT; };
 		C2CAC477201CC18E00F877D2 /* feeddb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = feeddb.xcdatamodel; sourceTree = "<group>"; };
@@ -92,6 +93,7 @@
 		C2D696BA20050FE800B4B7DE /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		C2E3778D201A3A0100900803 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = RSSwift/SettingViewController.swift; sourceTree = SOURCE_ROOT; };
 		C2ED39D92010D67500068BA1 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test.json; path = RSSwift/test.json; sourceTree = SOURCE_ROOT; };
+		D7626447F0FA4D2BEBDEBDB4 /* Pods_Rsswift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rsswift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE891658291BBEF1AA006263 /* Pods_Rsswift.framework in Frameworks */,
+				C29FA06D2020AFBD006EDBCD /* Reachability.framework in Frameworks */,
+				64B56FC860C2610BCA4ECFC9 /* Pods_Rsswift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +240,8 @@
 		E60A9374F15EDB3B62C722AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6DAF58356D6AB6ED582EC762 /* Pods_Rsswift.framework */,
+				C29FA06C2020AFBD006EDBCD /* Reachability.framework */,
+				D7626447F0FA4D2BEBDEBDB4 /* Pods_Rsswift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -394,11 +398,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Rsswift/Pods-Rsswift-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

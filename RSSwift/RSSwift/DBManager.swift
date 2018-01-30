@@ -16,6 +16,8 @@ class GDB{
 }
 
 let gdb = GDB()
+let dbEagle = DBEagle()
+let dbFeed = DBFeed()
 
 /// 被管理的数据上下文   初始化的后，必须设置持久化存储助理
 var managedObjectContext: NSManagedObjectContext = {
@@ -97,121 +99,16 @@ func MD5(string: String) -> String {
 
 
 func save_eagle(title:String, url:String){
-    let contactIonfo = NSEntityDescription.insertNewObject(forEntityName: "EagleList", into: managedObjectContext) as! EagleList
-
-    //两种赋值方式 如果你创建了Preson 的NSManagedObjectModel
-    //那就可以用点语法调出属性否则只能用setValue赋值
-    
-    //点语法赋值
-    contactIonfo.url = url
-    contactIonfo.name = title
-    
-    //setValue赋值
-    //contactIonfo .setValue("1", forKey: "name")
-    //contactIonfo .setValue(11, forKey: "age")
-    
-    ///  保存到本地
-    saveContext()
+    dbEagle.save(title: title, url: url)
 }
 
 func eagle_list()->[EagleList]{
-    let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init()
-    ///  生成一个要查询的表的对象
-    let entity = NSEntityDescription.entity(forEntityName: "EagleList", in: managedObjectContext)
-    ///  查询对象属性
-    fetchRequest.entity = entity
-    var eagleList = [EagleList]()
-    ///  判断查询对象是否为空 防止崩溃
-    if (entity != nil) {
-        ///  查询结果
-        do{
-            /// 成功
-            let qwqwrr:[AnyObject]?  = try managedObjectContext.fetch(fetchRequest)
-            for info:NSManagedObject in qwqwrr as![NSManagedObject] {
-                eagleList.append(info as! EagleList)
-            }
-        }catch{
-            /// 失败
-            fatalError("查询失败：\(error)")
-        }
-    }else{
-        ///  查询对象不存在
-        print("查询失败：查询不存在")
-    }
-    return eagleList
+    return dbEagle.list()
 }
 
-///  修改数据
-func change_eagle(){
-    ///修改数据
-    ///先查询到要修改内容然后在修改数据
-    ///  返回一个查询对象
-    let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init()
-    ///  生成一个要查询的表的对象
-    let entity = NSEntityDescription.entity(forEntityName: "EagleList", in: managedObjectContext)
-    ///  查询对象属性
-    fetchRequest.entity = entity
-    ///  判断查询对象是否为空 防止崩溃
-    if (entity != nil) {
-        ///  查询结果
-        do{
-            /// 成功
-            ///两种方法  0有Preson对象时和1没有的时候
-            let temp:[AnyObject]  = try managedObjectContext.fetch(fetchRequest)
-            //1没有对象时
-            #if false
-                for info:NSManagedObject in temp as![NSManagedObject] {
-                    info.setValue("wmm", forKey: "name")
-                }
-            #else
-                //0有对象时
-                for info:EagleList in temp as![EagleList] {
-                    info.name = "wmm"
-                }
-            #endif
-        }catch{
-            /// 失败
-            fatalError("修改失败：\(error)")
-        }
-    }else{
-        ///  查询对象不存在
-        print("查询失败：查询不存在")
-    }
-}
-
-///  删除数据
+ ///  删除数据
 func delete_eagle(name:String){
-    ///删除数据
-    ///先查询到要修改的内容然后删除
-    ///  返回一个查询对象
-    let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init()
-    ///  生成一个要查询的表的对象
-    let entity = NSEntityDescription.entity(forEntityName: "EagleList", in: managedObjectContext)
-    ///  查询对象属性
-    fetchRequest.entity = entity
-    ///  判断查询对象是否为空 防止崩溃
-    if (entity != nil) {
-        ///  查询结果
-        do{
-            /// 成功
-            ///两种方法  0有Preson对象时和1没有的时候
-            let temp:[AnyObject]  = try managedObjectContext.fetch(fetchRequest)
-            for info:EagleList in temp as![EagleList] {
-                if info.name == name {
-                    //删除对象
-                    managedObjectContext.delete(info)
-                }
-            }
-        }catch{
-            /// 失败
-            fatalError("删除失败：\(error)")
-        }
-    }else{
-        ///  查询对象不存在
-        print("查询失败：查询不存在")
-    }
-    ///删除成功后再次保存到本地
-    saveContext()
+    dbEagle.delete(name: name)
 }
 
 
@@ -399,7 +296,7 @@ public extension SafeArray where Element: Equatable {
 
 
 //json
-func parse_json(file:String){
+func read_from_file(file:String) -> String{
     // File location
     let fileURLProject = Bundle.main.path(forResource: file, ofType: "json")
     // Read from the file
@@ -410,7 +307,7 @@ func parse_json(file:String){
         print("Failed reading from URL: \(file), Error: " + error.localizedDescription)
     }
     
-    print(readStringProject)
+    return readStringProject
 }
 
 func save_to_file(file:String, text:String){
@@ -425,43 +322,61 @@ func save_to_file(file:String, text:String){
         do {
             try text.write(to: fileURL, atomically: false, encoding: .utf8)
         }
-        catch {/* error handling here */}
+        catch let error as NSError {
+            print("Failed save to URL: \(file), Error: " + error.localizedDescription)
+        }
+        
 
         //reading
         do {
             let text2 = try String(contentsOf: fileURL, encoding: .utf8)
         }
-        catch {/* error handling here */}
-    }
-}
-func read_from_file(file:String){
-}
-
-
-func getUrl(address:String) -> String {
-    if let url = URL(string: address) {
-        do {
-            let contents = try String(contentsOf: url)
-            return contents
-        } catch {
-            return ""
+        catch let error as NSError {
+            print("Failed save to URL: \(file), Error: " + error.localizedDescription)
         }
-    } else {
-        return ""
+        
+    }else{
+        print("no dir")
     }
 }
 
-func parseJsonString(data:String)->[String: Any]{
-    do {
-        if data,
-            let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-            //let blogs = json["blogs"] as? [[String: Any]] {
-            return json
+
+
+extension String{
+    func convertHtml() -> NSAttributedString{
+        guard let data = data(using: .utf8) else { return NSAttributedString() }
+        do{
+            return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil)
+        }catch{
+            return NSAttributedString()
         }
-    } catch {
-        print("Error deserializing JSON: \(error)")
     }
-    return nil
 }
 
 
+func ddStorageGet(key:String, empty:String) -> String{
+    if let a = UserDefaults.standard.string(forKey: key){
+        return a
+    }else{
+        return empty
+    }
+}
+func ddStorageSet(key:String, value:String){
+    UserDefaults.standard.set(value, forKey: key)
+}
+func ddStorageClear(key:String){
+    UserDefaults.standard.removeObject(forKey: key)
+}
+
+
+
+// MARK: - Used to scale UIImages
+extension UIImage {
+    func scaleTo(_ newSize: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+}

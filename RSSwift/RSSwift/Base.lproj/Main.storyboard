@@ -54,7 +54,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" id="GKp-vD-lsM">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="MAh-Nu-yOd">
+                        <barButtonItem key="leftBarButtonItem" id="MAh-Nu-yOd">
                             <connections>
                                 <segue destination="cUg-b3-PVQ" kind="show" id="KhB-gZ-fg3"/>
                             </connections>
@@ -71,7 +71,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2z-4w-nPY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="oHF-u0-fRh">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
+                    <rect key="frame" x="0.0" y="-1" width="375" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="First"/>
@@ -185,7 +185,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dch-6A-tAh" id="KHS-UF-1HN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
