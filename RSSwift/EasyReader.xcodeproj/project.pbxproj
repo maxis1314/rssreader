@@ -27,6 +27,7 @@
 		C2703F042007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */; };
 		C2703F062007C0B400E58BD4 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F052007C0B400E58BD4 /* DBManager.swift */; };
 		C29FA06D2020AFBD006EDBCD /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29FA06C2020AFBD006EDBCD /* Reachability.framework */; };
+		C29FA06F2020BCDE006EDBCD /* Toast_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29FA06E2020BCDE006EDBCD /* Toast_Swift.framework */; };
 		C2CAC46C201CB8C700F877D2 /* DDStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC46B201CB8C700F877D2 /* DDStorage.swift */; };
 		C2CAC46E201CBC4600F877D2 /* DBEagle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC46D201CBC4600F877D2 /* DBEagle.swift */; };
 		C2CAC478201CC18E00F877D2 /* feeddb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC476201CC18E00F877D2 /* feeddb.xcdatamodeld */; };
@@ -84,6 +85,7 @@
 		C2703F052007C0B400E58BD4 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		C2703F072007C2A300E58BD4 /* EagleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EagleListViewController.swift; path = ../RSSwift/EagleListViewController.swift; sourceTree = "<group>"; };
 		C29FA06C2020AFBD006EDBCD /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = "../../../../Library/Developer/Xcode/DerivedData/EasyReader-btaczkbtaxqhzvbxitknhetwpavd/Build/Products/Debug-iphonesimulator/ReachabilitySwift/Reachability.framework"; sourceTree = "<group>"; };
+		C29FA06E2020BCDE006EDBCD /* Toast_Swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Toast_Swift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/EasyReader-btaczkbtaxqhzvbxitknhetwpavd/Build/Products/Debug-iphonesimulator/Toast-Swift/Toast_Swift.framework"; sourceTree = "<group>"; };
 		C2CAC46B201CB8C700F877D2 /* DDStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDStorage.swift; path = RSSwift/DDStorage.swift; sourceTree = SOURCE_ROOT; };
 		C2CAC46D201CBC4600F877D2 /* DBEagle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBEagle.swift; path = RSSwift/DBEagle.swift; sourceTree = SOURCE_ROOT; };
 		C2CAC477201CC18E00F877D2 /* feeddb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = feeddb.xcdatamodel; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C29FA06F2020BCDE006EDBCD /* Toast_Swift.framework in Frameworks */,
 				C29FA06D2020AFBD006EDBCD /* Reachability.framework in Frameworks */,
 				64B56FC860C2610BCA4ECFC9 /* Pods_Rsswift.framework in Frameworks */,
 			);
@@ -240,6 +243,7 @@
 		E60A9374F15EDB3B62C722AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C29FA06E2020BCDE006EDBCD /* Toast_Swift.framework */,
 				C29FA06C2020AFBD006EDBCD /* Reachability.framework */,
 				D7626447F0FA4D2BEBDEBDB4 /* Pods_Rsswift.framework */,
 			);
@@ -399,10 +403,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Rsswift/Pods-Rsswift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

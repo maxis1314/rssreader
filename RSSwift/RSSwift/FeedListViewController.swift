@@ -8,6 +8,7 @@
 
 import UIKit
 import Reachability
+import Toast_Swift
 
 class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearchResultsUpdating,UISearchBarDelegate {
     
@@ -182,8 +183,9 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             reachability.stopNotifier()
         }
         reachability.whenUnreachable = { _ in
-            print("Not reachable")
-            refresher.attributedTitle = NSAttributedString(string: "Network connect problem")
+            print("Connecting...")
+            self.refresher.attributedTitle = NSAttributedString(string: "Network connect problem")
+            self.view.makeToast("Please check network!", duration: 0.5, position: .center)
             self.refresher.endRefreshing()
             reachability.stopNotifier()
         }
