@@ -25,6 +25,11 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     var unreadImg:UIImage!
     
     func copyFeed(){
+        
+        if myFeedSafe.count == 0 {
+            return
+        }
+        
         gdb.myFeed.removeAll()
         /*for object in myFeedSafe {
             let title = object.title
@@ -60,7 +65,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         if gdb.myFeed.count <= 0 {
             var i = 0
             for feedEagle in dbFeed.list() {
-                print(feedEagle)
+                //print(feedEagle)
                 let feed = Feed(id:i,title: feedEagle.title!, link: feedEagle.link!,pubDate:feedEagle.pubDate!, description:feedEagle.desc!)
                 i=i+1
                 gdb.myFeed.append(feed)
@@ -77,7 +82,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         navigationItem.title = "Feed List"
         
         refresher = UIRefreshControl()        
-        refresher.addTarget(self, action: #selector(FeedListViewController.loadData),
+        refresher.addTarget(self, action: #selector(FeedListViewController.preLoadData),
                                  for: .valueChanged)
         //refresher.attributedTitle = NSAttributedString(string: "刷新")
         //tableView.addSubview(refresher)
@@ -118,7 +123,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
         //tableView.tableHeaderView = customSC*/
         
         
-        loadData()        
+        preLoadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
@@ -161,10 +166,10 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
     }
 
     @IBAction func refreshFeed2(_ sender: Any) {
-        loadData()
+        preLoadData()
     }
     
-    func loadData() {
+    func preLoadData(){
         let reachability = Reachability()!
         
         reachability.whenReachable = { reachability in
@@ -173,20 +178,25 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             } else {
                 print("Reachable via Cellular")
             }
+            self.loadData()
+            reachability.stopNotifier()
         }
         reachability.whenUnreachable = { _ in
             print("Not reachable")
+            refresher.attributedTitle = NSAttributedString(string: "Network connect problem")
             self.refresher.endRefreshing()
-            //return
+            reachability.stopNotifier()
         }
         
-        /*do {
+        do {
             try reachability.startNotifier()
         } catch {
             print("Unable to start notifier")
-        }*/
- 
-        
+        }
+
+    }
+    
+    func loadData() {
         print("Hello from Daniel")
       
         
