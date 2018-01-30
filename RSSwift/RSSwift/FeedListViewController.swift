@@ -183,8 +183,8 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             reachability.stopNotifier()
         }
         reachability.whenUnreachable = { _ in
-            print("Connecting...")
-            self.refresher.attributedTitle = NSAttributedString(string: "Network connect problem")
+            print("net work error")
+            self.refresher.attributedTitle = NSAttributedString(string: "Connecting...")
             self.view.makeToast("Please check network!", duration: 0.5, position: .center)
             self.refresher.endRefreshing()
             reachability.stopNotifier()
