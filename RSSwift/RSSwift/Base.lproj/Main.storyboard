@@ -147,6 +147,26 @@
                                     </switch>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="jwH-tx-TdF">
+                                <rect key="frame" x="0.0" y="236" width="375" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unread first" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LV-Fh-psv">
+                                        <rect key="frame" x="0.0" y="6" width="162.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5e-IL-Xfc">
+                                        <rect key="frame" x="212.5" y="0.5" width="164.5" height="31"/>
+                                        <connections>
+                                            <action selector="unreadModeChanged:" destination="cUg-b3-PVQ" eventType="valueChanged" id="zFb-TS-qr0"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="kXs-Vr-HGf"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -154,10 +174,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="qMR-pe-VOq" secondAttribute="trailing" id="AmH-2b-1MC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GkI-Lm-o09" secondAttribute="trailing" id="Frk-AX-uei"/>
                             <constraint firstItem="KiE-C2-XZI" firstAttribute="leading" secondItem="p8P-17-Wvs" secondAttribute="leadingMargin" id="OTP-sZ-GA2"/>
+                            <constraint firstAttribute="trailing" secondItem="jwH-tx-TdF" secondAttribute="trailing" id="TzZ-Oy-rJv"/>
                             <constraint firstItem="KiE-C2-XZI" firstAttribute="top" secondItem="qMR-pe-VOq" secondAttribute="bottom" constant="30" id="VWf-2x-sdG"/>
                             <constraint firstItem="qMR-pe-VOq" firstAttribute="leading" secondItem="p8P-17-Wvs" secondAttribute="leadingMargin" id="daL-mH-QB8"/>
+                            <constraint firstItem="jwH-tx-TdF" firstAttribute="top" secondItem="KiE-C2-XZI" secondAttribute="bottom" constant="21" id="h5O-uS-nae"/>
                             <constraint firstItem="GkI-Lm-o09" firstAttribute="leading" secondItem="p8P-17-Wvs" secondAttribute="leadingMargin" id="jRv-Fk-mSd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KiE-C2-XZI" secondAttribute="trailing" id="jy9-yb-ugT"/>
+                            <constraint firstItem="jwH-tx-TdF" firstAttribute="leading" secondItem="p8P-17-Wvs" secondAttribute="leading" id="mwI-NR-Rl7"/>
                             <constraint firstItem="GkI-Lm-o09" firstAttribute="top" secondItem="Yo4-qv-NZQ" secondAttribute="bottom" constant="20" id="wRa-Wg-XbQ"/>
                         </constraints>
                     </view>
@@ -166,6 +189,7 @@
                         <outlet property="fontLbl" destination="FbY-AB-drX" id="TO6-9z-yom"/>
                         <outlet property="fontSlider" destination="qMR-pe-VOq" id="gPz-85-NJF"/>
                         <outlet property="openLinkSwitch" destination="HGk-PI-L82" id="Bbr-e1-3ZK"/>
+                        <outlet property="unreadSwitch" destination="m5e-IL-Xfc" id="8NM-ys-iBP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TbX-kI-Sdi" userLabel="First Responder" sceneMemberID="firstResponder"/>

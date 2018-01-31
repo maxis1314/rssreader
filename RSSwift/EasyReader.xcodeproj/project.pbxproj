@@ -37,6 +37,7 @@
 		C2D696BB20050FE800B4B7DE /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D696BA20050FE800B4B7DE /* Feed.swift */; };
 		C2E3778E201A3A0100900803 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E3778D201A3A0100900803 /* SettingViewController.swift */; };
 		C2ED39DA2010D67600068BA1 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = C2ED39D92010D67500068BA1 /* test.json */; };
+		C2EE01372021FF360052C816 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2EE01362021FF360052C816 /* UserNotifications.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,8 @@
 		C2D696BA20050FE800B4B7DE /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		C2E3778D201A3A0100900803 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = RSSwift/SettingViewController.swift; sourceTree = SOURCE_ROOT; };
 		C2ED39D92010D67500068BA1 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test.json; path = RSSwift/test.json; sourceTree = SOURCE_ROOT; };
+		C2EE01352021FDCA0052C816 /* Rsswift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rsswift.entitlements; sourceTree = "<group>"; };
+		C2EE01362021FF360052C816 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		D7626447F0FA4D2BEBDEBDB4 /* Pods_Rsswift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rsswift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2EE01372021FF360052C816 /* UserNotifications.framework in Frameworks */,
 				C29FA06F2020BCDE006EDBCD /* Toast_Swift.framework in Frameworks */,
 				C29FA06D2020AFBD006EDBCD /* Reachability.framework in Frameworks */,
 				64B56FC860C2610BCA4ECFC9 /* Pods_Rsswift.framework in Frameworks */,
@@ -153,6 +157,7 @@
 		703266431DDF6E3D006CC1B5 /* Rsswift */ = {
 			isa = PBXGroup;
 			children = (
+				C2EE01352021FDCA0052C816 /* Rsswift.entitlements */,
 				C2ED39D82010D63300068BA1 /* DATA */,
 				C202E60E2008FF0B0016AD71 /* Controller */,
 				C202E60A2008EDAA0016AD71 /* OC */,
@@ -243,6 +248,7 @@
 		E60A9374F15EDB3B62C722AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2EE01362021FF360052C816 /* UserNotifications.framework */,
 				C29FA06E2020BCDE006EDBCD /* Toast_Swift.framework */,
 				C29FA06C2020AFBD006EDBCD /* Reachability.framework */,
 				D7626447F0FA4D2BEBDEBDB4 /* Pods_Rsswift.framework */,
@@ -333,6 +339,11 @@
 						DevelopmentTeam = 7Q7A72P7JA;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					703266571DDF6E3D006CC1B5 = {
 						CreatedOnToolsVersion = 8.1;
@@ -629,6 +640,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Rsswift/Rsswift.entitlements;
 				DEVELOPMENT_TEAM = 7Q7A72P7JA;
 				INFOPLIST_FILE = Rsswift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -647,6 +659,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Rsswift/Rsswift.entitlements;
 				DEVELOPMENT_TEAM = 7Q7A72P7JA;
 				INFOPLIST_FILE = Rsswift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

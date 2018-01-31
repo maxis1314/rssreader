@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class AddEagleViewController: UIViewController {
 
@@ -26,7 +27,7 @@ class AddEagleViewController: UIViewController {
         print(1)
         if nameTxt.text != "" || urlTxt.text != "" {
             
-            //self.view.makeToast("Feed Saved!", duration: 0.5, position: .center)
+            self.view.makeToast("Feed Saved", duration: 0.5, position: .center)
             
             save_eagle(title:nameTxt.text!,url:urlTxt.text!)
             

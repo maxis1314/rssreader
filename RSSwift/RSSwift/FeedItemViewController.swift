@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMobileAds
+import Toast_Swift
 
 class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewDelegate {
 
@@ -17,21 +18,58 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     var topTitle: String?
     var indexNow:Int!
 
+    func getNextUnread()->Int{
+        if indexNow < gdb.myFeed.count-1 {
+            for i in indexNow+1..<gdb.myFeed.count{
+                let isRead = ddStorageGet(key: "isread_\(gdb.myFeed[i].link)", empty: "")
+                if isRead == "" {
+                    return i
+                }
+            }
+        }
+        return gdb.myFeed.count-1
+        
+    }
+    
+    func getBeforeUnread()->Int{
+        if indexNow > 0  {
+            for i in 0..<indexNow {
+                let isRead = ddStorageGet(key: "isread_\(gdb.myFeed[indexNow-i-1].link)", empty: "")
+                if isRead == "" {
+                    return indexNow-i-1
+                }
+            }
+        }
+        return 0
+    }
+    
     @IBAction func leftBtnClicked(_ sender: UIButton) {
-        if indexNow > 0{
-            indexNow = indexNow - 1
+        let unreadFist = ddStorageGet(key:"unreadFist",empty:"0")
+        
+        if unreadFist == "1" {
+            indexNow = getBeforeUnread()
         }else{
-            indexNow = gdb.myFeed.count-1
+            if indexNow > 0{
+                indexNow = indexNow - 1
+            }else{
+                indexNow = gdb.myFeed.count-1
+            }
         }
         loadUrl(i:indexNow)
         refreshAd()
     }
     
     @IBAction func rightBtnClicked(_ sender: Any) {
-        if indexNow < gdb.myFeed.count - 1  {
-            indexNow = indexNow + 1
+        let unreadFist = ddStorageGet(key:"unreadFist",empty:"0")
+        
+        if unreadFist == "1" {
+            indexNow = getNextUnread()
         }else{
-            indexNow = 0
+            if indexNow < gdb.myFeed.count - 1  {
+                indexNow = indexNow + 1
+            }else{
+                indexNow = 0
+            }
         }
         loadUrl(i:indexNow)
         refreshAd()

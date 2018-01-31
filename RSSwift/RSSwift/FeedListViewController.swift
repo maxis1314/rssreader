@@ -51,7 +51,7 @@ class FeedListViewController: UITableViewController, XMLParserDelegate ,UISearch
             i = i+1
             dbFeed.save(title: title, link: link, pubDate: pubDate, description: description)
         }
-        self.view.makeToast("All feed refreshed", duration: 0.5, position: .center)
+        self.view.makeToast("All feed refreshed", duration: 0.5, position: .top)
     }
     
     override func viewWillAppear(_ animated: Bool) {

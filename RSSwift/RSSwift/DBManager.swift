@@ -18,6 +18,7 @@ class GDB{
 let gdb = GDB()
 let dbEagle = DBEagle()
 let dbFeed = DBFeed()
+let baseURL = "http://wp.rabbit-e.com"
 
 /// 被管理的数据上下文   初始化的后，必须设置持久化存储助理
 var managedObjectContext: NSManagedObjectContext = {

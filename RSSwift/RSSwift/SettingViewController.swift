@@ -15,6 +15,19 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var fontLbl: UILabel!
     @IBOutlet weak var fontSlider: UISlider!
     
+    @IBOutlet weak var unreadSwitch: UISwitch!
+    
+    
+    @IBAction func unreadModeChanged(_ sender: Any) {
+        if unreadSwitch.isOn {
+            ddStorageSet(key:"unreadFist",value:"1")
+        }else{
+            ddStorageSet(key:"unreadFist",value:"0")
+        }
+
+    }
+    
+    
     @IBAction func openModeChanged(_ sender: Any) {
         if openLinkSwitch.isOn {
             ddStorageSet(key:"openFeedLink",value:"1")
@@ -39,6 +52,14 @@ class SettingViewController: UIViewController {
             openLinkSwitch.isOn = true
         }else{
             openLinkSwitch.isOn = false
+        }
+        
+        
+        let unreadFist = ddStorageGet(key:"unreadFist",empty:"0")
+        if unreadFist == "1" {
+            unreadSwitch.isOn = true
+        }else{
+            unreadSwitch.isOn = false
         }
         
     }
