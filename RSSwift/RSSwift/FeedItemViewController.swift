@@ -27,7 +27,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
                 }
             }
         }
-        return gdb.myFeed.count-1
+        return 0
         
     }
     
@@ -40,7 +40,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
                 }
             }
         }
-        return 0
+        return gdb.myFeed.count-1
     }
     
     @IBAction func leftBtnClicked(_ sender: UIButton) {
