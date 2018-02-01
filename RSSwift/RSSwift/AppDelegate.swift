@@ -9,7 +9,8 @@
 import UIKit
 import CoreData
 import GoogleMobileAds
-import UserNotifications  
+import UserNotifications
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -71,6 +72,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
         
         //save_to_file(file:"test2", text:"aaaa")
+        
+        
+        struct Article {
+            let title: String
+            let author: String
+        }
+        
+        let context = [
+            "articles": [
+                Article(title: "Migrating from OCUnit to XCTest", author: "Kyle Fuller"),
+                Article(title: "Memory Management with ARC", author: "Kyle Fuller"),
+            ]
+        ]
+        
+        
+            
+        let rendered = render_template(file:"article_list",context:context)
+        print(rendered)
+        
+        
+        
+        
         
         return true
     }

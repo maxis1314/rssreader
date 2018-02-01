@@ -4,12 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>PathKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Rsswift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>ReachabilitySwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Stencil.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5799823D406FF44E3FB62EAD3B8BD39E</key>
+		<key>398C18488A6C5E86BF22CA4C411DE25F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>580664367D465A3BDFEE93652B1B4CDC</key>
+		<key>BBB46569A79C52426939AF96DA290CF9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5BB7D7B78DD3904D57940D7FC6C5BCD6</key>
+		<key>CF27C9EE7987E7EB5D9E981DB0FC0BF5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DAC4F736DD4037DACC17B2B715A8C48C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E192F1C75FFFADB4063A15B0B0B02C0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

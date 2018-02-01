@@ -10,6 +10,7 @@ import UIKit
 
 import Foundation
 import CoreData
+import Stencil
 
 class GDB{
     var myFeed=[Feed]()
@@ -297,9 +298,9 @@ public extension SafeArray where Element: Equatable {
 
 
 //json
-func read_from_file(file:String) -> String{
+func read_from_file(file:String, type:String) -> String{
     // File location
-    let fileURLProject = Bundle.main.path(forResource: file, ofType: "json")
+    let fileURLProject = Bundle.main.path(forResource: file, ofType: type)
     // Read from the file
     var readStringProject = ""
     do {
@@ -379,5 +380,18 @@ extension UIImage {
         let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return newImage
+    }
+}
+
+
+func render_template(file:String, context:Dictionary<String,Any>)->String{
+    do{
+        
+        let template = Template(templateString: read_from_file(file:file,type:"html"))
+        let rendered = try template.render(context)
+        
+        return rendered
+    }catch let error as NSError {
+        return "Error: \(error.domain)"
     }
 }

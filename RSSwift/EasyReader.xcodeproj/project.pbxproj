@@ -26,6 +26,8 @@
 		C2703F032007BC3B00E58BD4 /* EagleList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F012007BC3B00E58BD4 /* EagleList+CoreDataClass.swift */; };
 		C2703F042007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */; };
 		C2703F062007C0B400E58BD4 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F052007C0B400E58BD4 /* DBManager.swift */; };
+		C28ED1FA202368020002834C /* article_list.html in Resources */ = {isa = PBXBuildFile; fileRef = C28ED1F9202368020002834C /* article_list.html */; };
+		C28ED1FD202368E70002834C /* feed_detail.html in Resources */ = {isa = PBXBuildFile; fileRef = C28ED1FC202368E70002834C /* feed_detail.html */; };
 		C29FA06D2020AFBD006EDBCD /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29FA06C2020AFBD006EDBCD /* Reachability.framework */; };
 		C29FA06F2020BCDE006EDBCD /* Toast_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29FA06E2020BCDE006EDBCD /* Toast_Swift.framework */; };
 		C2CAC46C201CB8C700F877D2 /* DDStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC46B201CB8C700F877D2 /* DDStorage.swift */; };
@@ -85,6 +87,8 @@
 		C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EagleList+CoreDataProperties.swift"; path = "RSSwift/EagleList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C2703F052007C0B400E58BD4 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		C2703F072007C2A300E58BD4 /* EagleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EagleListViewController.swift; path = ../RSSwift/EagleListViewController.swift; sourceTree = "<group>"; };
+		C28ED1F9202368020002834C /* article_list.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = article_list.html; sourceTree = "<group>"; };
+		C28ED1FC202368E70002834C /* feed_detail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = feed_detail.html; sourceTree = "<group>"; };
 		C29FA06C2020AFBD006EDBCD /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = "../../../../Library/Developer/Xcode/DerivedData/EasyReader-btaczkbtaxqhzvbxitknhetwpavd/Build/Products/Debug-iphonesimulator/ReachabilitySwift/Reachability.framework"; sourceTree = "<group>"; };
 		C29FA06E2020BCDE006EDBCD /* Toast_Swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Toast_Swift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/EasyReader-btaczkbtaxqhzvbxitknhetwpavd/Build/Products/Debug-iphonesimulator/Toast-Swift/Toast_Swift.framework"; sourceTree = "<group>"; };
 		C2CAC46B201CB8C700F877D2 /* DDStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDStorage.swift; path = RSSwift/DDStorage.swift; sourceTree = SOURCE_ROOT; };
@@ -157,6 +161,7 @@
 		703266431DDF6E3D006CC1B5 /* Rsswift */ = {
 			isa = PBXGroup;
 			children = (
+				C28ED1FB202368730002834C /* Templates */,
 				C2EE01352021FDCA0052C816 /* Rsswift.entitlements */,
 				C2ED39D82010D63300068BA1 /* DATA */,
 				C202E60E2008FF0B0016AD71 /* Controller */,
@@ -227,6 +232,15 @@
 				C2CAC47D201CC36B00F877D2 /* DBFeed.swift */,
 			);
 			name = DB;
+			sourceTree = "<group>";
+		};
+		C28ED1FB202368730002834C /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				C28ED1F9202368020002834C /* article_list.html */,
+				C28ED1FC202368E70002834C /* feed_detail.html */,
+			);
+			name = Templates;
 			sourceTree = "<group>";
 		};
 		C2D696B720050F4C00B4B7DE /* Model */ = {
@@ -382,10 +396,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28ED1FA202368020002834C /* article_list.html in Resources */,
 				703266521DDF6E3D006CC1B5 /* LaunchScreen.storyboard in Resources */,
 				C2ED39DA2010D67600068BA1 /* test.json in Resources */,
 				7032664F1DDF6E3D006CC1B5 /* Assets.xcassets in Resources */,
 				7032664A1DDF6E3D006CC1B5 /* Main.storyboard in Resources */,
+				C28ED1FD202368E70002834C /* feed_detail.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,12 +429,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Rsswift/Pods-Rsswift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PathKit/PathKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/Stencil/Stencil.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PathKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stencil.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
