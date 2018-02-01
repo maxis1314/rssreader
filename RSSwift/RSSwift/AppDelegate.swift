@@ -88,8 +88,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
             
-        let rendered = render_template(file:"article_list",context:context)
-        print(rendered)
+        //let rendered = render_template(file:"article_list",context:context)
+        //print(rendered)
         
         
         

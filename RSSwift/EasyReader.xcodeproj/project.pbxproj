@@ -28,6 +28,7 @@
 		C2703F062007C0B400E58BD4 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F052007C0B400E58BD4 /* DBManager.swift */; };
 		C28ED1FA202368020002834C /* article_list.html in Resources */ = {isa = PBXBuildFile; fileRef = C28ED1F9202368020002834C /* article_list.html */; };
 		C28ED1FD202368E70002834C /* feed_detail.html in Resources */ = {isa = PBXBuildFile; fileRef = C28ED1FC202368E70002834C /* feed_detail.html */; };
+		C28ED1FF20236FF90002834C /* Feed2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ED1FE20236FF90002834C /* Feed2.swift */; };
 		C29FA06D2020AFBD006EDBCD /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29FA06C2020AFBD006EDBCD /* Reachability.framework */; };
 		C29FA06F2020BCDE006EDBCD /* Toast_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29FA06E2020BCDE006EDBCD /* Toast_Swift.framework */; };
 		C2CAC46C201CB8C700F877D2 /* DDStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC46B201CB8C700F877D2 /* DDStorage.swift */; };
@@ -89,6 +90,7 @@
 		C2703F072007C2A300E58BD4 /* EagleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EagleListViewController.swift; path = ../RSSwift/EagleListViewController.swift; sourceTree = "<group>"; };
 		C28ED1F9202368020002834C /* article_list.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = article_list.html; sourceTree = "<group>"; };
 		C28ED1FC202368E70002834C /* feed_detail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = feed_detail.html; sourceTree = "<group>"; };
+		C28ED1FE20236FF90002834C /* Feed2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Feed2.swift; path = RSSwift/Feed2.swift; sourceTree = SOURCE_ROOT; };
 		C29FA06C2020AFBD006EDBCD /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = "../../../../Library/Developer/Xcode/DerivedData/EasyReader-btaczkbtaxqhzvbxitknhetwpavd/Build/Products/Debug-iphonesimulator/ReachabilitySwift/Reachability.framework"; sourceTree = "<group>"; };
 		C29FA06E2020BCDE006EDBCD /* Toast_Swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Toast_Swift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/EasyReader-btaczkbtaxqhzvbxitknhetwpavd/Build/Products/Debug-iphonesimulator/Toast-Swift/Toast_Swift.framework"; sourceTree = "<group>"; };
 		C2CAC46B201CB8C700F877D2 /* DDStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDStorage.swift; path = RSSwift/DDStorage.swift; sourceTree = SOURCE_ROOT; };
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				C2D696BA20050FE800B4B7DE /* Feed.swift */,
+				C28ED1FE20236FF90002834C /* Feed2.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28ED1FF20236FF90002834C /* Feed2.swift in Sources */,
 				703266451DDF6E3D006CC1B5 /* AppDelegate.swift in Sources */,
 				C2CAC478201CC18E00F877D2 /* feeddb.xcdatamodeld in Sources */,
 				C2CAC47C201CC1CA00F877D2 /* EagleFeed+CoreDataProperties.swift in Sources */,

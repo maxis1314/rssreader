@@ -384,7 +384,7 @@ extension UIImage {
 }
 
 
-func render_template(file:String, context:Dictionary<String,Any>)->String{
+func render_template(file:String, context:[String: Any]? = nil)->String{
     do{
         
         let template = Template(templateString: read_from_file(file:file,type:"html"))

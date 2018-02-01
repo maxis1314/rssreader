@@ -45,5 +45,9 @@ class Feed {
         self._pubDate = pubDate
         self._description = description
     }
+    
+    func getFeed()->Feed2{
+        return Feed2(id:_id,title: _title, link: _link, pubDate:_pubDate,description:_description)
+    }
  
 }

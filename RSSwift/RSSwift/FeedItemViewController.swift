@@ -148,11 +148,20 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
             myWebView.loadRequest(URLRequest(url: URL(string: selectedFeedURL! as String)!))
         }else{
             
-            var font = ddStorageGet(key: "font", empty:"20")
+            let font = ddStorageGet(key: "font", empty:"20")
             print(font)
 
+            let context : [String:Any] = [
+                "font" : font,
+                "feed" : feed.getFeed()
+            ]
+            
+            let finalStr = render_template(file:"feed_detail",context:context)
+            
+            print(finalStr)
+
  
-            let finalStr = "<style>html{font-size: \(font)px;background-color:#C7EDCC;}</style><h3>\(feed.title)</h3><hr>\(feed.description)<a href='\(feed.link)'>[Source]</a>"
+            //let finalStr = "<style>html{font-size: \(font)px;background-color:#C7EDCC;}</style><h3>\(feed.title)</h3><hr>\(feed.description)<a href='\(feed.link)'>[Source]</a>"
  
             
             myWebView.scrollView.scrollsToTop = true
