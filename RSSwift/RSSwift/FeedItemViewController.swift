@@ -157,7 +157,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
                 "domain" : getIPAddressFromDNSQuery(url:feed.link)
             ]
             
-            let finalStr = render_template(file:"feed_detail2",context:context)
+            let finalStr = render_template(file:"feed_detail",context:context)
             
             print(finalStr)
 
@@ -168,7 +168,6 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
             myWebView.scrollView.scrollsToTop = true
             myWebView.loadHTMLString(finalStr, baseURL: Bundle.main.bundleURL)
             
-            print(Bundle.main.bundleURL)
 
             
             
@@ -212,7 +211,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     func webViewDidFinishLoad(_ webView: UIWebView) {
         print("in webViewDidFinishLoad")
         self.theBool = true
-}
+    }
     
     func timerCallback() {
         //print("in timerCallback\(self.myProgressView.progress)")
