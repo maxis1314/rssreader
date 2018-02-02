@@ -395,3 +395,23 @@ func render_template(file:String, context:[String: Any]? = nil)->String{
         return "Error: \(error.domain)"
     }
 }
+
+
+func getIPAddressFromDNSQuery(url: String) -> String? {
+    return NSURL(string: url)?.host
+}
+
+extension UIWebView {
+    func loadLocalJS(file:String){
+        self.stringByEvaluatingJavaScript(from:read_from_file(file: file, type: "js"))
+    }
+    func loadLocalCSS(file:String){
+        guard let path = Bundle.main.path(forResource: file, ofType: "css") else { return }
+        let cssString = try! String(contentsOfFile: path).trimmingCharacters(in: .whitespacesAndNewlines)
+        let jsString = "var style = document.createElement('style'); style.innerHTML = '\(cssString)'; document.head.appendChild(style);"
+        
+        print(jsString)
+        self.stringByEvaluatingJavaScript(from:jsString)
+    }
+}
+

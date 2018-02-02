@@ -39,6 +39,11 @@
 		C2CAC47E201CC36B00F877D2 /* DBFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC47D201CC36B00F877D2 /* DBFeed.swift */; };
 		C2D696BB20050FE800B4B7DE /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D696BA20050FE800B4B7DE /* Feed.swift */; };
 		C2E3778E201A3A0100900803 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E3778D201A3A0100900803 /* SettingViewController.swift */; };
+		C2EAC0932024A8AA008E2544 /* feed_detail2.html in Resources */ = {isa = PBXBuildFile; fileRef = C2EAC0922024A8AA008E2544 /* feed_detail2.html */; };
+		C2EAC0972024A9F5008E2544 /* jquery-1.8.3.min.js in Resources */ = {isa = PBXBuildFile; fileRef = C2EAC0942024A9F5008E2544 /* jquery-1.8.3.min.js */; };
+		C2EAC0982024A9F5008E2544 /* jquery.mobile-1.3.2.min.css in Resources */ = {isa = PBXBuildFile; fileRef = C2EAC0952024A9F5008E2544 /* jquery.mobile-1.3.2.min.css */; };
+		C2EAC0992024A9F5008E2544 /* jquery.mobile-1.3.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = C2EAC0962024A9F5008E2544 /* jquery.mobile-1.3.2.min.js */; };
+		C2EAC09B2024AF6B008E2544 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = C2EAC09A2024AF6B008E2544 /* test.js */; };
 		C2ED39DA2010D67600068BA1 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = C2ED39D92010D67500068BA1 /* test.json */; };
 		C2EE01372021FF360052C816 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2EE01362021FF360052C816 /* UserNotifications.framework */; };
 /* End PBXBuildFile section */
@@ -101,6 +106,11 @@
 		C2CAC47D201CC36B00F877D2 /* DBFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBFeed.swift; path = RSSwift/DBFeed.swift; sourceTree = SOURCE_ROOT; };
 		C2D696BA20050FE800B4B7DE /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		C2E3778D201A3A0100900803 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = RSSwift/SettingViewController.swift; sourceTree = SOURCE_ROOT; };
+		C2EAC0922024A8AA008E2544 /* feed_detail2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = feed_detail2.html; path = RSSwift/feed_detail2.html; sourceTree = SOURCE_ROOT; };
+		C2EAC0942024A9F5008E2544 /* jquery-1.8.3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.8.3.min.js"; sourceTree = "<group>"; };
+		C2EAC0952024A9F5008E2544 /* jquery.mobile-1.3.2.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "jquery.mobile-1.3.2.min.css"; sourceTree = "<group>"; };
+		C2EAC0962024A9F5008E2544 /* jquery.mobile-1.3.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery.mobile-1.3.2.min.js"; sourceTree = "<group>"; };
+		C2EAC09A2024AF6B008E2544 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		C2ED39D92010D67500068BA1 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test.json; path = RSSwift/test.json; sourceTree = SOURCE_ROOT; };
 		C2EE01352021FDCA0052C816 /* Rsswift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rsswift.entitlements; sourceTree = "<group>"; };
 		C2EE01362021FF360052C816 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
@@ -239,8 +249,13 @@
 		C28ED1FB202368730002834C /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				C2EAC0942024A9F5008E2544 /* jquery-1.8.3.min.js */,
+				C2EAC0952024A9F5008E2544 /* jquery.mobile-1.3.2.min.css */,
+				C2EAC0962024A9F5008E2544 /* jquery.mobile-1.3.2.min.js */,
 				C28ED1F9202368020002834C /* article_list.html */,
 				C28ED1FC202368E70002834C /* feed_detail.html */,
+				C2EAC0922024A8AA008E2544 /* feed_detail2.html */,
+				C2EAC09A2024AF6B008E2544 /* test.js */,
 			);
 			name = Templates;
 			sourceTree = "<group>";
@@ -399,12 +414,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2EAC0982024A9F5008E2544 /* jquery.mobile-1.3.2.min.css in Resources */,
 				C28ED1FA202368020002834C /* article_list.html in Resources */,
 				703266521DDF6E3D006CC1B5 /* LaunchScreen.storyboard in Resources */,
 				C2ED39DA2010D67600068BA1 /* test.json in Resources */,
 				7032664F1DDF6E3D006CC1B5 /* Assets.xcassets in Resources */,
 				7032664A1DDF6E3D006CC1B5 /* Main.storyboard in Resources */,
+				C2EAC09B2024AF6B008E2544 /* test.js in Resources */,
+				C2EAC0972024A9F5008E2544 /* jquery-1.8.3.min.js in Resources */,
 				C28ED1FD202368E70002834C /* feed_detail.html in Resources */,
+				C2EAC0992024A9F5008E2544 /* jquery.mobile-1.3.2.min.js in Resources */,
+				C2EAC0932024A8AA008E2544 /* feed_detail2.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

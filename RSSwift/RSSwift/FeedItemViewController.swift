@@ -153,19 +153,25 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
 
             let context : [String:Any] = [
                 "font" : font,
-                "feed" : feed.getFeed()
+                "feed" : feed.getFeed(),
+                "domain" : getIPAddressFromDNSQuery(url:feed.link)
             ]
             
-            let finalStr = render_template(file:"feed_detail",context:context)
+            let finalStr = render_template(file:"feed_detail2",context:context)
             
             print(finalStr)
 
  
             //let finalStr = "<style>html{font-size: \(font)px;background-color:#C7EDCC;}</style><h3>\(feed.title)</h3><hr>\(feed.description)<a href='\(feed.link)'>[Source]</a>"
- 
+
             
             myWebView.scrollView.scrollsToTop = true
-            myWebView.loadHTMLString(finalStr, baseURL: nil)
+            myWebView.loadHTMLString(finalStr, baseURL: Bundle.main.bundleURL)
+            
+            print(Bundle.main.bundleURL)
+
+            
+            
         }
         
         
@@ -206,7 +212,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
     func webViewDidFinishLoad(_ webView: UIWebView) {
         print("in webViewDidFinishLoad")
         self.theBool = true
-    }
+}
     
     func timerCallback() {
         //print("in timerCallback\(self.myProgressView.progress)")

@@ -1,11 +1,17 @@
 <style>
 html{
     font-size: {{font}}px;
-    background-color:#C7EDCC;}
+    background-color:#C7EDCC;
+}
+img{
+    width: 100% !important;
+}
 </style>
 
 <h3>{{feed.title}}</h3>
 <font style="color:grey;font-size:10px;margin-top:5px;">{{feed.pubDate}}</font>
 <hr>{{feed.description}}
+<br>
 
-<a href='{{feed.link}}'>[Source]</a>
+<br>
+<a href='{{feed.link}}'>[{{domain}}]</a>
