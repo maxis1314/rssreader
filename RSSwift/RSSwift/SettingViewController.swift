@@ -14,7 +14,9 @@ class SettingViewController: UIViewController {
         
         DispatchQueue.global(qos: .default).async {
             //处理耗时操作的代码块...
-            url_to_file(url: "\(baseURL)/eagle/feed_detail.html.txt.1", toFile: "feed_detail.html")
+            let timeResult = NSDate().timeIntervalSince1970
+            
+            url_to_file(url: "\(baseURL)/eagle/feed_detail.html.txt.1?t=\(timeResult)", toFile: "feed_detail.html")
             
             //操作完成，调用主线程来刷新界面
             DispatchQueue.main.async {
