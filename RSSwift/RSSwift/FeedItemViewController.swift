@@ -159,6 +159,8 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
             
             print("aaa \(feed.link) bb")
             
+            print(NSURL(string: feed.link))
+            
             let finalStr = render_template(file:"feed_detail",context:context)
             
             print(finalStr)

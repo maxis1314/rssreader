@@ -398,7 +398,8 @@ func render_template(file:String, context:[String: Any]? = nil)->String{
 
 
 func getIPAddressFromDNSQuery(url: String) -> String? {
-    return NSURL(string: url)?.host
+    let urlString :String = url.trimmingCharacters(in: .whitespaces)
+    return NSURL(string: urlString)?.host
 }
 
 extension UIWebView {
