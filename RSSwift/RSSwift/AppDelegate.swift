@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        url_to_file(url: "\(baseURL)/eagle/test.js", toFile: "test2.js")
+        //url_to_file(url: "\(baseURL)/eagle/test.js", toFile: "test2.js")
         
         //print(read_from_file(file: "feed_detail2", type: "html"))
         

@@ -7,9 +7,24 @@
 //
 
 import UIKit
-
+import Toast_Swift
 class SettingViewController: UIViewController {
 
+    @IBAction func updateSoft(_ sender: Any) {
+        
+        DispatchQueue.global(qos: .default).async {
+            //处理耗时操作的代码块...
+            url_to_file(url: "\(baseURL)/eagle/feed_detail.html.txt.1", toFile: "feed_detail.html")
+            
+            //操作完成，调用主线程来刷新界面
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Update", message: "Updated finished!", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+    }
     
     @IBOutlet weak var openLinkSwitch: UISwitch!
     @IBOutlet weak var fontLbl: UILabel!

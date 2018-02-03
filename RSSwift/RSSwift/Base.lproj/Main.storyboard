@@ -150,7 +150,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="jwH-tx-TdF">
                                 <rect key="frame" x="0.0" y="236" width="375" height="32"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unread first" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LV-Fh-psv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unread first:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LV-Fh-psv">
                                         <rect key="frame" x="0.0" y="6" width="162.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -167,11 +167,20 @@
                                     <constraint firstAttribute="height" constant="32" id="kXs-Vr-HGf"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yb3-91-wZa">
+                                <rect key="frame" x="16" y="306" width="343" height="30"/>
+                                <state key="normal" title="UPDATE"/>
+                                <connections>
+                                    <action selector="updateSoft:" destination="cUg-b3-PVQ" eventType="touchUpInside" id="MI8-ov-my9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yb3-91-wZa" secondAttribute="trailing" id="3F7-B1-1E2"/>
                             <constraint firstItem="qMR-pe-VOq" firstAttribute="top" secondItem="GkI-Lm-o09" secondAttribute="bottom" constant="20" id="8l8-aI-5ho"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qMR-pe-VOq" secondAttribute="trailing" id="AmH-2b-1MC"/>
+                            <constraint firstItem="Yb3-91-wZa" firstAttribute="leading" secondItem="p8P-17-Wvs" secondAttribute="leadingMargin" id="DrV-2Q-3Mh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GkI-Lm-o09" secondAttribute="trailing" id="Frk-AX-uei"/>
                             <constraint firstItem="KiE-C2-XZI" firstAttribute="leading" secondItem="p8P-17-Wvs" secondAttribute="leadingMargin" id="OTP-sZ-GA2"/>
                             <constraint firstAttribute="trailing" secondItem="jwH-tx-TdF" secondAttribute="trailing" id="TzZ-Oy-rJv"/>
@@ -181,6 +190,7 @@
                             <constraint firstItem="GkI-Lm-o09" firstAttribute="leading" secondItem="p8P-17-Wvs" secondAttribute="leadingMargin" id="jRv-Fk-mSd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KiE-C2-XZI" secondAttribute="trailing" id="jy9-yb-ugT"/>
                             <constraint firstItem="jwH-tx-TdF" firstAttribute="leading" secondItem="p8P-17-Wvs" secondAttribute="leading" id="mwI-NR-Rl7"/>
+                            <constraint firstItem="Yb3-91-wZa" firstAttribute="top" secondItem="jwH-tx-TdF" secondAttribute="bottom" constant="38" id="q8p-ru-I1p"/>
                             <constraint firstItem="GkI-Lm-o09" firstAttribute="top" secondItem="Yo4-qv-NZQ" secondAttribute="bottom" constant="20" id="wRa-Wg-XbQ"/>
                         </constraints>
                     </view>

@@ -416,20 +416,28 @@ extension UIWebView {
     }
 }
 
-func url_to_file(url:String, toFile:String){
+func url_to_string(url:String)->String{
     var recipientsString:String!
     
     if let url = URL(string: url) {
         do {
-            recipientsString = try String(contentsOf: url)
+            return try String(contentsOf: url)
         } catch {
             print("contents could not be loaded")
-            return
+            return ""
         }
     } else {
         print("the URL was bad!")
+        return ""
+    }
+}
+func url_to_file(url:String, toFile:String){
+    var recipientsString = url_to_string(url:url)
+    if recipientsString == "" {
         return
     }
+    
+    print(recipientsString)
     
     do {
         // Write contents to file
