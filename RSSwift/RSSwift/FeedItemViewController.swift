@@ -117,7 +117,7 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
         
         let feed = gdb.myFeed[i]
         
-        navigationItem.title = feed.title
+        navigationItem.title = "Feed Detail"//feed.title
         
         selectedFeedURL = feed.link
         

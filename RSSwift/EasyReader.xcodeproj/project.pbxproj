@@ -26,7 +26,7 @@
 		C2703F032007BC3B00E58BD4 /* EagleList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F012007BC3B00E58BD4 /* EagleList+CoreDataClass.swift */; };
 		C2703F042007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */; };
 		C2703F062007C0B400E58BD4 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2703F052007C0B400E58BD4 /* DBManager.swift */; };
-		C28ED1FA202368020002834C /* article_list.html in Resources */ = {isa = PBXBuildFile; fileRef = C28ED1F9202368020002834C /* article_list.html */; };
+		C28ED1FA202368020002834C /* feed_detail2.html in Resources */ = {isa = PBXBuildFile; fileRef = C28ED1F9202368020002834C /* feed_detail2.html */; };
 		C28ED1FD202368E70002834C /* feed_detail.html in Resources */ = {isa = PBXBuildFile; fileRef = C28ED1FC202368E70002834C /* feed_detail.html */; };
 		C28ED1FF20236FF90002834C /* Feed2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ED1FE20236FF90002834C /* Feed2.swift */; };
 		C29FA06D2020AFBD006EDBCD /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29FA06C2020AFBD006EDBCD /* Reachability.framework */; };
@@ -39,6 +39,14 @@
 		C2CAC47E201CC36B00F877D2 /* DBFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC47D201CC36B00F877D2 /* DBFeed.swift */; };
 		C2D696BB20050FE800B4B7DE /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D696BA20050FE800B4B7DE /* Feed.swift */; };
 		C2E3778E201A3A0100900803 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E3778D201A3A0100900803 /* SettingViewController.swift */; };
+		C2E9427B2025FD3E004E2403 /* ajax-loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = C2E942762025FD3E004E2403 /* ajax-loader.gif */; };
+		C2E9427C2025FD3F004E2403 /* icons-18-black.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E942772025FD3E004E2403 /* icons-18-black.png */; };
+		C2E9427D2025FD3F004E2403 /* icons-18-white.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E942782025FD3E004E2403 /* icons-18-white.png */; };
+		C2E9427E2025FD3F004E2403 /* icons-36-black.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E942792025FD3E004E2403 /* icons-36-black.png */; };
+		C2E9427F2025FD3F004E2403 /* icons-36-white.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E9427A2025FD3E004E2403 /* icons-36-white.png */; };
+		C2E942812025FD4B004E2403 /* jquery.mobile-1.3.1.css in Resources */ = {isa = PBXBuildFile; fileRef = C2E942802025FD4B004E2403 /* jquery.mobile-1.3.1.css */; };
+		C2E942842025FF0A004E2403 /* jquery.mobile-1.3.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = C2E942822025FF0A004E2403 /* jquery.mobile-1.3.1.min.js */; };
+		C2E942852025FF0A004E2403 /* jquery-1.9.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = C2E942832025FF0A004E2403 /* jquery-1.9.1.min.js */; };
 		C2EAC0972024A9F5008E2544 /* jquery-1.8.3.min.js in Resources */ = {isa = PBXBuildFile; fileRef = C2EAC0942024A9F5008E2544 /* jquery-1.8.3.min.js */; };
 		C2EAC0982024A9F5008E2544 /* jquery.mobile-1.3.2.min.css in Resources */ = {isa = PBXBuildFile; fileRef = C2EAC0952024A9F5008E2544 /* jquery.mobile-1.3.2.min.css */; };
 		C2EAC0992024A9F5008E2544 /* jquery.mobile-1.3.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = C2EAC0962024A9F5008E2544 /* jquery.mobile-1.3.2.min.js */; };
@@ -92,7 +100,7 @@
 		C2703F022007BC3B00E58BD4 /* EagleList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EagleList+CoreDataProperties.swift"; path = "RSSwift/EagleList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C2703F052007C0B400E58BD4 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		C2703F072007C2A300E58BD4 /* EagleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EagleListViewController.swift; path = ../RSSwift/EagleListViewController.swift; sourceTree = "<group>"; };
-		C28ED1F9202368020002834C /* article_list.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = article_list.html; sourceTree = "<group>"; };
+		C28ED1F9202368020002834C /* feed_detail2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = feed_detail2.html; sourceTree = "<group>"; };
 		C28ED1FC202368E70002834C /* feed_detail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = feed_detail.html; sourceTree = "<group>"; };
 		C28ED1FE20236FF90002834C /* Feed2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Feed2.swift; path = RSSwift/Feed2.swift; sourceTree = SOURCE_ROOT; };
 		C29FA06C2020AFBD006EDBCD /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = "../../../../Library/Developer/Xcode/DerivedData/EasyReader-btaczkbtaxqhzvbxitknhetwpavd/Build/Products/Debug-iphonesimulator/ReachabilitySwift/Reachability.framework"; sourceTree = "<group>"; };
@@ -105,6 +113,14 @@
 		C2CAC47D201CC36B00F877D2 /* DBFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBFeed.swift; path = RSSwift/DBFeed.swift; sourceTree = SOURCE_ROOT; };
 		C2D696BA20050FE800B4B7DE /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		C2E3778D201A3A0100900803 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = RSSwift/SettingViewController.swift; sourceTree = SOURCE_ROOT; };
+		C2E942762025FD3E004E2403 /* ajax-loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ajax-loader.gif"; sourceTree = "<group>"; };
+		C2E942772025FD3E004E2403 /* icons-18-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons-18-black.png"; sourceTree = "<group>"; };
+		C2E942782025FD3E004E2403 /* icons-18-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons-18-white.png"; sourceTree = "<group>"; };
+		C2E942792025FD3E004E2403 /* icons-36-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons-36-black.png"; sourceTree = "<group>"; };
+		C2E9427A2025FD3E004E2403 /* icons-36-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons-36-white.png"; sourceTree = "<group>"; };
+		C2E942802025FD4B004E2403 /* jquery.mobile-1.3.1.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "jquery.mobile-1.3.1.css"; sourceTree = "<group>"; };
+		C2E942822025FF0A004E2403 /* jquery.mobile-1.3.1.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery.mobile-1.3.1.min.js"; sourceTree = "<group>"; };
+		C2E942832025FF0A004E2403 /* jquery-1.9.1.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.9.1.min.js"; sourceTree = "<group>"; };
 		C2EAC0942024A9F5008E2544 /* jquery-1.8.3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.8.3.min.js"; sourceTree = "<group>"; };
 		C2EAC0952024A9F5008E2544 /* jquery.mobile-1.3.2.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "jquery.mobile-1.3.2.min.css"; sourceTree = "<group>"; };
 		C2EAC0962024A9F5008E2544 /* jquery.mobile-1.3.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery.mobile-1.3.2.min.js"; sourceTree = "<group>"; };
@@ -247,10 +263,18 @@
 		C28ED1FB202368730002834C /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				C2E942822025FF0A004E2403 /* jquery.mobile-1.3.1.min.js */,
+				C2E942832025FF0A004E2403 /* jquery-1.9.1.min.js */,
+				C2E942802025FD4B004E2403 /* jquery.mobile-1.3.1.css */,
+				C2E942762025FD3E004E2403 /* ajax-loader.gif */,
+				C2E942772025FD3E004E2403 /* icons-18-black.png */,
+				C2E942782025FD3E004E2403 /* icons-18-white.png */,
+				C2E942792025FD3E004E2403 /* icons-36-black.png */,
+				C2E9427A2025FD3E004E2403 /* icons-36-white.png */,
 				C2EAC0942024A9F5008E2544 /* jquery-1.8.3.min.js */,
 				C2EAC0952024A9F5008E2544 /* jquery.mobile-1.3.2.min.css */,
 				C2EAC0962024A9F5008E2544 /* jquery.mobile-1.3.2.min.js */,
-				C28ED1F9202368020002834C /* article_list.html */,
+				C28ED1F9202368020002834C /* feed_detail2.html */,
 				C28ED1FC202368E70002834C /* feed_detail.html */,
 				C2EAC09A2024AF6B008E2544 /* test.js */,
 			);
@@ -412,15 +436,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2EAC0982024A9F5008E2544 /* jquery.mobile-1.3.2.min.css in Resources */,
-				C28ED1FA202368020002834C /* article_list.html in Resources */,
+				C2E9427B2025FD3E004E2403 /* ajax-loader.gif in Resources */,
+				C2E942812025FD4B004E2403 /* jquery.mobile-1.3.1.css in Resources */,
+				C28ED1FA202368020002834C /* feed_detail2.html in Resources */,
 				703266521DDF6E3D006CC1B5 /* LaunchScreen.storyboard in Resources */,
 				C2ED39DA2010D67600068BA1 /* test.json in Resources */,
+				C2E9427C2025FD3F004E2403 /* icons-18-black.png in Resources */,
+				C2E942842025FF0A004E2403 /* jquery.mobile-1.3.1.min.js in Resources */,
 				7032664F1DDF6E3D006CC1B5 /* Assets.xcassets in Resources */,
 				7032664A1DDF6E3D006CC1B5 /* Main.storyboard in Resources */,
 				C2EAC09B2024AF6B008E2544 /* test.js in Resources */,
 				C2EAC0972024A9F5008E2544 /* jquery-1.8.3.min.js in Resources */,
 				C28ED1FD202368E70002834C /* feed_detail.html in Resources */,
+				C2E9427E2025FD3F004E2403 /* icons-36-black.png in Resources */,
 				C2EAC0992024A9F5008E2544 /* jquery.mobile-1.3.2.min.js in Resources */,
+				C2E9427F2025FD3F004E2403 /* icons-36-white.png in Resources */,
+				C2E942852025FF0A004E2403 /* jquery-1.9.1.min.js in Resources */,
+				C2E9427D2025FD3F004E2403 /* icons-18-white.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
