@@ -415,3 +415,27 @@ extension UIWebView {
     }
 }
 
+func url_to_file(url:String, toFile:String){
+    var recipientsString:String!
+    
+    if let url = URL(string: url) {
+        do {
+            recipientsString = try String(contentsOf: url)
+        } catch {
+            print("contents could not be loaded")
+            return
+        }
+    } else {
+        print("the URL was bad!")
+        return
+    }
+    
+    do {
+        // Write contents to file
+        try recipientsString.write(toFile: "\(Bundle.main.bundlePath)/\(toFile)", atomically: true, encoding: String.Encoding.utf8)
+    }
+    catch let error as NSError {
+        print("An error took place: \(error)")
+    }
+
+}

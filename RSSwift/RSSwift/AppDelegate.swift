@@ -91,9 +91,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let rendered = render_template(file:"article_list",context:context)
         //print(rendered)
         
+        //let fileManager = FileManager.default
+        //let filePath:String = NSHomeDirectory() + "/test.js"
+        //let exist = fileManager.fileExists(atPath: filePath)
+        //print(NSHomeDirectory())
+        //print(Bundle.main.path(forResource:  "test",ofType: "js"))
         
         
         
+        url_to_file(url: "\(baseURL)/eagle/test.js", toFile: "test2.js")
+        
+        //print(read_from_file(file: "feed_detail2", type: "html"))
         
         return true
     }

@@ -157,6 +157,8 @@ class FeedItemViewController: UIViewController, UIWebViewDelegate,GADBannerViewD
                 "domain" : getIPAddressFromDNSQuery(url:feed.link)
             ]
             
+            print("aaa \(feed.link) bb")
+            
             let finalStr = render_template(file:"feed_detail",context:context)
             
             print(finalStr)
